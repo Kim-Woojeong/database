@@ -1,9 +1,12 @@
-#zx최강디비xz
+zx최강디비xz
 =========================
-1.강민제
-2.김규진
-3.김우정
-4.박제현
-5.이동준
+
+조원 | 역할
+---- | ----
+강민제 | frontend,database
+김규진 | backend,database
+김우정 | frontend,database
+박제현 | backend,database
+이동준 | backend,database
 
 [E-Rdiagram](https://www.erdcloud.com/d/qBk6FdeHe29bmcPps)
