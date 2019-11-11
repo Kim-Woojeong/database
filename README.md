@@ -9,6 +9,6 @@ zx최강디비xz
 박제현 | backend,database
 이동준 | backend,database
 
-[E-Rdiagram](https://www.erdcloud.com/d/8iqfSR32xm6ZnXQsf)
+[E-Rdiagram](https://www.draw.io/#G1AUFdqrp4NdxpAKU_sAuPFupFJuxJQwvi)
 <br>
-[스키마](https://www.draw.io/#G1AUFdqrp4NdxpAKU_sAuPFupFJuxJQwvi)
+[스키마](https://www.erdcloud.com/d/8iqfSR32xm6ZnXQsf)
