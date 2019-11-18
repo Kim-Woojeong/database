@@ -56,7 +56,6 @@ CREATE TABLE Movie (
     movie_name char(50) not null,
     rating char(10) not null default '전체관람가',
     running_time smallint not null default 0,
-    release_year year null,
     release_date date null,
     distributor varchar(50) null,
     total_audience int unsigned not null default 0,
