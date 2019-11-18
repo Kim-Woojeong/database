@@ -1,6 +1,6 @@
 INDEX1: Cinema , Movie , Genre , Director , Studio , Actor , Customer_rank , Coupon , Department
 INDEX2: Customer_info , Movie_review , Movie_genre , Movie_director , Movie_studio , Movie_actor , Coupon_box , Employee
-INDEX0: Equipment , Accounts_management , Stock , Store_menu , Theater
+INDEX0: Equipment , Accounts_management , Stock , Store_menu , Theater , Notice
 INDEX3: Seat , Movie_schedule , Food_salelist , Schedule
 INDEX4: Ticketing_info , Purchase_list
 INDEX5: Schedule_seat
