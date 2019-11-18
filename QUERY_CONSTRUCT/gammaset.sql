@@ -36,7 +36,6 @@ DROP TABLE IF EXISTS Actor;
 DROP TABLE IF EXISTS Customer_rank;
 DROP TABLE IF EXISTS Coupon;
 DROP TABLE IF EXISTS Department;
-DROP TABLE IF EXISTS NOTICE;
 SET foreign_key_checks = 1;
 
 CREATE TABLE Cinema (
@@ -121,7 +120,6 @@ CREATE TABLE Customer_info (
     customer_hp char(11) not null,
     email_address char(30) null,
     rank_name varchar(10) not null,
-    birth_year year not null,
     birth_date date not null,
     CONSTRAINT PK_Customer_info PRIMARY KEY(customer_id),
     CONSTRAINT FK_Customer_info FOREIGN KEY(rank_name)
@@ -351,7 +349,7 @@ CREATE TABLE Ticketing_info (
     REFERENCES Movie_schedule(movie_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
-CREATE TABLE Purchase_list (  
+CREATE TABLE Purchase_list (
     purchase_ordernum tinyint not null auto_increment,
     sales_id int unsigned not null,
     menu_id char(10) not null,
@@ -385,14 +383,4 @@ CREATE TABLE Schedule_seat (
     REFERENCES Seat(seat_number) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Schedule_seat_6 FOREIGN KEY(ticket_id)
     REFERENCES Ticketing_info(ticket_id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-CREATE TABLE NOTICE(
-  notice_id INT unsigned  auto_increment not NULL,
-  cinema_id INT unsigned not null,
-  content text(255) not null,
-  notice_date timestamp not NULL default current_timestamp,
-  CONSTRAINT PK_NOTICE PRIMARY KEY(notice_id),
-  CONSTRAINT FK_NOTICE FOREIGN KEY(cinema_id)
-  REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
