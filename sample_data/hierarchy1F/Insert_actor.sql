@@ -13,5 +13,7 @@ insert into Actor values
 (1011,"이하늬","Ha Nee Lee","대한민국","http://esaram.co.kr/ko/leehanee","이하늬이다"),
 (1012,"송강호","Kang Ho Song","대한민국","google.com","송강호이다"),
 (1013,"변희봉","Hee Bong Byun","대한민국","google.com","변희봉이다"),
-(1014,"서현진","Seo Hyunjin","대한민구","naver.com","서현진이다"),
-(1015,"이민기","")
+(1014,"서현진","Seo Hyunjin","대한민국","naver.com","서현진이다"),
+(1015,"이민기","Moon Ji-in","대한민국","naver.com","문지인이다"),
+(1016,"코자쿠라 에츠코","Kozakura etsuko","일본","naver.com","일본인이다"),
+(1017,"토마츠 하루카","Tomatsu haruka","일본","naver.com","일본인이다");
