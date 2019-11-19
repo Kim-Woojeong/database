@@ -1,0 +1,337 @@
+p{
+	text-align: center;
+}
+
+
+.header li.title{
+	border-radius: 0px 0px 0px 0px;
+}
+
+.header li.time{
+	border-radius: 0px 0px 0px 0px;
+}
+
+#board{
+  margin-top : 30px;
+  margin-bottom: 30px;
+  width: 80%;
+  text-align: center;
+}
+
+.contents #information {
+	position: relative;
+	overflow: hidden;
+}
+
+.contents li.header {
+ 	/* width: 80%; */
+	clear: both;
+	overflow: hidden;
+	/* background-color: gray; */
+	/* text-align: center; */
+}
+
+
+.contents{
+ 
+}
+
+.contents li {
+  list-style: none;
+}
+
+content li.header ul{
+	width: 80%;
+	text-align: center;
+  }
+
+.contents li.title{
+ 	width: 60%;
+	border-right: 1px solid #dfdfdf;
+	text-align: center;
+}
+
+.contents li.name{
+	width: 20%;
+	border-right: 1px solid #dfdfdf;
+	text-align: center;
+}
+
+.contents li.time{
+  /* margin-left: 10px; */
+	width: 20%;
+	text-align: center;
+}
+
+.contents .header li {
+  background-color: gray;
+  
+	height: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	color: white;
+	text-align: center;
+	/* border-bottom: 3px solid #dfdfdf; */
+}
+
+.contents .entry li {
+	background-color: rgb(236, 235, 235);
+}
+
+.contents .entry:nth-child(odd) li {
+	background-color: #edf7fa;
+}
+
+.important{
+	font-weight: 700;
+	color: red;
+}
+
+.contents .entry li.title {
+	width: 60%;
+	/* padding-left: 35px; */
+	text-align: left;
+	padding-left:10px;
+}
+
+.contents .entry .information {
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+}
+
+.contents .entry .content {
+	background-color: #dfdfdf;
+	width: 100%;
+	line-height: 40px;
+	padding-left: 6%;
+}
+.contents .entry .content p {
+	word-break: break-all;
+	width: 90%;
+}
+.attachement {
+	color: black;
+	font-size: 12px;
+	line-height: 25px;
+	padding-bottom: 5px;
+}
+
+.attachement a {
+	color : #00abd9;
+}
+
+#more {
+	margin-top: 10px; 
+	margin-bottom: 10px; 
+	text-align: center; 
+	width: 1140px; 
+	height: 25px; 
+	padding-top: 10px; 
+	background-color: #dfdfdf;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+#more:hover{
+	background-color: white;
+}
+
+#register form #files{
+	height: inherit;
+}
+
+#register form #files #filewrap{
+	padding-left: 35px;
+	padding-top: 10px;
+}
+
+.file-block{
+	padding-left: 5px;
+	display: block;
+}
+
+.fa-minus-square-o, .fa-plus-square-o{
+	margin-left: 5px;
+	margin-right: 5px;
+	color: black;
+	cursor: pointer;
+}
+
+.delete_wrap {
+	margin-right: 15px;
+}
+
+/*form*/
+.hidden{
+	display: none;
+}
+
+#register {
+	position: absolute;
+	top: 150px;
+	left: 50%;
+	width: 690px;
+	height: 350px;
+	margin-left:-345px;
+	
+	color:#4796bd;
+	border-radius: 5px;
+	border: 2px solid #4796bd;
+	font-size: 15px;
+	font-weight: normal;
+	background-color: #f4f4f4;
+	box-shadow: 0 3px 10px black;
+	z-index: 1;
+}
+
+#wrap{
+	color:#4796bd;
+	width: 690px;
+	height: 290px;
+	border-radius: 5px;
+	border: 2px solid #4796bd;
+	font-size: 15px;
+	font-weight: normal;
+	background-color: #f4f4f4;
+	box-shadow: 0 3px 10px black;
+}
+
+.subwrap{
+	height: 40px;
+	width: 660px;
+	margin: 15px;
+	overflow: hidden;
+}
+
+.subwrap p{
+	margin: 0;
+	padding: 0;
+}
+
+input[type="text"]{
+	padding: 0;
+	margin: 0;
+	border: none;
+	height: 100%;
+	font-size: 15px;
+	font-weight: 100;
+	padding-left: 10px;
+}
+
+
+.subname{
+	margin: 0;
+	padding: 0;
+	display: inline;
+	float: left;
+	padding-top: 11px;
+	margin-right: 10px;
+	padding-bottom: 10px;
+}
+
+#title-name{
+	font-size: 30px;
+	padding-top: 3px;
+}
+
+#checkbox-wrap{
+	overflow: hidden;
+	margin:0;
+	padding: 0;
+	padding-left: 5px;
+	display: inline;
+}
+
+#checkbox-wrap label{
+	margin-left:8px;
+}
+
+.short{
+	width: 400px;
+}
+
+.gray{
+	color: gray;
+}
+
+.long{
+	width: 609px;
+}
+
+.long-height{
+	height: 100px;
+}
+
+#buttons button{
+	/*float: right;*/
+	outline: none;
+	border: none;
+	border-radius: 3px;
+	background-color: #4796bd;
+	width: 110px;
+	color: white;
+	font-size: 15px;
+	height: 100%;
+	margin-left:10px;
+}
+
+#buttons button:hover{
+	background-color: rgb(41, 112, 148);
+}
+
+textarea{
+	width: 600px;
+	height: 80px;
+	margin: 0;
+	border: none;
+	padding: 10px;
+	font-size: 15px;
+	resize : none;
+}
+h1{
+  /* float: left; */
+  background-image: url("../images/notice.jpg");
+}
+.add_btn{
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	text-align: right;
+}
+#admin_id{
+	display: none;
+}
+
+.contents #information .fa-plus {
+	position: absolute;
+	right: 0;
+	bottom: 5px;
+	margin-right: 10px;
+	font-size: 25px;
+	color :gray;
+}
+
+.delete{
+	margin-right: 5px;
+	margin-top: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	color: gray;
+}
+
+.fa-rss-square {
+	margin-left: 10px;
+	color: orange;
+	font-size: 40px;
+}
+
+.pull-left{
+	float: left;
+}
+.pull-right{
+	float: right;
+}
+.nav_link{
+	margin-right: 20px;
+}
