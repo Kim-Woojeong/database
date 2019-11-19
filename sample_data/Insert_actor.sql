@@ -12,4 +12,6 @@ insert into Actor values
 (1010,"조진웅","Jin Woong Cho","대한민국","http://esaram.co.kr/ko/chojinwoong","조진웅이다"),
 (1011,"이하늬","Ha Nee Lee","대한민국","http://esaram.co.kr/ko/leehanee","이하늬이다"),
 (1012,"송강호","Kang Ho Song","대한민국","google.com","송강호이다"),
-(1013,"변희봉","Hee Bong Byun","대한민국","google.com","변희봉이다");
+(1013,"변희봉","Hee Bong Byun","대한민국","google.com","변희봉이다"),
+(1014,"서현진","Seo Hyunjin","대한민구","naver.com","서현진이다"),
+(1015,"이민기","")
