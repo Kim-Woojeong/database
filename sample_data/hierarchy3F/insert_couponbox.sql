@@ -1,5 +1,5 @@
-insert into coupon_box(coupon_number,customer_id,coupon_name,expirate_date) values
-(4,"dkssud","¾²´Â»ç¶÷ÀÌÀÖÀ»Ä«ÄíÆù", now()),
-(44,"dkssud","¾²´Â»ç¶÷ÀÌÀÖÀ»Ä«ÄíÆù", now()),
-(444,"dkssud","¾²´Â»ç¶÷ÀÌÀÖÀ»Ä«ÄíÆù",now()),
-(4444,"dkssud","¾²´Â»ç¶÷ÀÌÀÖÀ»Ä«ÄíÆù",now());
+ï»¿insert into coupon_box(coupon_number,customer_id,coupon_name,expirate_date) values
+(4,"dkssud","ì“°ëŠ”ì‚¬ëŒì´ìˆì„ì¹´ì¿ í°", now()),
+(44,"dkssud","ì“°ëŠ”ì‚¬ëŒì´ìˆì„ì¹´ì¿ í°", now()),
+(444,"dkssud","ì“°ëŠ”ì‚¬ëŒì´ìˆì„ì¹´ì¿ í°",now()),
+(4444,"dkssud","ì“°ëŠ”ì‚¬ëŒì´ìˆì„ì¹´ì¿ í°",now());
