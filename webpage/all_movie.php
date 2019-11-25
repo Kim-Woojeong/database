@@ -47,8 +47,18 @@
 	
 	<!--start -->
 	<div class="section_title">
-		<h1>상영 영화</h1>
+		<h1>명화 검색</h1>
 	</div>
+	<div class="search_bar">
+		<form action="" method="GET">
+			<label>
+				이쁜 디자인 부탁드려요~
+				<input type="text" name="q" value="<?= $_GET['q']?>" />
+			</label>
+			<input type="submit" name="" />
+		</form>
+	</div>
+	<hr/>	
 	<div class="sorting_movie">
 		<form action="" method="POST">
 			<button value="total_audience desc" name="sortbutton">인기순</button>
@@ -62,7 +72,8 @@
 		$order = "release_date desc";
 		if(isset($_POST['sortbutton']))
 			$order = $_POST['sortbutton'];
-		$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date,total_audience from movie where movie_id in (select distinct movie_id from movie_schedule where movie_time>now()) order by $order");
+		$search = $_GET['q'];
+		$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date,total_audience from movie where movie_name like '%$search%' order by $order");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		foreach ($result as $key => $value) { ?>

@@ -47,7 +47,7 @@
 	
 	<!--start -->
 	<div class="section_title">
-		<h1>상영 영화</h1>
+		<h1>상영 예정 영화</h1>
 	</div>
 	<div class="sorting_movie">
 		<form action="" method="POST">
@@ -62,7 +62,7 @@
 		$order = "release_date desc";
 		if(isset($_POST['sortbutton']))
 			$order = $_POST['sortbutton'];
-		$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date,total_audience from movie where movie_id in (select distinct movie_id from movie_schedule where movie_time>now()) order by $order");
+		$stmt = $conn->prepare("select * from movie where release_date>now() order by $order");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		foreach ($result as $key => $value) { ?>
