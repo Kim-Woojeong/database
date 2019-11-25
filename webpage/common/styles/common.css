@@ -1,5 +1,5 @@
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -43,18 +43,18 @@ table {
 }
 
 .service_menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    float: right;
-    text-align: center; /* 글씨 가운데 정렬 */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+  text-align: center; /* 글씨 가운데 정렬 */
 }
 
 .service_menu li {
-    margin-right: 10px ;
-    padding: 10 10 10 10;
-    border: 0;
-    float: left;
+  margin-right: 10px ;
+  padding: 10 10 10 10;
+  border: 0;
+  float: left;
 }
 
 /* Navbar container */
@@ -128,3 +128,45 @@ table {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
+/* ISO */
+/* SECTION TITLE */
+.section_title{
+  background: pink;  /* background image here plz */
+  margin: 100px;
+  margin-bottom: 50px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+.section_title,h1{
+  vertical-align: middle;
+  font-size:40pt;
+}
+/* MOVIE BUTTON */
+.sorting_movie{
+  width: 100%;
+  padding-right: 100px;
+}
+.sorting_movie,button{
+  float: right;
+}
+/* MOVIE INDEX */
+.overview_movie{
+  margin-right: 100px;
+  margin-left: 100px;
+  background: gray;
+}
+.onemovie{
+  text-align: right;
+  float: left;
+  width: 250px;
+  margin: 60px;
+  margin-right: 0;
+}
+.movie_image{
+  width: 240px;
+  height: 300px;
+}
+/* ISO FIN */

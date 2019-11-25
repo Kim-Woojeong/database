@@ -12,7 +12,6 @@
 			<?php
 			include "DB_Connect.php";
 			include "top_login.php";
-			$db=connect();
 			?>
 		</ul>
 	</header>
@@ -47,9 +46,31 @@
 	</nav>
 	
 	<!--start -->
-	<div>
-		<h1>상영 영화</h1>
+	<div class="section_title">
+		<h2>상영 영화</h1>
 	</div>
-
+	<div class="sorting_movie">
+		<button>인기순</button>
+		<button>최신순</button>
+		<button>가나다순</button>
+	</div>
+	<div class="overview_movie">
+		<?php 
+			$conn = connect();
+			$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date from movie");
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			foreach ($result as $key => $value) { ?>
+		<div class="onemovie">
+			<img src="../snapshot/all%20tables.PNG" class="movie_image"> <!-- 이미지 이름 규격화해서 for 문안에 넣습니다. -->
+			<?php
+			echo "<p>" . $value[movie_name] . "</p>";
+			echo "<p>" . $value[release_date] . "</p>";
+			echo "<p>" . $value[rating] . "</p>";
+			?>
+		</div>
+		<?php } ?>
+	</div>
+	
 </body>
 </html>
