@@ -1,0 +1,9 @@
+.loginform {
+  border: 2px bold;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}

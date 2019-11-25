@@ -1,0 +1,46 @@
+.service_menu {
+    overflow: hidden;
+}
+
+.ad {
+  max-width: 4096px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 300px;
+  border: 5px solid black;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-image: url('img/pororo.png');
+  background-repeat: no-repeat;
+}
+
+.ad p {
+    margin-left: 100px;
+    margin-right: 100px;
+    float: left;
+}
+
+.container {
+    width: 100%;
+    /* height: 400px; */
+    border: 5px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    float: center;
+}
+
+.contents {
+  width: 100%;
+  float: center;
+}
+
+.contents_1, .contents_2, .contents_3 {
+    width: 30%;
+    border: 5px solid blue;
+    float: left;
+    text-align: center;
+    margin-left: 2%;
+}
