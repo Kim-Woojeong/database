@@ -160,8 +160,8 @@ table {
   text-align: right;
   float: left;
   width: 300px;
-  margin: 100px;
-  margin-right: 0;
+  margin-top: 50px;
+  margin-left: 100px;
 }
 .movie_image{
   width: 280px;
