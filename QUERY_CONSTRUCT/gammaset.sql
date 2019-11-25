@@ -1,6 +1,7 @@
 ﻿CREATE DATABASE IF NOT EXISTS zxcinemaxz DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE zxcinemaxz
 SET foreign_key_checks = 0;
+DROP TABLE IF EXISTS EVENT;
 DROP TABLE IF EXISTS Schedule_seat;
 DROP TABLE IF EXISTS Ticketing_info;
 DROP TABLE IF EXISTS Purchase_list;
@@ -38,6 +39,13 @@ DROP TABLE IF EXISTS Coupon;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Notice;
 SET foreign_key_checks = 1;
+
+CREATE TABLE EVENT(
+  event_id INT unsigned  auto_increment not NULL,
+  content text(255) not null,
+  evnet_date timestamp not NULL default current_timestamp,
+  CONSTRAINT PK_NOTICE PRIMARY KEY(event_id)
+);
 
 CREATE TABLE Cinema (
     cinema_id int unsigned not null,

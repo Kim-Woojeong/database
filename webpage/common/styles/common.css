@@ -57,6 +57,10 @@ table {
   float: left;
 }
 
+nav.img {
+	float: left;
+}
+
 /* Navbar container */
 .navbar {
   width: 100%;
