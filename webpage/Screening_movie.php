@@ -75,7 +75,7 @@
 				echo "<p>" . $value[rating] . "</p>";
 				?>
 			</div>
-		<?php } ?>
+		<?php } $conn = null; ?>
 	</div>
 	
 </body>

@@ -1,0 +1,11 @@
+.SEC{
+	float: left;
+	width: 492px;
+	height: 500px;
+	margin: 10px;
+	background: pink;
+}
+.POSTER{
+	background-image: url('/snapshot/all%20tables.PNG');
+	background-repeat: no-repeat;
+}
