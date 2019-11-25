@@ -114,7 +114,7 @@ CREATE TABLE Department(
 CREATE TABLE Customer_info (
     customer_id char(20) not null,
     join_day timestamp not null default current_timestamp,
-    password varchar(60) not null,
+    password varchar(255) not null,
     customer_name char(20) not null,
     gender int not null,
     road_address varchar(60) null,
