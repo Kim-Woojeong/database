@@ -55,16 +55,33 @@ $movie_name = $result[0][movie_name];
 	</nav>
 
 	<!-- SUPER_ISO_ISO -->
-	<div style="overflow: hidden; height: 500px;">
-		<div class="SEC">
-			나중에 할꼐요
+	<div>
+		<div class="REVIEW SEC">
+			<?php
+			$stmt2 = $conn->prepare("SELECT * from movie_review where movie_id = $movie_id");
+			$stmt2->execute();
+			$result2 = $stmt2->fetchAll();
+			if(count($result2) == 0)
+				echo "리뷰가 없습니다.";
+			else{
+				$score_mean = 0;
+				foreach ($result2 as $key => $value)
+					$score_mean = $score_mean + $value[score];
+				echo "평점:" . round($score_mean / count($result2),2);
+				foreach ($result2 as $key => $value) {
+					echo "<p></p>";
+					echo "작성자:" . $value[customer_id];
+					echo "작성일:" . $value[written_time];
+					echo "점수:" . $value[score];
+				}
+			}
+			?>
 		</div>
-		<div class="SEC POSTER">
+		<div class="POSTER SEC">
 		</div>
-		<div class="SEC">
-			힘들어요
+		<div class="DETAIL SEC">
+			<h3><?=$movie_name?></h3>
 		</div>
-		
 	</div>
 </body>
 </html>

@@ -1,11 +1,44 @@
 .SEC{
 	float: left;
-	width: 492px;
-	height: 500px;
-	margin: 10px;
-	background: pink;
 }
-.POSTER{
-	background-image: url('/snapshot/all%20tables.PNG');
-	background-repeat: no-repeat;
+h3{
+	font-size: 30pt;
+}
+@media screen and (min-width: 800px){
+	.SEC{
+		width: calc(100% / 3);
+		height: 500px;
+	}
+	.REVIEW{
+		background: blue;
+	}
+	.POSTER{
+		background: green;
+	}
+	.DETAIL{
+		background: red;
+	}
+}
+@media screen and (max-width: 800px){
+	.SEC{
+		height: 500px;
+	}
+	.REVIEW{
+		position: relative;
+		width: 100%;
+		background: blue;
+		top: 500px;
+	}
+	.POSTER{
+		position: relative;
+		top: -500px;
+		width: 50%;
+		background: green;
+	}
+	.DETAIL{
+		position: relative;
+		top: -500px;
+		width: 50%;
+		background: red;
+	}	
 }
