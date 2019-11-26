@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="common/styles/common.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="common/styles/movie_search.css" />
 	<title></title>
 </head>
 <body>

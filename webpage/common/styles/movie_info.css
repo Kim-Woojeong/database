@@ -1,8 +1,11 @@
 .SEC{
 	float: left;
 }
-h3{
+h2{
 	font-size: 30pt;
+}
+h3{
+	font-size: 20pt;
 }
 @media screen and (min-width: 800px){
 	.SEC{

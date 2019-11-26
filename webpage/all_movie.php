@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<link href="common/styles/common.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="common/styles/movie_search.css" />
 	<title></title>
 </head>
 <body>
@@ -80,7 +81,7 @@
 			<div class="onemovie">
 				<?php
 				echo $key + 1;
-				echo "<img src=\"../snapshot/all%20tables.PNG\" class=\"movie_image\">"; # 이미지 이름 규격화한 후 배경화면으로 이미지를 등록합니다.
+				echo "<a href=\"movie.php?id=$value[movie_id]\"><img src=\"../snapshot/all%20tables.PNG\" class=\"movie_image\"></a>"; # 이미지 이름 규격화한 후 배경화면으로 이미지를 등록합니다.
 				echo "<p>" . $value[movie_name] . "</p>";
 				echo "<p>" . $value[release_date] . "</p>";
 				echo "<p>" . $value[rating] . "</p>";
