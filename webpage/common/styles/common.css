@@ -66,14 +66,9 @@ table {
   float: left;
 }
 
-.service_menu a {
-
-}
-
 .navbar img {
-	padding-left: 200px;
+	padding-left: 100px;
 	float: left;
-	padding-top: 15px;
 	width: 200px;
 	height: 70px;
 }
@@ -98,7 +93,7 @@ table {
 
 /* The dropdown container */
 .dropdown {
-	margin-left: 5px;
+	margin-left: 15px;
   float: left;
   overflow: hidden;
 }
@@ -117,7 +112,7 @@ table {
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar .dropdown:hover .dropbtn {
   background-color: red;
 }
 
