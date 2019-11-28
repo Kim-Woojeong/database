@@ -16,7 +16,7 @@
     </ul>
   </header>
   <nav class="navbar">
-    <img src="../common/img/logo.png">
+    <a href="../cinema_test.html"><img src="../common/img/logo.png"></a>
     <div class="dropdown">
       <button class="dropbtn">영화
         <i class="fa fa-caret-down"></i>
