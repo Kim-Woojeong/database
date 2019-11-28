@@ -1,6 +1,6 @@
-<!DOCTYPE html>	
+<!DOCTYPE html>
 <?php
-include "DB_Connect.php";
+include "../DB_Connect.php";
 $movie_id=$_GET['id'];
 $conn = connect();
 $stmt = $conn->prepare("SELECT * from movie where movie_id = $movie_id");
@@ -9,10 +9,10 @@ $result = $stmt->fetchAll();
 $movie_name = $result[0][movie_name];
 ?>
 <html>
-<head>	
+<head>
 	<meta charset="utf-8">
-	<link href="common/styles/common.css" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="common/styles/movie_info.css" />
+	<link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="styles/movie_info.css" />
 	<title>영화검색:<?= $movie_name?></title>
 	<script>
 		function PLZMAKELOGINFUNC() {
@@ -95,7 +95,7 @@ $movie_name = $result[0][movie_name];
 		<div class="POSTER SEC" style="overflow:auto;">
 			<?php
 			for ($i=0; $i < 1000; $i++) { ?>
-				포스터 넣고 테두리 속성으로 좀 꾸며주면 되지 않을까, 포스터 크기 맞춰서 영역 크기 재조정하고! 
+				포스터 넣고 테두리 속성으로 좀 꾸며주면 되지 않을까, 포스터 크기 맞춰서 영역 크기 재조정하고!
 			<?php } ?>
 		</div>
 		<div class="DETAIL SEC">

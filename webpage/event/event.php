@@ -3,7 +3,7 @@
 <head>
   <meta charset='utf-8'>
   <link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
-  <link href="event.css" type="text/css" rel="stylesheet" />
+  <link href="styles/event.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>

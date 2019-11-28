@@ -1,5 +1,5 @@
 <?php
-include "DB_Connect.php";
+include "../DB_Connect.php";
 $conn = connect();
 try{
 	$stmt = $conn->prepare("insert into movie_review(movie_id,customer_id,score) values (:movie_id,:customer_id,:score)");
