@@ -1,6 +1,6 @@
 html, body, div, span, applet, object, iframe,
 p, blockquote, pre,
-h1, h2, h3, h4, h5, h6, a, abbr, acronym, address, big, cite, code,
+a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
@@ -42,6 +42,14 @@ table {
 	border-spacing: 0;
 }
 
+.service_menu {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	background-color: #efefef;
+  overflow: hidden;
+}
+
 .service_menu ul {
   list-style: none;
   margin: 0;
@@ -51,20 +59,28 @@ table {
 }
 
 .service_menu li {
+	font-style: white;
   margin-right: 10px ;
   padding: 10 10 10 10;
   border: 0;
   float: left;
 }
 
-nav.img {
+.service_menu a {
+
+}
+
+.navbar img {
+	padding-left: 200px;
 	float: left;
+	padding-top: 15px;
+	width: 200px;
+	height: 70px;
 }
 
 /* Navbar container */
 .navbar {
-  width: 100%;
-  padding-top: 10px;
+	height: 100px;
   overflow: hidden;
   background-color: #333;
   font-family: Arial;
@@ -82,17 +98,19 @@ nav.img {
 
 /* The dropdown container */
 .dropdown {
+	margin-left: 5px;
   float: left;
   overflow: hidden;
 }
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-size: 16px;
+	margin-left: 5px;
+  font-size: 30px;
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
+  padding: 30px 20px;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
