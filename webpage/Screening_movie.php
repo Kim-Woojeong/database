@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
 	<link href="common/styles/common.css" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="common/styles/movie_search.css" />
 	<title></title>
 </head>
 <body>
@@ -48,35 +47,29 @@
 	
 	<!--start -->
 	<div class="section_title">
-		<h1>상영 영화</h1>
+		<h2>상영 영화</h1>
 	</div>
 	<div class="sorting_movie">
-		<form action="" method="POST">
-			<button value="total_audience desc" name="sortbutton">인기순</button>
-			<button value="release_date desc" name="sortbutton">최신순</button>
-			<button value="movie_name" name="sortbutton">가나다순</button>
-		</form>
+		<button>인기순</button>
+		<button>최신순</button>
+		<button>가나다순</button>
 	</div>
 	<div class="overview_movie">
 		<?php 
-		$conn = connect();
-		$order = "release_date desc";
-		if(isset($_POST['sortbutton']))
-			$order = $_POST['sortbutton'];
-		$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date,total_audience from movie where movie_id in (select distinct movie_id from movie_schedule where movie_time>now()) order by $order");
-		$stmt->execute();
-		$result = $stmt->fetchAll();
-		foreach ($result as $key => $value) { ?>
-			<div class="onemovie">
-				<?php
-				echo $key + 1;
-				echo "<img src=\"../snapshot/all%20tables.PNG\" class=\"movie_image\">"; # 이미지 이름 규격화한 후 배경화면으로 이미지를 등록합니다.
-				echo "<p>" . $value[movie_name] . "</p>";
-				echo "<p>" . $value[release_date] . "</p>";
-				echo "<p>" . $value[rating] . "</p>";
-				?>
-			</div>
-		<?php } $conn = null; ?>
+			$conn = connect();
+			$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date from movie");
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+			foreach ($result as $key => $value) { ?>
+		<div class="onemovie">
+			<img src="../snapshot/all%20tables.PNG" class="movie_image"> <!-- 이미지 이름 규격화해서 for 문안에 넣습니다. -->
+			<?php
+			echo "<p>" . $value[movie_name] . "</p>";
+			echo "<p>" . $value[release_date] . "</p>";
+			echo "<p>" . $value[rating] . "</p>";
+			?>
+		</div>
+		<?php } ?>
 	</div>
 	
 </body>
