@@ -7,6 +7,9 @@ h2{
 h3{
 	font-size: 20pt;
 }
+body,html{
+	height: 100%;
+}
 @media screen and (min-width: 800px){
 	.SEC{
 		width: calc(100% / 3);
@@ -57,4 +60,14 @@ h3{
 	padding-top: 100px;
 	text-align: center;
 	vertical-align: middle;
+}
+/*THREE TREE*/
+.Tree{
+	text-align: center;
+}
+.fruit{
+	height: 500px;
+	padding-top: 50px;
+	padding-left: 100px;
+	background-color: #D0D0D0;
 }

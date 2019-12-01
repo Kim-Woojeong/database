@@ -6,14 +6,14 @@ $conn = connect();
 $stmt = $conn->prepare("SELECT * from movie where movie_id = $movie_id");
 $stmt->execute();
 $result = $stmt->fetchAll();
-$movie_name = $result[0][movie_name];
+$movie_name = $result[0]['movie_name'];
 ?>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="styles/movie_info.css" />
-	<script type="text/javascript" src="movie.js"></script>
+	<script type="text/javascript" src="js/movie.js"></script>
 	<title>
 		<?php 
 		if(count($result) == 0) 
@@ -76,21 +76,21 @@ $movie_name = $result[0][movie_name];
 		<div>
 			<div class="REVIEW SEC">
 				<?php
-				$stmt2 = $conn->prepare("SELECT * from movie_review where movie_id = $movie_id");
-				$stmt2->execute();
-				$result2 = $stmt2->fetchAll();
-				if(count($result2) == 0)
+				$stmt_review = $conn->prepare("SELECT * from movie_review where movie_id = $movie_id");
+				$stmt_review->execute();
+				$result_review = $stmt_review->fetchAll();
+				if(count($result_review) == 0)
 					echo "얔ㅋㅋㅋㅋ 이 영화 리뷰 없다. 지금 리뷰 쓰면 너가 준 점수가 영화 평점임 ㅋㅋㅋ";
 				else{
 					$stmt_avg = $conn->prepare("SELECT round(avg(score),2) as avg_score from movie_review where movie_id = $movie_id");
 					$stmt_avg->execute(); ?>
-					<h3>평점: <?=$stmt_avg->fetchAll()[0][avg_score]?> </h3>
+					<h3>평점: <?=$stmt_avg->fetchAll()[0]['avg_score']?> </h3>
 					<?php
-					foreach ($result2 as $key => $value) {
+					foreach ($result_review as $key => $value) {
 						echo "<p></p>";
-						echo "작성자:" . $value[customer_id];
-						echo "작성일:" . $value[written_time];
-						echo "점수:" . $value[score];
+						echo "작성자:" . $value['customer_id'];
+						echo "작성일:" . $value['written_time'];
+						echo "점수:" . $value['score'];
 					}
 				}
 				?>
@@ -102,7 +102,7 @@ $movie_name = $result[0][movie_name];
 							<option><?=$i?></option>
 						<?php } ?>
 					</select>
-					<input type="submit" name="" onclick="PLZMAKELOGINFUNC()" />
+					<input type="submit" name="" />
 				</form>
 			</div>
 			<div class="POSTER SEC" style="overflow:auto;">
@@ -113,20 +113,61 @@ $movie_name = $result[0][movie_name];
 			</div>
 			<div class="DETAIL SEC">
 				<h2><?=$movie_name?></h2>
-				<p><?=$result[0][rating]?></p>
-				<p><?=$result[0][running_time]?>분~</p>
-				<p><?=$result[0][release_date]?>에 첫 상영했나 봅니다.</p>
-				<p><?=$result[0][distributor]?>에서 배급했어용</p>
-				<p><?=$result[0][total_audience]?>마리나 이 영화를 봤네요. 생각보다 바글바글했네요.</p>
+				<p><?=$result[0]['rating']?></p>
+				<p><?=$result[0]['running_time']?>분~</p>
+				<p><?=$result[0]['release_date']?>에 첫 상영했나 봅니다.</p>
+				<p><?=$result[0]['distributor']?>에서 배급했어용</p>
+				<p><?=$result[0]['total_audience']?>마리나 이 영화를 봤네요. 생각보다 바글바글했네요.</p>
 			</div>
 		</div>
-		<div>
+		<div class="Tree">
 			<div>
-				<button>Contents!</button>
-				<button>Actors!</button>
-				<button>DIRECOTR & 잡것들</button>
+				<button onclick="Button_Tree('Contents')">Contents!</button>
+				<button onclick="Button_Tree('Actors')">Actors!</button>
+				<button onclick="Button_Tree('Directors')">DIRECTOR & 잡것들</button>
 			</div>
 		</div>
-	<?php }?>
+		<div class="fruit" id="Contents">
+			내용
+		</div>
+		<div class="fruit" id="Actors">
+			<h3>배우</h3>
+			<?php
+			$stmt_actors = $conn->prepare("select * from actor natural join (select actor_number,role from movie_actor where movie_id = \"$movie_id\") as tmp");
+			$stmt_actors->execute();
+			$result_actors = $stmt_actors->fetchAll();
+			if(count($result_actors)==0)
+				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 따지세요.";
+			foreach ($result_actors as $key => $value) {
+				echo "<p>배우이름:" . $value['name'] . "</p>";
+				echo "<p>영문이름:" . $value['english_name'] . "</p>";
+				echo "<p>국적:" . $value['nationality'] . "</p>";
+				echo "<p>소개:" . $value['site'] . "</p>";
+				echo "<p>이 사람은 도대체 뭐지?:" . $value['about_me'] . "</p>";
+				echo "<p>이 영화에서의 역할:" . $value['role'] . "</p>";
+				echo "<hr/>";
+			}
+			?>
+		</div>
+		<div class="fruit" id="Directors">
+			<h3>감독</h3>
+			<?php
+			$stmt_directors = $conn->prepare("select * from director natural join (select crew_id,role from movie_director where movie_id = \"$movie_id\") as tmp");
+			$stmt_directors->execute();
+			$result_directors = $stmt_directors->fetchAll();
+			if(count($result_directors)==0)
+				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 따지세요.";
+			foreach ($result_directors as $key => $value) {
+				echo "<p>이름:" . $value['name'] . "</p>";
+				echo "<p>영문이름:" . $value['english_name'] . "</p>";
+				echo "<p>국적:" . $value['nationality'] . "</p>";
+				echo "<p>게인사이트가 :" . $value['site'] . "</p>";
+				echo "<p>소개:" . $value['about_me'] . "</p>";
+				echo "<p>이 영화에서의 역할:" . $value['role'] . "</p>";
+				echo "<hr/>";
+			}
+			?>
+		</div>
+	<?php } $conn = null ?>
 </body>
 </html>
