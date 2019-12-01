@@ -83,9 +83,13 @@
 		foreach ($result as $key => $value) { ?>
 			<div class="onemovie">
 				<?php
-				echo $key + 1;
-				echo "<a href=\"movie.php?id=$value[movie_id]\"><img src=\"../common/img/logo.png\" class=\"movie_image\"></a>"; # 이미지 이름 규격화한 후 배경화면으로 이미지를 등록합니다.
-				echo "<p>" . $value[movie_name] . "</p>";
+				echo $key + 1; ?>
+				<span>
+				<!-- 기다려주세요 수정예정입니다. cineq 처럼 이미지에 인라인속성으로 링크 두개 넣습니다.-->
+				<a href="movie.php?id=$value[movie_id]" class="link_info"></a>
+				</span>
+				<img src="../common/img/logo.png" class="movie_image">
+				<?php echo "<p>" . $value[movie_name] . "</p>";
 				echo "<p>" . $value[release_date] . "</p>";
 				echo "<p>" . $value[rating] . "</p>";
 				?>
