@@ -53,11 +53,8 @@
 	</div>
 	<div class="search_bar">
 		<form action="" method="GET">
-			<label>
-				이쁜 디자인 부탁드려요~
-				<input type="text" name="q" value="<?= $_GET['q']?>" />
-			</label>
-			<input type="submit" name="" />
+			<input type="text" name="q" value="<?= $_GET['q']?>" placeholder="영화검색" id="searchbar" />
+			<input type="submit" name="" value=" " id="go" />
 		</form>
 	</div>
 	<hr/>
@@ -78,15 +75,23 @@
 		$stmt = $conn->prepare("SELECT movie_id,movie_name,rating,release_date,total_audience from movie where movie_name like '%$search%' order by $order");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
-		if(count($result)==0)
-			echo "<div style=\"margin-top:100px;\"><h3>죄송합니다. 현재 지원중인 영화가 없습니다.</h3></div>";
+		if(count($result)==0){ ?>
+			<div class="none"><h3><?php 			
+			if(!isset($_GET['q']))
+				echo "죄송합니다. 현재 상영 예정중인 영화가 없습니다.";
+			else
+				echo "너가 찾는 영화는 여기에 없는거 같다. 딴데 가라~";
+			?>
+			</h3></div>
+			<?php
+		}
 		foreach ($result as $key => $value) { ?>
 			<div class="onemovie">
 				<?php
 				echo $key + 1; ?>
 				<span>
-				<!-- 기다려주세요 수정예정입니다. cineq 처럼 이미지에 인라인속성으로 링크 두개 넣습니다.-->
-				<a href="movie.php?id=$value[movie_id]" class="link_info"></a>
+					<!-- 기다려주세요 수정예정입니다. cineq 처럼 이미지에 인라인속성으로 링크 두개 넣습니다.-->
+					<a href="movie.php?id=$value[movie_id]" class="link_info"></a>
 				</span>
 				<img src="../common/img/logo.png" class="movie_image">
 				<?php echo "<p>" . $value[movie_name] . "</p>";
