@@ -1,0 +1,14 @@
+.right_info p {
+    margin-top: 50px;
+    font-size: 30pt;
+}
+
+.ticketing_num {
+    color: red;
+}
+
+#can_issue {
+    font-size: 15pt;
+    margin-top: 10px;
+
+}
