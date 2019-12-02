@@ -52,8 +52,11 @@
 	</div>
 	<div class="search_bar">
 		<form action="" method="GET">
-			<input type="text" name="q" value="<?= $_GET['q']?>" placeholder="영화검색" id="searchbar" />
-			<input type="submit" name="" value=" " id="go" />
+			<label>
+				이쁜 디자인 부탁드려요~
+				<input type="text" name="q" value="<?= $_GET['q']?>" />
+			</label>
+			<input type="submit" name="" />
 		</form>
 	</div>
 	<hr/>
@@ -74,33 +77,20 @@
 		$stmt = $conn->prepare("SELECT * from movie where release_date>now() and movie_name like '%$search%' order by $order");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
-		if(count($result)==0){ ?>
-			<div class="none"><h3><?php 			
-			if(!isset($_GET['q']))
-				echo "죄송합니다. 현재 상영 예정중인 영화가 없습니다.";
-			else
-				echo "너가 찾는 영화는 여기에 없는거 같다. 딴데 가라~";
-			?>
-			</h3></div>
-			<?php
-		}
+		if(count($result)==0)
+			echo "<div style=\"margin-top:100px;\"><h3>죄송합니다. 현재 상영 예정중인 영화가 없습니다.</h3></div>";
 		foreach ($result as $key => $value) { ?>
-			<li class="onemovie">
+			<div class="onemovie">
 				<?php
-				echo $key + 1; ?>
-				<div class="wrap">				
-					<span class="over">
-						<a href="movie.php?id=<?= $value[movie_id]?>" class="link_info"></a>
-						<a href="#" class="link_purchase"></a>
-					</span>
-					<img src="../common/img/logo.png" class="movie_image">
-				</div>
-				<?php echo "<p>" . $value[movie_name] . "</p>";
+				echo $key + 1;
+				echo "<a href=\"movie.php?id=$value[movie_id]\"><img src=\"../common/img/logo.png\" class=\"movie_image\"></a>"; # 이미지 이름 규격화한 후 배경화면으로 이미지를 등록합니다.
+				echo "<p>" . $value[movie_name] . "</p>";
 				echo "<p>" . $value[release_date] . "</p>";
 				echo "<p>" . $value[rating] . "</p>";
 				?>
-			</li>
+			</div>
 		<?php } $conn = null; ?>
+	</div>
 
 </body>
 </html>
