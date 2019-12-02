@@ -1,0 +1,38 @@
+/* ISO */
+/* SECTION TITLE */
+.section_title{
+  background: pink;  /* background image here plz */
+  margin: 100px;
+  margin-bottom: 50px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  vertical-align: middle;
+  font-size:40pt;
+}
+/* MOVIE BUTTON */
+.sorting_movie{
+  width: 100%;
+  padding-right: 100px;
+}
+.sorting_movie button{
+  float: right;
+}
+/* MOVIE INDEX */
+.overview_movie{
+  margin-right: 100px;
+  margin-left: 100px;
+  background: gray;
+}
+.onemovie{
+  text-align: right;
+  float: left;
+  width: 300px;
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.movie_image{
+  width: 280px;
+  height: 340px;
+}
+/* ISO FIN */
