@@ -109,9 +109,8 @@ $movie_name = $result[0]['movie_name'];
 			</div>
 			<div class="POSTER SEC" style="overflow:auto;">
 				<?php
-				for ($i=0; $i < 1000; $i++) { ?>
-					포스터 넣고 테두리 속성으로 좀 꾸며주면 되지 않을까, 포스터 크기 맞춰서 영역 크기 재조정하고!
-				<?php } ?>
+				print_r($result[0]['movie_poster']);
+				?>
 			</div>
 			<div class="DETAIL SEC">
 				<h2><?=$movie_name?></h2>

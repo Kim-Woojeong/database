@@ -45,7 +45,7 @@
 		</div>
 	</nav>
 	<h1 style="margin-left: 650px; padding-top: 120px;">영화 등록</h1>
-	<form action="adding_movie.php" method="POST" style="border: 0.2em solid red; width: 500px; height: 200px; margin-left: 500px;">
+	<form action="adding_movie.php" method="POST" enctype="multipart/form-data" style="border: 0.2em solid red; width: 500px; height: 200px; margin-left: 500px;">
 		<input type="file" name="poster" style="float: left; height: 100%; padding-top: 80px; padding-left: 20px;">
 		<div style="margin: 10px;">	
 			<input type="text" name="id" placeholder="영화ID">
