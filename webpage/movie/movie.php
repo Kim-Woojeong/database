@@ -122,9 +122,9 @@ $movie_name = $result[0]['movie_name'];
 		</div>
 		<div class="Tree">
 			<div>
-				<button onclick="Button_Tree('Contents')">Contents!</button>
-				<button onclick="Button_Tree('Actors')">Actors!</button>
-				<button onclick="Button_Tree('Directors')">DIRECTOR & 잡것들</button>
+				<button id="ContentsB" onclick="Button_Tree('Contents')">Contents!</button>
+				<button id="ActorsB" onclick="Button_Tree('Actors')">Actors!</button>
+				<button id="DirectorsB" onclick="Button_Tree('Directors')">DIRECTOR & 잡것들</button>
 			</div>
 		</div>
 		<div class="fruit" id="Contents">
