@@ -85,17 +85,22 @@
 			<?php
 		}
 		foreach ($result as $key => $value) { ?>
-			<div class="onemovie">
+			<li class="onemovie">
 				<?php
-				echo $key + 1;
-				echo "<a href=\"movie.php?id=$value[movie_id]\"><img src=\"../common/img/logo.png\" class=\"movie_image\"></a>"; # 이미지 이름 규격화한 후 배경화면으로 이미지를 등록합니다.
-				echo "<p>" . $value[movie_name] . "</p>";
+				echo $key + 1; ?>
+				<div class="wrap">				
+					<span class="over">
+						<a href="movie.php?id=<?= $value[movie_id]?>" class="link_info"></a>
+						<a href="#" class="link_purchase"></a>
+					</span>
+					<img src="../common/img/logo.png" class="movie_image">
+				</div>
+				<?php echo "<p>" . $value[movie_name] . "</p>";
 				echo "<p>" . $value[release_date] . "</p>";
 				echo "<p>" . $value[rating] . "</p>";
 				?>
-			</div>
+			</li>
 		<?php } $conn = null; ?>
-	</div>
 
 </body>
 </html>
