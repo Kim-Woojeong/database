@@ -2,9 +2,10 @@
 include "../DB_Connect.php";
 $conn = connect();
 try{
-	$stmt = $conn->prepare("insert into movie_review(movie_id,customer_id,score) values (:movie_id,:customer_id,:score)");
+	$stmt = $conn->prepare("insert into movie_review(movie_id,customer_id,score,contents) values (:movie_id,:customer_id,:score,:contents)");
 	$stmt -> bindValue(":movie_id",$_POST['movie_id']);
 	$stmt -> bindValue(":customer_id","minjaejoa");
+	$stmt -> bindValue("contents",$_POST['review']);
 	$stmt -> bindValue(":score",$_POST['score']);
 	$stmt->execute();
 	$conn ->null;

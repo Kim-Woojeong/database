@@ -90,7 +90,9 @@ $movie_name = $result[0]['movie_name'];
 						echo "<p></p>";
 						echo "작성자:" . $value['customer_id'];
 						echo "작성일:" . $value['written_time'];
+						echo "내용:" . $value['contents'];
 						echo "점수:" . $value['score'];
+						echo "<hr/>";
 					}
 				}
 				?>
@@ -128,7 +130,12 @@ $movie_name = $result[0]['movie_name'];
 			</div>
 		</div>
 		<div class="fruit" id="Contents">
-			내용
+			<?php
+			$stmt_contents = $conn->prepare("select contents from movie where movie_id = \"$movie_id\"");
+			$stmt_contents -> execute();
+			$result_contents = $stmt_contents->fetchAll();
+			echo $result_contents[0]['contents'];
+			?>
 		</div>
 		<div class="fruit" id="Actors">
 			<h3>배우</h3>
