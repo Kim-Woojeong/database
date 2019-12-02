@@ -73,7 +73,7 @@ insert into Genre values
 ("요괴"),
 ("액션"),
 ("슈퍼히어로");
-insert into movie values
+insert into movie(movie_id, movie_name, rating, running_time, release_date, distributor, total_audience) values
 (10010,"뽀로로 극장판 보물섬 대모험","전체관람가",79,"2019-4-25","넥스트엔터테인먼트월드",1234567),
 (10003, "괴물", "12세관람가", 119, "2006-7-27", "쇼박스", 13019991),
 (10004, "블랙머니", "12세관람가", 113, "2019-11-13", "에이스메이커무비웍스",0),
@@ -185,7 +185,7 @@ insert into Movie_director values
 (105, 10001, "총괄감독"),
 (106, 10005, "총괄감독");
 
-insert into movie_review values 
+insert into movie_review(movie_id, customer_id, written_time, score) values 
 (10005, "dkssud", "2019-11-21 13:33:45", 7),
 (10001, "dkssud", "2019-11-21 13:35:55", 2),
 (10007, "gktpdy", "2018-11-21 11:55:24", 3),
@@ -195,6 +195,7 @@ insert into movie_review values
 (10002, "minjaejoa", "2018-08-31 17:12:00", 10),
 (10001, "minjaejoa", "2017-05-12 17:12:00", 5),
 (10000, "minjaejoa", "2017-05-12 17:12:00", 10);
+
 
 insert into Movie_studio values
 ("아이코닉스",10010),

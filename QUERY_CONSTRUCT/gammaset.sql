@@ -62,6 +62,7 @@ CREATE TABLE Movie (
     movie_id int unsigned not null,
     movie_name char(50) not null,
     rating char(10) not null default '전체관람가',
+    contents TEXT(1000)  NULL,
     running_time smallint not null default 0,
     release_date date null,
     distributor varchar(50) null,
@@ -140,6 +141,7 @@ CREATE TABLE Movie_review(
     customer_id CHAR(20)  NOT NULL,
     written_time  TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,
     score TINYINT NOT NULL,
+    contents TEXT(1000)  NULL,
     CONSTRAINT PK_Customer_info PRIMARY KEY(movie_id, customer_id),
     CONSTRAINT FK_Customer_info_1 FOREIGN KEY(movie_id)
     REFERENCES Movie(movie_id) ON UPDATE CASCADE ON DELETE RESTRICT,

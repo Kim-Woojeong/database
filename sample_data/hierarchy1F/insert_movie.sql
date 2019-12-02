@@ -1,4 +1,4 @@
-insert into movie values
+insert into movie(movie_id, movie_name, rating, running_time, release_date, distributor, total_audience) values
 (10010,"뽀로로 극장판 보물섬 대모험","전체관람가",79,"2019-4-25","넥스트엔터테인먼트월드",1234567),
 (10003, "괴물", "12세관람가", 119, "2006-7-27", "쇼박스", 13019991),
 (10004, "블랙머니", "12세관람가", 113, "2019-11-13", "에이스메이커무비웍스",0),

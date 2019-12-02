@@ -1,4 +1,4 @@
-insert into movie_review values 
+insert into movie_review(movie_id, customer_id, written_time, score) values 
 (10005, "dkssud", "2019-11-21 13:33:45", 7),
 (10001, "dkssud", "2019-11-21 13:35:55", 2),
 (10007, "gktpdy", "2018-11-21 11:55:24", 3),
