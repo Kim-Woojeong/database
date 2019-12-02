@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="styles/mypage.css" />
-    <title></title>
+    <link rel="stylesheet" type="text/css" href="styles/mypage_home.css" />
+    <title>마이페이지 < zxCINEMAxz</title>
 </head>
 
 <body>
