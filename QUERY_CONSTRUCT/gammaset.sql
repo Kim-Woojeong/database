@@ -38,6 +38,7 @@ DROP TABLE IF EXISTS Customer_rank;
 DROP TABLE IF EXISTS Coupon;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Notice;
+DROP TABLE IF EXISTS EVENT;
 SET foreign_key_checks = 1;
 
 CREATE TABLE EVENT(
@@ -405,4 +406,11 @@ CREATE TABLE NOTICE(
   CONSTRAINT PK_NOTICE PRIMARY KEY(notice_id),
   CONSTRAINT FK_NOTICE FOREIGN KEY(cinema_id)
   REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+CREATE TABLE EVENT(
+  event_id INT unsigned  auto_increment not NULL,
+  content text(255) not null,
+  evnet_date timestamp not NULL default current_timestamp,
+  CONSTRAINT PK_NOTICE PRIMARY KEY(event_id)
 );
