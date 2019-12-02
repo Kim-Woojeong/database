@@ -31,7 +31,57 @@
   margin-left: 100px;
 }
 .movie_image{
+  width: inherit;
+  height: inherit;
+}
+.none{
+  margin-top:100px;
+}
+/* ISO FIN */
+
+/*search bar*/
+.search_bar{
+  padding-left: 100px;
+}
+#searchbar{
+  background-color: #D3D3D3;
+  width: 250px;
+  height: 40px;
+  border: 0.3rem solid skyblue;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0;
+  border-radius: 5px;
+}
+#go{
+  width: 59px;
+  height: 40px;
+  background-image: url('search.png');   
+  background-size: contain;
+  background-position:  0px 0px;
+  background-repeat: no-repeat; 
+  cursor:pointer;
+  outline: 0;
+}
+
+/*wrapping division */
+.wrap{
+  position: relative;
   width: 280px;
   height: 340px;
 }
-/* ISO FIN */
+.over{
+  position: absolute;
+  width: inherit;
+  height: inherit;
+}
+.link_info{
+  display: block;
+  width: 100%;
+  height: 50%;
+}
+.link_purchase{
+  display: block;
+  width: 100%;
+  height: 50%;
+}

@@ -66,6 +66,7 @@ CREATE TABLE Movie (
     release_date date null,
     distributor varchar(50) null,
     total_audience int unsigned not null default 0,
+    contents TEXT(1000)  NOT NULL,
     CONSTRAINT PK_Movie PRIMARY KEY(movie_id)
 );
 
@@ -140,6 +141,7 @@ CREATE TABLE Movie_review(
     customer_id CHAR(20)  NOT NULL,
     written_time  TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,
     score TINYINT NOT NULL,
+    contents TEXT(1000)  NOT NULL,
     CONSTRAINT PK_Customer_info PRIMARY KEY(movie_id, customer_id),
     CONSTRAINT FK_Customer_info_1 FOREIGN KEY(movie_id)
     REFERENCES Movie(movie_id) ON UPDATE CASCADE ON DELETE RESTRICT,
