@@ -65,7 +65,7 @@
 			<button value="movie_name" name="sortbutton">가나다순</button>
 		</form>
 	</div>
-	<div class="overview_movie">
+	<ol class="overview_movie">
 		<?php
 		$conn = connect();
 		$order = "release_date desc";
@@ -76,31 +76,33 @@
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		if(count($result)==0){ ?>
-			<div class="none"><h3><?php 			
-			if(!isset($_GET['q']))
-				echo "죄송합니다. 현재 상영 예정중인 영화가 없습니다.";
-			else
-				echo "너가 찾는 영화는 여기에 없는거 같다. 딴데 가라~";
-			?>
+			<div class="none"><h3>
+				<?php 			
+				if(!isset($_GET['q']))
+					echo "죄송합니다. 현재 상영 예정중인 영화가 없습니다.";
+				else
+					echo "너가 찾는 영화는 여기에 없는거 같다. 딴데 가라~";
+				?>
 			</h3></div>
-			<?php
-		}
+		<?php }
 		foreach ($result as $key => $value) { ?>
-			<div class="onemovie">
+			<li class="onemovie">
 				<?php
 				echo $key + 1; ?>
-				<span>
-					<!-- 기다려주세요 수정예정입니다. cineq 처럼 이미지에 인라인속성으로 링크 두개 넣습니다.-->
-					<a href="movie.php?id=$value[movie_id]" class="link_info"></a>
-				</span>
-				<img src="../common/img/logo.png" class="movie_image">
+				<div class="wrap">				
+					<span class="over">
+						<a href="movie.php?id=<?= $value[movie_id]?>" class="link_info"></a>
+						<a href="#" class="link_purchase"></a>
+					</span>
+					<img src="../common/img/logo.png" class="movie_image">
+				</div>
 				<?php echo "<p>" . $value[movie_name] . "</p>";
 				echo "<p>" . $value[release_date] . "</p>";
 				echo "<p>" . $value[rating] . "</p>";
 				?>
-			</div>
+			</li>
 		<?php } $conn = null; ?>
-	</div>
-
+	</ol>
+	
 </body>
 </html>
