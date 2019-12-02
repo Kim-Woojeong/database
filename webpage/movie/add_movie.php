@@ -3,27 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<title>영화등록</title>
-	<link rel="stylesheet" type="text/css" href="common/styles/common.css" >
+	<link rel="stylesheet" type="text/css" href="../common/styles/common.css" >
 </head>
 <body>
 	<header class="service_menu">
 		<ul id="gnb">
-			<?php include "DB_Connect.php";
-			include "top_login.php";
+			<?php include "../DB_Connect.php";
+			include "../top_login.php";
 			$db=connect();
 			?>
 		</ul>
 	</header>
 	<nav class="navbar">
-		<a href="cinema_test.html"><img src="common/img/logo.png"></a>
+		<a href="../cinema_test.html"><img src="../common/img/logo.png"></a>
 		<div class="dropdown">
 			<button class="dropbtn">영화
 				<i class="fa fa-caret-down"></i>
 			</button>
 			<div class="dropdown-content">
-				<a href="movie/Screening_movie.php">상영영화</a>
-				<a href="movie/new_movie.php">상영예정영화</a>
-				<a href="movie/all_movie.php">영화검색</a>
+				<a href="Screening_movie.php">상영영화</a>
+				<a href="new_movie.php">상영예정영화</a>
+				<a href="all_movie.php">영화검색</a>
 			</div>
 		</div>
 		<div class="dropdown">

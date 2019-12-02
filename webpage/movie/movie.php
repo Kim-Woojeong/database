@@ -109,7 +109,7 @@ $movie_name = $result[0]['movie_name'];
 			</div>
 			<div class="POSTER SEC" style="overflow:auto;">
 				<?php
-				echo '<img class = \'posterimg\' src="data:image/jpeg;base64,'. base64_encode($result[0]['movie_poster']) .'"/>'
+				echo '<img src="data:image/jpeg;base64,'. base64_encode($result[0]['movie_poster']) .'"/>'
 				?>
 			</div>
 			<div class="DETAIL SEC">

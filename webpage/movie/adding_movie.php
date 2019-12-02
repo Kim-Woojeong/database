@@ -1,5 +1,4 @@
 <?php
-
 function Thumbnail_String($string, $user_width=86, $user_height=null)
 {
 	ob_start();
@@ -36,9 +35,7 @@ function Thumbnail_String($string, $user_width=86, $user_height=null)
 
 	return $data;
 }
-
-
-include "DB_Connect.php";
+include "../DB_Connect.php";
 $conn=connect();
 try{
 	$stmt = $conn->prepare("insert into movie(movie_id,movie_name,movie_poster,rating,running_time,release_date,distributor,contents) values (:movie_id,:movie_name,:movie_poster,:rating,:running_time,:release_date,:distributor,:contents)");
@@ -46,7 +43,7 @@ try{
 	$stmt -> bindValue(":movie_name",$_POST['title']);
 	$file = file_get_contents($_FILES['poster']['tmp_name']);
 	unlink($_FILES['poster']['tmp_name']);
-	$data = Thumbnail_String($file, 500);
+	$data = Thumbnail_String($file, 340);
 	$stmt -> bindValue(":movie_poster",$data);
 	$stmt -> bindValue(":rating",$_POST['rating']);
 	$stmt -> bindValue(":running_time",$_POST['running_time']);
