@@ -67,4 +67,8 @@ h3{
 	padding-top: 50px;
 	padding-left: 100px;
 	background-color: #D0D0D0;
+	overflow: scroll;
+}
+.fruit::-webkit-scrollbar {
+	display: none;
 }

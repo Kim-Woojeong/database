@@ -80,7 +80,7 @@ $movie_name = $result[0]['movie_name'];
 				$stmt_review->execute();
 				$result_review = $stmt_review->fetchAll();
 				if(count($result_review) == 0)
-					echo "얔ㅋㅋㅋㅋ 이 영화 리뷰 없다. 지금 리뷰 쓰면 너가 준 점수가 영화 평점임 ㅋㅋㅋ";
+					echo "등록된 리뷰가 없습니다.";
 				else{
 					$stmt_avg = $conn->prepare("SELECT round(avg(score),2) as avg_score from movie_review where movie_id = $movie_id");
 					$stmt_avg->execute(); ?>
@@ -142,9 +142,9 @@ $movie_name = $result[0]['movie_name'];
 				echo "<p>배우이름:" . $value['name'] . "</p>";
 				echo "<p>영문이름:" . $value['english_name'] . "</p>";
 				echo "<p>국적:" . $value['nationality'] . "</p>";
-				echo "<p>소개:" . $value['site'] . "</p>";
-				echo "<p>이 사람은 도대체 뭐지?:" . $value['about_me'] . "</p>";
-				echo "<p>이 영화에서의 역할:" . $value['role'] . "</p>";
+				echo "<p>개인사이트:" . $value['site'] . "</p>";
+				echo "<p>소개:" . $value['about_me'] . "</p>";
+				echo "<p>역할:" . $value['role'] . "</p>";
 				echo "<hr/>";
 			}
 			?>
@@ -161,9 +161,9 @@ $movie_name = $result[0]['movie_name'];
 				echo "<p>이름:" . $value['name'] . "</p>";
 				echo "<p>영문이름:" . $value['english_name'] . "</p>";
 				echo "<p>국적:" . $value['nationality'] . "</p>";
-				echo "<p>게인사이트가 :" . $value['site'] . "</p>";
+				echo "<p>게인사이트:" . $value['site'] . "</p>";
 				echo "<p>소개:" . $value['about_me'] . "</p>";
-				echo "<p>이 영화에서의 역할:" . $value['role'] . "</p>";
+				echo "<p>역할:" . $value['role'] . "</p>";
 				echo "<hr/>";
 			}
 			?>
