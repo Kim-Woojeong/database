@@ -84,7 +84,7 @@
               </div>
             </div>
             <div class="btn_login_box">
-            <button type="submit" class="btn_login" disabled>로그인</button>
+            <button type="submit" class="btn_login" >로그인</button>
             </div>
             <div class="login_append">
               <div class="inp_chk">
