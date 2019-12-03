@@ -43,9 +43,10 @@ SET foreign_key_checks = 1;
 
 CREATE TABLE EVENT(
   event_id INT unsigned  auto_increment not NULL,
+  event_title varchar(50) not null,
   content text(255) not null,
-  evnet_date timestamp not NULL default current_timestamp,
-  CONSTRAINT PK_NOTICE PRIMARY KEY(event_id)
+  event_date timestamp not NULL default current_timestamp,
+  CONSTRAINT PK_EVENT PRIMARY KEY(event_id)
 );
 
 CREATE TABLE Cinema (
@@ -401,16 +402,10 @@ CREATE TABLE Schedule_seat (
 CREATE TABLE NOTICE(
   notice_id INT unsigned  auto_increment not NULL,
   cinema_id INT unsigned not null,
+  notice_title  varchar(50) not null,
   content text(255) not null,
   notice_date timestamp not NULL default current_timestamp,
   CONSTRAINT PK_NOTICE PRIMARY KEY(notice_id),
   CONSTRAINT FK_NOTICE FOREIGN KEY(cinema_id)
   REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
-);
-
-CREATE TABLE EVENT(
-  event_id INT unsigned  auto_increment not NULL,
-  content text(255) not null,
-  evnet_date timestamp not NULL default current_timestamp,
-  CONSTRAINT PK_NOTICE PRIMARY KEY(event_id)
 );
