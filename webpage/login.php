@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
+    <link href="common/styles/common.css" type="text/css" rel="stylesheet" />
     <link href="login.css" type="text/css" rel="stylesheet" />
     <title>zxCINEMAxz</title>
   </head>
@@ -10,14 +10,14 @@
   <body>
     <header class="service_menu">
       <ul id="gnb">
-        <?php include "../DB_Connect.php";
+        <?php include "DB_Connect.php";
             // include "../top_login.php";z
             $db=connect();
         ?>
       </ul>
     </header>
     <nav class="navbar">
-      <a href="cinema_test.html"><img src="../common/img/logo.png"/></a>
+      <a href="cinema_test.html"><img src="common/img/logo.png"/></a>
       <div class="dropdown">
         <button class="dropbtn">
           영화
