@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link href="common/styles/common.css" type="text/css" rel="stylesheet" />
-    <link href="login.css" type="text/css" rel="stylesheet" />
+    <link href="styles/login.css" type="text/css" rel="stylesheet" />
     <title>zxCINEMAxz</title>
   </head>
 
@@ -49,7 +49,7 @@
         </div>
       </div>
     </nav>
-    
+
     <div class="container">
       <div class="loginbox">
         <form
