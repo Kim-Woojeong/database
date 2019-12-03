@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -10,7 +10,7 @@
   <body>
     <header class="service_menu">
       <ul id="gnb">
-        <?php include "DB_Connect.php";
+        <?php include "../DB_Connect.php";
             // include "../top_login.php";z
             $db=connect();
         ?>
@@ -55,7 +55,7 @@
         <form
           method="post"
           id="authForm"
-          action="https://www.tistory.com/auth/login"
+          action="https://www.google.com"
         >
           <input
             type="hidden"
