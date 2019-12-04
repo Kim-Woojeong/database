@@ -21,7 +21,7 @@ rel="stylesheet">
   <div id="wrapper">
     <!-- <hr /> -->
 
-    <form id="signInForm" action="register.php" method="post">
+    <form id="signInForm" action="DEVregister.php" method="post">
      <div class="signIn">
 
       <div id="inputArea">

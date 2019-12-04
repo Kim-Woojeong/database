@@ -132,7 +132,7 @@ CREATE TABLE Customer_info (
     detail_address varchar(180) null,
     customer_hp char(11) not null,
     email_address char(30) null,
-    rank_name varchar(10) not null,
+    rank_name varchar(10) not null default "VIP",
     birth_date date not null,
     CONSTRAINT PK_Customer_info PRIMARY KEY(customer_id),
     CONSTRAINT FK_Customer_info FOREIGN KEY(rank_name)

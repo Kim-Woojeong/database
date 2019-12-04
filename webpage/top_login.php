@@ -5,7 +5,7 @@
   {
 ?>
   <p><a href="../login/login.php">로그인</a> |
-    <a href="#">회원가입</a></p>
+    <a href="../login/register.php">회원가입</a></p>
 <?php
   }
   else
