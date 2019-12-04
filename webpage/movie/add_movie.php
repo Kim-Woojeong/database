@@ -13,37 +13,10 @@
 			$db=connect();
 			?>
 		</ul>
-	</header>
-	<nav class="navbar">
-		<a href="../cinema_test.html"><img src="../common/img/logo.png"></a>
-		<div class="dropdown">
-			<button class="dropbtn">영화
-				<i class="fa fa-caret-down"></i>
-			</button>
-			<div class="dropdown-content">
-				<a href="Screening_movie.php">상영영화</a>
-				<a href="new_movie.php">상영예정영화</a>
-				<a href="all_movie.php">영화검색</a>
-			</div>
-		</div>
-		<div class="dropdown">
-			<button class="dropbtn">이벤트
-				<i class="fa fa-caret-down"></i>
-			</button>
-			<div class="dropdown-content">
-				<a href="#">진행중</a>
-				<a href="#">종료</a>
-			</div>
-		</div>
-		<div class="dropdown">
-			<button class="dropbtn">영화관
-				<i class="fa fa-caret-down"></i>
-			</button>
-			<div class="dropdown-content">
-				<a href="#">영화관 찾기</a>
-			</div>
-		</div>
-	</nav>
+	</header>  
+    <?php
+    include "../navigator.php";
+    ?>
 	<h1 style="margin-left: 650px; padding-top: 120px;">영화 등록</h1>
 	<form action="adding_movie.php" method="POST" enctype="multipart/form-data" style="border: 0.2em solid red; width: 500px; height: 200px; margin-left: 500px;">
 		<input type="file" name="poster" style="float: left; height: 100%; padding-top: 80px; padding-left: 20px;">
