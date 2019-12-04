@@ -4,7 +4,7 @@
   if(!isset($_SESSION['id']))
   {
 ?>
-  <p><a href="login.php">로그인</a> |
+  <p><a href="../login/login.php">로그인</a> |
     <a href="#">회원가입</a></p>
 <?php
   }
