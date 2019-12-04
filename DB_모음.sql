@@ -186,7 +186,7 @@ insert into Movie_director values
 (105, 10001, "총괄감독"),
 (106, 10005, "총괄감독");
 
-insert into movie_review(movie_id, customer_id, written_time, score, contents) values 
+insert into movie_review(movie_id, customer_id, written_time, score, contents) values
 (10005, "dkssud", "2019-11-21 13:33:45", 7, "a"),
 (10001, "dkssud", "2019-11-21 13:35:55", 2,"b"),
 (10007, "gktpdy", "2018-11-21 11:55:24", 3,"c"),
@@ -197,7 +197,10 @@ insert into movie_review(movie_id, customer_id, written_time, score, contents) v
 (10001, "minjaejoa", "2017-05-12 17:12:00", 5,"h"),
 (10000, "minjaejoa", "2017-05-12 17:12:00", 10,"i");
 
-
+insert into event(event_title, content) values
+("동준이와 함께하는 펩시콜라 어린이집 나눔", "펩시콜라 어린이집에 100박스 후원해요."),
+("귀여운 동준이가 찍어와 함께 찍는 포토티켓 이벤트", "지금 포토티켓을 출력하시면 동준이가 나와요."),
+("아 몰랑 다 나눔", "영화관 망해서 전부 나눔합니다.");
 
 insert into Movie_studio values
 ("아이코닉스",10010),
@@ -208,10 +211,10 @@ insert into Movie_studio values
 ("마블 스튜디오", 10001),
 ("사나이픽처스", 10005);
 
-insert into notice(cinema_id, content) values
-(1000000, "안녕하세요! 최강디비는 탈인간급 실력을 갖고있읍니다. 감사합니다 ㅎ"),
-(1000001, "안녕하세요! zx여수xz점 점장 이동준입니다. 최강디비는 탈인간급 실력을 갖고있읍니다. 감사합니다 ㅎ"),
-(1000002, "안녕하세요! 강남좋아. 감사합니다.");
+insert into notice(cinema_id, notice_title ,content) values
+(1000000, "안산 중앙 1호점 오픈 기념 ㅇ이동준 팬싸인회","안녕하세요! 최강디비는 탈인간급 실력을 갖고있읍니다. 감사합니다 ㅎ"),
+(1000001, "Cine zx 여수점 오픈 기념 울릉도 활 오징어 증정", "안녕하세요! zx여수xz점 점장 이동준입니다. 최강디비는 탈인간급 실력을 갖고있읍니다. 감사합니다 ㅎ"),
+(1000002, " Cine zx 강남점 리모델링 기념 - 특명! 김규진을 찾아라!" , "안녕하세요! 강남좋아. 감사합니다.");
 
 insert into Stock (stock_name,cinema_id,amount) values
 ("옥수수알",1000000,10000),
