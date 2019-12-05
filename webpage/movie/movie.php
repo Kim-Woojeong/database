@@ -37,7 +37,7 @@ $movie_name = $result[0]['movie_name'];
 		<header class="service_menu">
 			<ul id="gnb">
 				<?php
-				include "top_login.php";
+				include "../top_login.php";
 				?>
 			</ul>
 		</header>  
@@ -69,6 +69,9 @@ $movie_name = $result[0]['movie_name'];
 					}
 				}
 				?>
+
+				<?php if(isset($_SESSION['id'])){ ?>
+
 				<form action="REVIEW.php" method="POST">
 					<input type="hidden" name="movie_id" value="<?=$_GET['id'] ?>">
 					<label>함 리뷰 작성해 봐라~-><input type="text" name="review" /></label>
@@ -79,6 +82,12 @@ $movie_name = $result[0]['movie_name'];
 					</select>
 					<input type="submit" name="" />
 				</form>
+
+				<?php } else{ ?>
+					<div>
+						<p>로그인 해야지 리뷰 쓸 수 있어요.</p>
+					</div>
+				<?php } ?>
 			</div>
 			<div class="POSTER SEC" style="overflow:auto;">
 				<?php
