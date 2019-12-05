@@ -1,14 +1,61 @@
 .right_info p {
-    margin-top: 50px;
-    font-size: 30pt;
+  margin-top: 40px;
+  font-size: 10pt;
 }
 
 .ticketing_num {
-    color: red;
+  color: red;
 }
 
 #can_issue {
-    font-size: 15pt;
-    margin-top: 10px;
+  font-size: 15pt;
+  margin-top: 10px;
+}
 
+.ticket_list_container {
+  width: 900px;
+  height: 250px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  margin: auto;
+  margin-top: 50px;
+  font-size: 10pt;
+}
+
+.list_num,
+.list_poster {
+  margin-top: 30px;
+  margin-left: 30px;
+  width: 150px;
+  height: 200px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  float: left;
+}
+
+.list_movie,
+.list_theater,
+.list_date {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 300px;
+    height: 50px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    float: left;
+}
+}
+
+.list_seat {
+    margin-top: 30px;
+    margin-right: 30px;
+    width: 150px;
+    height: 200px;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    float: right;
 }

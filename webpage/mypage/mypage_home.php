@@ -17,10 +17,41 @@
 			include "../top_login.php";
 			?>
         </ul>
-    </header>  
-    <?php
-    include "../navigator.php";
-    ?>
+    </header>
+    <nav class="navbar">
+        <a href="../cinema_test.html"><img src="../common/img/logo.png"></a>
+  
+    <div class="dropdown_full">
+        <div class="dropdown">
+            <button class="dropbtn">영화
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/webpage/movie/Screening_movie.php">상영영화</a>
+                <a href="/webpage/movie/new_movie.php">상영예정영화</a>
+                <a href="/webpage/movie/all_movie.php">영화검색</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">이벤트
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">진행중</a>
+                <a href="#">종료</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">영화관
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">영화관 찾기</a>
+            </div>
+        </div>
+    </div>  <!-- dropdown_full -->
+
+    </nav>
 
     <!--start -->
 
