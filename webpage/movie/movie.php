@@ -28,7 +28,7 @@ $movie_name = $result[0]['movie_name'];
 	# wrong wepage site for id
 	if(count($result) == 0){ ?>
 		<div id="notfound" >
-			<img src="404notfound 꼬으면 바꾸셈.png"/>
+			<img src="404notfound.png"/>
 		</div>
 		<?php
 	}else{
@@ -76,7 +76,7 @@ $movie_name = $result[0]['movie_name'];
 					<input type="hidden" name="movie_id" value="<?=$_GET['id'] ?>">
 					<label>함 리뷰 작성해 봐라~-><input type="text" name="review" /></label>
 					<select name="score">
-						<?php for ($i=0; $i < 5; $i+=0.001) { ?>
+						<?php for ($i=0; $i < 5; $i+=0.01) { ?>
 							<option><?=$i?></option>
 						<?php } ?>
 					</select>
@@ -89,9 +89,10 @@ $movie_name = $result[0]['movie_name'];
 					</div>
 				<?php } ?>
 			</div>
-			<div class="POSTER SEC" style="overflow:auto;">
+			<div class="POSTER SEC">
 				<?php
-				echo '<img src="data:image/jpeg;base64,'. base64_encode($result[0]['movie_poster']) .'"/>'
+				$image = "../img/movie_$movie_id.jpeg";
+				echo "<img src = $image id=\"poster\" onerror=\"this.src='../img/movie/movie_no_image2.jpeg';\">";
 				?>
 			</div>
 			<div class="DETAIL SEC">

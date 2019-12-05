@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="styles/movie_search.css" />
+	<script type="text/javascript" src="js/movie_search.js"></script>
 	<title>영화검색</title>
 </head>
 <body>
@@ -16,9 +17,9 @@
 			?>
 		</ul>
 	</header>  
-    <?php
-    include "../navigator.php";
-    ?>
+	<?php
+	include "../navigator.php";
+	?>
 
 	<!--start -->
 	<div class="section_title">
@@ -64,18 +65,17 @@
 				echo $key + 1; ?>
 				<div class="wrap">				
 					<span class="over">
-						<a href="movie.php?id=<?= $value[movie_id]?>" class="link_info"></a>
-						<a href="#" class="link_purchase"></a>
-					</span>
-					<img src="../common/img/logo.png" class="movie_image">
+						<a href="movie.php?id=<?= $value['movie_id']?>" class="link_info" id='content<?=$key?>' onmousemove="View('영화 정보','content<?=$key?>')" onmouseout="hide('content<?=$key?>')"></a>
+						<a href="#" class="link_purchase" id="dontent<?=$key?>" onmouseover="View('영화 예매','dontent<?=$key?>')" onmouseout="hide('dontent<?=$key?>')"></a>
+					</span>	
+					<img src="../img/movie/movie_<?=$value['movie_id']?>.jpeg" onerror="this.src='../img/movie/movie_no_image.jpeg';" class="movie_image">
 				</div>
-				<?php echo "<p>" . $value[movie_name] . "</p>";
-				echo "<p>" . $value[release_date] . "</p>";
-				echo "<p>" . $value[rating] . "</p>";
+				<?php echo "<p>" . $value['movie_name'] . "</p>";
+				echo "<p>" . $value['release_date'] . "</p>";
+				echo "<p>" . $value['rating'] . "</p>";
 				?>
 			</li>
 		<?php } $conn = null; ?>
 	</ol>
-	
 </body>
 </html>

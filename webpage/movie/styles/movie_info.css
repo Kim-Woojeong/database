@@ -7,6 +7,10 @@ h2{
 h3{
 	font-size: 20pt;
 }
+#poster{
+	width: inherit;
+	height: inherit;
+}
 @media screen and (min-width: 800px){
 	.SEC{
 		width: calc((100% - 406px) / 2);
