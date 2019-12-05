@@ -63,7 +63,6 @@ CREATE TABLE Cinema (
 CREATE TABLE Movie (
     movie_id int unsigned not null,
     movie_name char(50) not null,
-    movie_poster longblob not null,
     rating char(10) not null default '전체관람가',
     running_time smallint not null default 0,
     release_date date null,
