@@ -19,7 +19,7 @@ $movie_name = $result[0]['movie_name'];
 		if(count($result) == 0) 
 			echo "404 not found"; 
 		else 
-			echo "영화검색" . $movie_name; 
+			echo "영화검색" . $movie_name;
 		?>
 	</title>
 </head>
@@ -28,7 +28,8 @@ $movie_name = $result[0]['movie_name'];
 	# wrong wepage site for id
 	if(count($result) == 0){ ?>
 		<div id="notfound" >
-			<img src="404notfound.png"/>
+			<img src="404notfound.png"/><br>
+			<a href="all_movie.php">여긴 너에겐 아직 일러! 돌아가ㅠㅠ</a>
 		</div>
 		<?php
 	}else{
@@ -45,7 +46,6 @@ $movie_name = $result[0]['movie_name'];
 		include "../navigator.php";
 		?>
 
-		<!-- SUPER_ISO_ISO -->
 		<div>
 			<div class="REVIEW SEC">
 				<?php
@@ -60,28 +60,28 @@ $movie_name = $result[0]['movie_name'];
 					<h3>평점: <?=$stmt_avg->fetchAll()[0]['avg_score']?> </h3>
 					<?php
 					foreach ($result_review as $key => $value) {
-						echo "<p></p>";
-						echo "작성자:" . $value['customer_id'];
-						echo "작성일:" . $value['written_time'];
-						echo "내용:" . $value['contents'];
-						echo "점수:" . $value['score'];
-						echo "<hr/>";
-					}
+						?>
+						<p>작성자:<?=$value['customer_id']?></p>
+						<p>작성일:<?=$value['written_time']?></p>
+						<p>내용:<?=$value['contents']?></p>
+						<p>점수:<?=$value['score']?></p>
+						<hr/>
+					<?php }
 				}
 				?>
 
 				<?php if(isset($_SESSION['id'])){ ?>
 
-				<form action="REVIEW.php" method="POST">
-					<input type="hidden" name="movie_id" value="<?=$_GET['id'] ?>">
-					<label>함 리뷰 작성해 봐라~-><input type="text" name="review" /></label>
-					<select name="score">
-						<?php for ($i=0; $i < 5; $i+=0.01) { ?>
-							<option><?=$i?></option>
-						<?php } ?>
-					</select>
-					<input type="submit" name="" />
-				</form>
+					<form action="REVIEW.php" method="POST">
+						<input type="hidden" name="movie_id" value="<?=$_GET['id'] ?>">
+						<label>함 리뷰 작성해 봐라~-><input type="text" name="review" /></label>
+						<select name="score">
+							<?php for ($i=0; $i < 5; $i+=0.01) { ?>
+								<option><?=$i?></option>
+							<?php } ?>
+						</select>
+						<input type="submit" name="" />
+					</form>
 
 				<?php } else{ ?>
 					<div>
@@ -90,10 +90,7 @@ $movie_name = $result[0]['movie_name'];
 				<?php } ?>
 			</div>
 			<div class="POSTER SEC">
-				<?php
-				$image = "../img/movie_$movie_id.jpeg";
-				echo "<img src = $image id=\"poster\" onerror=\"this.src='../img/movie/movie_no_image2.jpeg';\">";
-				?>
+				<img src = '../img/movie/movie_<?=$movie_id?>.jpeg' id="poster" onerror="this.src='../img/movie/movie_no_image2.jpeg';">
 			</div>
 			<div class="DETAIL SEC">
 				<h2><?=$movie_name?></h2>
@@ -127,16 +124,16 @@ $movie_name = $result[0]['movie_name'];
 			$result_actors = $stmt_actors->fetchAll();
 			if(count($result_actors)==0)
 				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 따지세요.";
-			foreach ($result_actors as $key => $value) {
-				echo "<p>배우이름:" . $value['name'] . "</p>";
-				echo "<p>영문이름:" . $value['english_name'] . "</p>";
-				echo "<p>국적:" . $value['nationality'] . "</p>";
-				echo "<p>개인사이트:<a href=" . $value['site']. ">" . $value['site'] . "</a></p>";
-				echo "<p>소개:" . $value['about_me'] . "</p>";
-				echo "<p>역할:" . $value['role'] . "</p>";
-				echo "<hr/>";
-			}
-			?>
+			foreach ($result_actors as $key => $value) { 
+				?>
+				<p>배우이름:<?=$value['name']?></p>
+				<p>영문이름:<?=$value['english_name']?></p>
+				<p>국적:<?=$value['nationality']?></p>
+				<p>개인사이트:<a href=<?=$value['site']?>><?=$value['site']?></a></p>
+				<p>소개:<?=$value['about_me']?></p>
+				<p>역할:<?=$value['role']?></p>
+				<hr/>
+			<?php } ?>
 		</div>
 		<div class="fruit" id="Directors">
 			<h3>감독</h3>
@@ -147,15 +144,15 @@ $movie_name = $result[0]['movie_name'];
 			if(count($result_directors)==0)
 				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 따지세요.";
 			foreach ($result_directors as $key => $value) {
-				echo "<p>이름:" . $value['name'] . "</p>";
-				echo "<p>영문이름:" . $value['english_name'] . "</p>";
-				echo "<p>국적:" . $value['nationality'] . "</p>";
-				echo "<p>개인사이트:<a href=" . $value['site']. ">" . $value['site'] . "</a></p>";
-				echo "<p>소개:" . $value['about_me'] . "</p>";
-				echo "<p>역할:" . $value['role'] . "</p>";
-				echo "<hr/>";
-			}
-			?>
+				?>
+				<p>배우이름:<?=$value['name']?></p>
+				<p>영문이름:<?=$value['english_name']?></p>
+				<p>국적:<?=$value['nationality']?></p>
+				<p>개인사이트:<a href=<?=$value['site']?>><?=$value['site']?></a></p>
+				<p>소개:<?=$value['about_me']?></p>
+				<p>역할:<?=$value['role']?></p>
+				<hr/>
+			<?php } ?>
 		</div>
 	<?php } $conn = null ?>
 </body>

@@ -61,8 +61,7 @@
 		}
 		foreach ($result as $key => $value) { ?>
 			<li class="onemovie">
-				<?php
-				echo $key + 1; ?>
+				<p><?=$key+1?></p>
 				<div class="wrap">				
 					<span class="over">
 						<a href="movie.php?id=<?= $value['movie_id']?>" class="link_info" id='content<?=$key?>' onmousemove="View('영화 정보','content<?=$key?>')" onmouseout="hide('content<?=$key?>')"></a>
@@ -70,10 +69,9 @@
 					</span>	
 					<img src="../img/movie/movie_<?=$value['movie_id']?>.jpeg" onerror="this.src='../img/movie/movie_no_image.jpeg';" class="movie_image">
 				</div>
-				<?php echo "<p>" . $value['movie_name'] . "</p>";
-				echo "<p>" . $value['release_date'] . "</p>";
-				echo "<p>" . $value['rating'] . "</p>";
-				?>
+				<p><?=$value['movie_name']?></p>
+				<p><?=$value['release_date']?></p>
+				<p><?=$value['rating']?></p>
 			</li>
 		<?php } $conn = null; ?>
 	</ol>
