@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+	include "../DB_Connect.php";
+	$conn = connect();
+	$stmt_search = $conn->prepare("SELECT movie_name from movie");
+	$stmt_search->execute();
+	$result_search = $stmt_search->fetchAll();
+	?>
 	<meta charset="utf-8">
+	<title>영화검색</title>
 	<link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="styles/movie_search.css" />
 	<script type="text/javascript" src="js/movie_search.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var availableCity = [
+			<?php
+			foreach ($result_search as $key => $value) {
+				echo "\"" . $value['movie_name'] . "\",";
+			}
+			?>
+			];
+			$("#searchbar").autocomplete({
+				source: availableCity
+			});
+		});
+	</script>
 	<title>영화검색</title>
 </head>
 <body>
@@ -12,7 +37,6 @@
 	<header class="service_menu">
 		<ul id="gnb">
 			<?php
-			include "../DB_Connect.php";
 			include "../top_login.php";
 			?>
 		</ul>
@@ -41,7 +65,6 @@
 	</div>
 	<ol class="overview_movie">
 		<?php
-		$conn = connect();
 		$order = "release_date desc";
 		if(isset($_POST['sortbutton']))
 			$order = $_POST['sortbutton'];
