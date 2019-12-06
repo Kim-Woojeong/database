@@ -16,18 +16,20 @@
 		</ul>
 	</header>  
 	<?php
-  include "../common/navigator.php";
-  ?>
+ 	 include "../common/navigator.php";
+  	?>
+
 	<h1>영화 예매</h1>
 
 	<main>
 		<menu>
 			<p class="menu_name">MENU</p>
-			<button class="menu_button" id="">BUTTON1</button>
-			<button class="menu_button" id="">BUTTON2</button>
-			<button class="menu_button" id="">BUTTON3</button>
-			<button class="menu_button" id="">BUTTON4</button>
-			<button class="menu_button" id="">BUTTON5</button>
+			<button class="menu_button" id="">영화관선택</button>
+			<button class="menu_button" id="">영화선택</button>
+			<button class="menu_button" id="">날짜선택</button>
+			<button class="menu_button" id="">인원수선택</button>
+			<button class="menu_button" id="">좌석선택</button>
+			<button class="menu_button" id="">결제</button>
 		</menu>
 		<article>
 			<form action="" method="POST">
