@@ -71,12 +71,12 @@
 								<?php } ?>
 							</select>
 						</div>
-						<input type="button" name="" value="다음" />
+						<input type="button" name="" value="다음" onclick="sectionselect('movie')"/>
 					</fieldset>
 				</section>
 				<section id="movie">
 					<fieldset>
-						<legend>영화선택</legend>
+						<legend><h2>영화선택</h2></legend>
 						<?php
 						?>
 						<input type="button" name="" value="다음 ㅋㅋㅋㅋㅋ 네이버도 아니고 다음이래 ㅋㅋㅋㅋ" />
