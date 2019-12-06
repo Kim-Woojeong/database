@@ -27,4 +27,10 @@
       <a href="#">영화관 찾기</a>
     </div>
   </div>
+  <div class="reserve">
+    <button class="reservebtn">
+      예매
+      <i class="fa fa-caret-down"></i>
+    </button>
+  </div>
 </nav>
