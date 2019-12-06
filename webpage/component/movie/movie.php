@@ -11,7 +11,7 @@ $movie_name = $result[0]['movie_name'];
 <html>
 <head>
 	<meta charset="utf-8">
-	<link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
+	<link href="../../styles/common.css" type="text/css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="../../styles/movie_info.css" />
 	<script type="text/javascript" src="js/movie.js"></script>
 	<title>
@@ -94,11 +94,11 @@ $movie_name = $result[0]['movie_name'];
 			</div>
 			<div class="DETAIL SEC">
 				<h2><?=$movie_name?></h2>
-				<p><?=$result[0]['rating']?></p>
-				<p><?=$result[0]['running_time']?>분~</p>
-				<p><?=$result[0]['release_date']?>에 첫 상영했나 봅니다.</p>
-				<p><?=$result[0]['distributor']?>에서 배급했어용</p>
-				<p><?=$result[0]['total_audience']?>마리나 이 영화를 봤네요. 생각보다 바글바글했네요.</p>
+				<p>관람 등급: <strong><?=$result[0]['rating']?></strong></p>
+				<p>상영 시간: <strong><?=$result[0]['running_time']?></strong>분</p>
+				<p>출시 날짜: <strong><?=$result[0]['release_date']?></strong></p>
+				<p>배급사 :<strong><?=$result[0]['distributor']?></strong></p>
+				<p>총 관객수: <strong><?=$result[0]['total_audience']?></strong></p>
 			</div>
 		</div>
 		<div class="Tree">

@@ -12,7 +12,7 @@ menu{
 	margin-left: 5%;
 	margin-right: 5%;
 	width: 20%;
-	height: 100%;
+1	height: 100%;
 }
 article{
 	float: left;
@@ -21,9 +21,24 @@ article{
 }
 .menu_name,.menu_button{
 	width: 100%;
+	font-size: 15pt;
 	text-align: center;
-	padding-top: 10%;
-	padding-bottom: 10%;
+	padding-top: 6%;
+	padding-bottom: 6%;
 }
 .menu_name{
+}
+
+section{
+	background-color: gray;
+	width: inherit;
+	height: inherit;
+}
+.area{
+	width: 100px;
+
+}
+.area button{
+	width: inherit;
+	height: calc(100% / 5);
 }

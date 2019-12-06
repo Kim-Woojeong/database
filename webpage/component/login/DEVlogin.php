@@ -7,7 +7,7 @@ if ( empty($_POST['loginId']) || empty($_POST['password']) ) {
 }
 $id=$_POST['loginId'];
 $password=$_POST['password'];
-include "../DB_Connect.php";
+include "../common/DB_Connect.php";
 $conn = connect();
 $stmt = $conn->prepare("SELECT password,customer_name,rank_name FROM customer_info where customer_id = :id");
 $stmt -> bindValue(":id",$id);
@@ -25,4 +25,4 @@ $_SESSION['name']=$result[0]['customer_name'];
 $_SESSION['rank']=$result[0]['rank_name'];
 $conn = null;  // disconnect db
 ?>
-<meta http-equiv="refresh" content="0;url=../home/cinema_test.php" />
+<meta http-equiv="refresh" content="0;url=../common/cinema_test.php" />

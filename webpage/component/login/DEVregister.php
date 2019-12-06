@@ -2,10 +2,10 @@
 if ( empty($_POST['ID']) || empty($_POST['password']) || empty($_POST['name']) ) {
 	header("Content-Type: text/html; charset=UTF-8");
 	echo "<script>alert('칸에 적힌거 꼬박꼬박 입력하세요. 그정돈 할 수 있자나요? 못해요? 하...');";
-	echo "window.location.replace('login.php');</script>";
+	echo "window.location.replace('register.php');</script>";
 	exit;
 }
-include "../DB_Connect.php";
+include "../common/DB_Connect.php";
 $conn = connect();
 try{
 	$stmt = $conn->prepare("insert into customer_info(customer_id,password,customer_name,gender,road_address,detail_address,customer_hp,email_address,birth_date) values(:customer_id,:password,:customer_name,:gender,:road_address,:detail_address,:customer_hp,:email_address,:birth_date)");
@@ -31,10 +31,10 @@ try{
 } catch(PDOException $e){
 	echo $e->getmessage();
 	echo "<script>alert('예외처리 안한줄 알았냐? 다시 입력해');";
-	echo "window.location.replace('login.php');</script>";
+	echo "window.location.replace('register.php');</script>";
 }
 
 $conn = null;  // disconnect db
 echo "<script>alert('당신이 이겼어요.. 이제 이 웹페이지를 즐겨주세요..');</script>";
 ?>
-<meta http-equiv="refresh" content="0;url=../cinema_test.php" />
+<meta http-equiv="refresh" content="0;url=../common/cinema_test.php" />

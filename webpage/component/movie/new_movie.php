@@ -36,7 +36,7 @@
 	<header class="service_menu">
 		<ul id="gnb">
 			<?php
-			include "..common/top_login.php";
+			include "../common/top_login.php";
 			?>
 		</ul>
 	</header>  
