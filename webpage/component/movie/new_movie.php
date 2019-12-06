@@ -10,8 +10,8 @@
 	?>
 	<meta charset="utf-8">
 	<title>상영예정영화</title>
-	<link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="styles/movie_search.css" />
+	<link href="../../styles/common.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../../styles/movie_search.css" />
 	<script type="text/javascript" src="js/movie_search.js"></script>
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -36,12 +36,12 @@
 	<header class="service_menu">
 		<ul id="gnb">
 			<?php
-			include "../top_login.php";
+			include "..common/top_login.php";
 			?>
 		</ul>
 	</header>  
 	<?php
-	include "../navigator.php";
+	include "../common/navigator.php";
 	?>
 	<!--start -->
 	<div class="section_title">

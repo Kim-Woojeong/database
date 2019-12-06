@@ -2,7 +2,7 @@
 <html>
 <head>
 	<?php
-	include "../DB_Connect.php";
+	include "../common/DB_Connect.php";
 	$conn = connect();
 	$stmt_search = $conn->prepare("SELECT movie_name from movie where movie_id in (select distinct movie_id from movie_schedule where movie_time>now())");
 	$stmt_search->execute();
@@ -36,12 +36,12 @@
 	<header class="service_menu">
 		<ul id="gnb">
 			<?php
-			include "../top_login.php";
+			include "../common/top_login.php";
 			?>
 		</ul>
 	</header>  
 	<?php
-	include "../navigator.php";
+	include "../common/navigator.php";
 	?>
 	<!--start -->
 	<div class="section_title">
