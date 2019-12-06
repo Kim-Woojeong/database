@@ -25,4 +25,4 @@ $_SESSION['name']=$result[0]['customer_name'];
 $_SESSION['rank']=$result[0]['rank_name'];
 $conn = null;  // disconnect db
 ?>
-<meta http-equiv="refresh" content="0;url=../cinema_test.php" />
+<meta http-equiv="refresh" content="0;url=../home/cinema_test.php" />

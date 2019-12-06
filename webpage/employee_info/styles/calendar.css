@@ -1,0 +1,32 @@
+table {
+  border-spacing: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  width: 500px;
+  height: 400px;
+}
+table td {
+  text-align: center;
+}
+
+table, th, td {
+  padding-top: 10px;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+}
+
+.top {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.bottom {
+  text-align: center;
+  padding-top: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}

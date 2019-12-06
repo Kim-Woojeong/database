@@ -16,7 +16,7 @@
       $db=connect();
       ?>
     </ul>
-  </header>  
+  </header>
   <?php
   include "../navigator.php";
   ?>
@@ -67,8 +67,11 @@
               </label>
             </div>
             <span class="txt_find">
-              <a href="/member/find/loginId" class="link_find">아이디</a>
+              <a href="/member/find/loginId" class="link_find">아이디/</a>
               <a href="/member/find/password" class="link_find">비밀번호 찾기</a>
+            </span>
+            <span class="txt_register">
+              <a href="register.php">회원가입</a>
             </span>
           </div>
         </fieldset>

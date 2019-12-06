@@ -43,17 +43,33 @@
 .login_append {
   display: flex;
   justify-content: space-between;
+  font-size: 15px;
 }
 
 .inp_text {
   margin-bottom: 3px;
 }
 .txt_find {
+  font-size: 12px;
   display: flex;
   padding-top: 2px;
   text-align: left;
   flex-direction: row;
 }
+.txt_register {
+  font-size: 12px;
+  display: flex;
+  padding-top: 2px;
+  text-align: left;
+  flex-direction: row;
+  padding-left: 2px;
+}
 .link_find {
   text-align: left;
+}
+
+fieldset {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
