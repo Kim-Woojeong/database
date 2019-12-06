@@ -31,8 +31,7 @@ try{
 		<?php 
 	}
 	else{
-		echo "<script>alert('오 새로운 오류다 뭐가 문제일까요? 0.2초 준다 잘 봐봐')</script>";
-		echo $e->getmessage();
+		echo "<script>alert('{$e->getmessage()}')</script>";
 	}
 }
 $conn ->null;
