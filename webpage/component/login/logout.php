@@ -2,4 +2,4 @@
     session_start();
     session_destroy();
 ?>
-<meta http-equiv="refresh" content="0;url=../cinema_test.php" />
+<meta http-equiv="refresh" content="0;url=../common/cinema_test.php" />

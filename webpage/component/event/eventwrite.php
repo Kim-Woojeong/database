@@ -1,5 +1,5 @@
 <?php
-include "../DB_Connect.php";
+include "../common/DB_Connect.php";
 $db = connect();
 
 $title=$_POST['title'];

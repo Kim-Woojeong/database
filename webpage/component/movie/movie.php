@@ -142,7 +142,7 @@ $movie_name = $result[0]['movie_name'];
 			$stmt_directors->execute();
 			$result_directors = $stmt_directors->fetchAll();
 			if(count($result_directors)==0)
-				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 따지세요.";
+				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 문의하세요.";
 			foreach ($result_directors as $key => $value) {
 				?>
 				<p>배우이름:<?=$value['name']?></p>

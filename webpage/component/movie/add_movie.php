@@ -8,8 +8,8 @@
 <body>
 	<header class="service_menu">
 		<ul id="gnb">
-			<?php include "../DB_Connect.php";
-			include "../top_login.php";
+			<?php include "../common/DB_Connect.php";
+			include "../common/top_login.php";
 			$db=connect();
 			?>
 		</ul>
