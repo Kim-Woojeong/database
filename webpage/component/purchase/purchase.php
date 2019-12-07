@@ -82,7 +82,7 @@
 						<div id="movies">
 							<p>영화를 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음 ㅋㅋㅋㅋㅋ 네이버도 아니고 다음이래 ㅋㅋㅋㅋ" onclick="sectionselect('date')"/>
+						<input type="button" name="" value="다음 ㅋㅋㅋㅋㅋ 네이버말고 구글도 아니고 다음이래 ㅋㅋㅋㅋ" onclick="sectionselect('date')"/>
 					</fieldset>
 				</section>
 
