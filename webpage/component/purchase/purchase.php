@@ -30,11 +30,11 @@
 		<!-- menu bar -->
 		<menu role="role">
 			<p class="menu_name">MENU</p>
-			<button class="menu_button" id="" onclick="sectionselect('cinema')">영화관선택</button>
-			<button class="menu_button" id="" onclick="sectionselect('movie')">영화선택</button>
-			<button class="menu_button" id="" onclick="sectionselect('date')">날짜선택</button>
-			<button class="menu_button" id="" onclick="sectionselect('seat')">좌석선택</button>
-			<button class="menu_button" id="" onclick="sectionselect('approval')">결제</button>
+			<button class="menu_button" id="MENU1" onclick="sectionselect('cinema')">영화관선택</button>
+			<button class="menu_button" id="MENU2" onclick="sectionselect('movie')">영화선택</button>
+			<button class="menu_button" id="MENU3" onclick="sectionselect('date')">날짜선택</button>
+			<button class="menu_button" id="MENU4" onclick="sectionselect('seat')">좌석선택</button>
+			<button class="menu_button" id="MENU5" onclick="sectionselect('approval')">결제</button>
 		</menu>
 
 		<!-- 다이나믹 섹션 -->
@@ -79,6 +79,7 @@
 				<section id="movie">
 					<fieldset>
 						<legend><h2>영화선택</h2></legend>
+						<h3 id="selection_movie">선택하신 영화 : 미선택</h3>
 						<div id="movies">
 							<p>영화를 선택할 수 없습니다.</p>
 						</div>
