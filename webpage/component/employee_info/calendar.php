@@ -28,32 +28,34 @@
     </ul>
   </header>
   <?php
-  include "../common/navigator.php";
+  include "../navigator.php";
   ?>
 	<div class="wrapper">
 		<div class="top">
 			<?php
 				$id = $_SESSION['id'];
-				$view_sql = "select employee_name,rest_holidays from employee where employee_id = '$id'";
+				$name = $_SESSION['name'];
+
+				$view_sql = "select rest_holidays from employee where employee_id = '$id'";
 				$view_stt=$db->prepare($view_sql);
 				$view_stt->execute();
 				$result = $view_stt->fetch(PDO::FETCH_ASSOC);
 			 ?>
-			 <p><?= $result['employee_name'] ?>님 달력입니다.</p>
+			 <p><?=$name ?>님 달력입니다.</p>
 		<!-- 현재가 1월이라 이전 달이 작년 12월인경우 -->
 			<?php if ($month == 1) { ?>
-		    <a href="calendar.php/?year=<?php echo $year-1; ?>&month=12">◀ </a>
+		    <a href="calendar.php?year=<?php echo $year-1; ?>&month=12">◀ </a>
 		  <?php } else { ?>
-				<a href="calendar.php/?year=<?php echo $year; ?>&month=<?php echo $month-1; ?>">◀ </a>
+				<a href="calendar.php?year=<?php echo $year; ?>&month=<?php echo $month-1; ?>">◀ </a>
 		  <?php } ?>
 
 			<?php echo " $year 년 $month 월 " ?>
 
 			<!-- 현재가 12월이라 다음 달이 내년 1월인경우 -->
 			<?php if ($month == 12) { ?>
-				<a href="calendar.php/?year=<?php echo $year+1; ?>&month=1"> ▶</a>
+				<a href="calendar.php?year=<?php echo $year+1; ?>&month=1"> ▶</a>
 			<?php } else { ?>
-				<a href="calendar.php/?year=<?= $year ?>&month=<?= $month+1; ?>"> ▶</a>
+				<a href="calendar.php?year=<?= $year ?>&month=<?= $month+1; ?>"> ▶</a>
 			<?php } ?>
 		</div>
 
@@ -77,16 +79,25 @@
 						<td>
 							<!-- 시작 요일부터 마지막 날짜까지만 날짜를 보여주도록 -->
 							<?php if ( ($n > 1 || $k >= $start_week) && ($total_day >= $n) ) { ?>
+								<?php $temp = $year."-".$month."-".$n ?>
 								<!-- 현재 날짜를 보여주고 1씩 더해줌 -->
-								<a href="calendarview.php/?scheduledate=<?= $year ?>-<?= $month ?>-<?= $n ?>"><?php echo $n++ ?></a>
-							<?php } ?>
+								<?php $check_sql = "select * from schedule where employee_id = '$id' and schedule_date = '$temp'";
+											$check_stt=$db->prepare($check_sql);
+											$check_stt->execute();
+											$result1 = $check_stt->fetch(PDO::FETCH_ASSOC);
+								?>
+								<a href="calendarview.php?scheduledate=<?=$temp?>"><?php echo $n++ ?></a>
+								<?php if($result1['on_holiday']==1) { ?>
+									<p>휴가</p>
+								<?php } ?>
+						<?php } ?>
 						</td>
 					<?php } ?>
 				</tr>
 			<?php } ?>
 		</table>
 		<div class="bottom">
-			<p><?= $result['employee_name'] ?>님의 남은 휴가 일수는 <?= $result['rest_holidays'] ?>일 입니다.</p>
+			<p><?= $name ?>님의 남은 휴가 일수는 <?= $result['rest_holidays'] ?>일 입니다.</p>
 		</div>
 
 

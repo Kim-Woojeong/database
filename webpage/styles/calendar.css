@@ -3,8 +3,8 @@ table {
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
-  width: 500px;
-  height: 400px;
+  width: 700px;
+  height: 600px;
 }
 table td {
   text-align: center;
@@ -14,6 +14,11 @@ table, th, td {
   padding-top: 10px;
   border: 1px solid #444444;
   border-collapse: collapse;
+}
+
+td {
+  width: 100px;
+  height: 100px;
 }
 
 .top {

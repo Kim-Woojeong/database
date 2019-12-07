@@ -320,12 +320,9 @@ CREATE TABLE Food_salelist (
 CREATE TABLE Schedule (
     schedule_date datetime not null,
     employee_id int unsigned not null,
-    on_office tinyint not null default 0,
     on_holiday tinyint not null default 0,
-    on_halfholiday tinyint not null default 0,
     attending_time datetime null,
     closing_time datetime null,
-    part_time char(5) not null,
     reason text(255) null,
     CONSTRAINT PK_Schedule PRIMARY KEY(schedule_date, employee_id),
     CONSTRAINT FK_Schedule FOREIGN KEY(employee_id)
