@@ -1,19 +1,15 @@
 window.onload = function() {
     sectionselect('cinema');
-    $('radiomovie').onclick = function(){
-        alert  ('hello');
-    }
 };
 
-// function areaselect(Type){
-//     new Ajax.Request("cinema_json.php",{
-//         method : "get",
-//         parameters : {area: Type },
-//         onSuccess : cinema_JSON,
-//         onFailure : ajaxFailed,
-//         onException : ajaxFailed
-//     });
-// }
+function sectionselect(section) {
+    var sections = document.getElementsByTagName('section');
+    for (var i = sections.length - 1; i >= 0; i--) {
+        sections[i].style.display = 'none';
+    }
+    if(section != 'none')
+        document.getElementById(section).style.display = 'block';
+}
 
 function changecinema() {
     $('MENU1').style.backgroundColor = 'transparent';
@@ -23,6 +19,12 @@ function changecinema() {
         onFailure : ajaxFailed,
         onException : ajaxFailed
     });
+}
+
+function changemovie(){
+    $('MENU2').style.backgroundColor = 'pink';
+    alert("선택하신 영화는 " + this.id + "입니다.");
+    $('selection_movie').innerHTML = '선택하신 영화 : ' + this.id;
 }
 
 function movie_JSON(ajax) {
@@ -64,12 +66,6 @@ function movie_JSON(ajax) {
     }
 }
 
-function changemovie(){
-    $('MENU2').style.backgroundColor = 'pink';
-    alert("선택하신 영화는" + this.id + "입니다.");
-    $('selection_movie').innerHTML = '선택하신 영화 : ' + this.id;
-}
-
 function ajaxFailed(ajax, exception) {
     var errorMessage = "Error making Ajax request:\n\n";
     if (exception) {
@@ -81,14 +77,17 @@ function ajaxFailed(ajax, exception) {
     alert(errorMessage);
 }
 
-function sectionselect(section) {
-    var sections = document.getElementsByTagName('section');
-    for (var i = sections.length - 1; i >= 0; i--) {
-        sections[i].style.display = 'none';
-    }
-    if(section != 'none')
-        document.getElementById(section).style.display = 'block';
-}
+
+// 추후 추가 예정
+// function areaselect(Type){
+//     new Ajax.Request("cinema_json.php",{
+//         method : "get",
+//         parameters : {area: Type },
+//         onSuccess : cinema_JSON,
+//         onFailure : ajaxFailed,
+//         onException : ajaxFailed
+//     });
+// }
 
 // function areaselect(areat) {
 //     var areas = document.getElementsByClassName('road');

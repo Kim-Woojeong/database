@@ -89,19 +89,28 @@
 
 				<!-- 날짜 선택(option #3) -->
 				<section id="date">
-					
-					<input type="button" name="" value="다음" onclick="sectionselect('seat')"/>
+					<fieldset>
+						<legend><h2>날짜 선택</h2></legend>
+						
+						<input type="button" name="" value="다음" onclick="sectionselect('seat')"/>
+					</fieldset>
 				</section>
 
 				<!-- 좌석 선택(option #4) -->
 				<section id="seat">
+					<fieldset>
+						<legend><h2>좌석 선택</h2></legend>
 
-					<input type="button" name="" value="다음" onclick="sectionselect('approval')"/>
+						<input type="button" name="" value="다음" onclick="sectionselect('approval')"/>
+					</fieldset>
 				</section>
 
-				<!-- 결재(option #5 - final) -->
+				<!-- 결제(option #5 - final) -->
 				<section id="approval">
-					<input type="submit" name="" value="결제하기" />
+					<fieldset>
+						<legend><h2>결제</h2></legend>
+						<input type="submit" name="" value="결제하기" />
+					</fieldset>
 				</section>
 
 			</form>
