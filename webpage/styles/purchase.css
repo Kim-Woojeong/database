@@ -83,6 +83,5 @@ section{
 
 /* CHECKED STYLES */
 [type=radio]:checked + img {
-	width: 100000px;
   outline: 2px solid #f00;
 }

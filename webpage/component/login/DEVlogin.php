@@ -13,6 +13,12 @@ $stmt = $conn->prepare("SELECT password,customer_name,rank_name FROM customer_in
 $stmt -> bindValue(":id",$id);
 $stmt->execute();
 $result = $stmt->fetchAll();
+if(count($result) == 0){
+	header("Content-Type: text/html; charset=UTF-8");
+	echo "<script>alert('당신은 회원이 아닙니다.');";
+	echo "window.location.replace('login.php');</script>";
+	exit;
+}
 if(!password_verify($password, $result[0]['password'])){
 	header("Content-Type: text/html; charset=UTF-8");
 	echo "<script>alert('아이디 또는 비밀번호가 잘못되었습니다.');";
