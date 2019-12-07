@@ -58,3 +58,13 @@ section{
 	padding-bottom: 5%;
 	width: 100%;
 }
+
+/*option 2: 영화 선택 */
+#movies div{
+	float: left;
+}
+#movies img{
+	margin: 10px;
+	width: 200px;
+	height: calc(200px * 1.432);
+}

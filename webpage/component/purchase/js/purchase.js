@@ -30,18 +30,25 @@ function movie_JSON(ajax) {
         if(data.movies[i].cinema != selectedValue)
             continue;
         if(data.movies[i].movie.length == 0){
-            alert("적자라 영화를 상영할 돈도 없나 봐요..");
+            alert("선택하신 영화관은 현재 영화를 상영하지 않습니다.");
             var paragraph = document.createElement("p");        
             paragraph.innerHTML = "상영중인 영화가 없습니다."
             $("movies").appendChild(paragraph);
         }
         else
             for(var j =0; j< data.movies[i].movie.length;j++){
+            var div = document.createElement("div");
+            div.id = 'POSTER'+j;
+            $("movies").appendChild(div);
             var span = document.createElement("span");        
             span.innerHTML = data.movies[i].movie[j][1];
-            $("movies").appendChild(createRadioElement('movie',data.movies[i].movie[j][0], 0));
-            $("movies").appendChild(span);
-            $("movies").appendChild(document.createElement("br"));
+            var image = document.createElement("img");
+            image.src = '../img/movie/movie_'+data.movies[i].movie[j][0]+'.jpeg';
+            $('POSTER'+j).appendChild(image);
+            $('POSTER'+j).appendChild(document.createElement("br"));
+            $('POSTER'+j).appendChild(createRadioElement('movie',data.movies[i].movie[j][0], 0));
+            $('POSTER'+j).appendChild(span);
+            $('POSTER'+j).appendChild(document.createElement("br"));
         }
     }
 }
