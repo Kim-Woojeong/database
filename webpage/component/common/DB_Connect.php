@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 function connect(){
 	try{
 		$pdo = new PDO("mysql:dbname=zxcinemaxz", "root", "");
@@ -14,7 +14,7 @@ function connect(){
 			return $pdo;
 		}
 		catch (PDOException $e){
-			echo "디비 이름은 틀릴일 없고 root 비번 root로 바꿔라!";
+			echo $e->getmessage();
 		}
 	}
 }
