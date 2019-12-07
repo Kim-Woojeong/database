@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="reserve">
-    <button class="reservebtn">
+    <button class="reservebtn" onclick="location.href = '../purchase/purchase.php'">
       예매
       <i class="fa fa-caret-down"></i>
     </button>
