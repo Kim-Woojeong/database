@@ -40,15 +40,13 @@ function movie_JSON(ajax) {
             var div = document.createElement("label");
             div.id = 'POSTER'+j;
             $("movies").appendChild(div);
-            var span = document.createElement("span");        
-            span.innerHTML = data.movies[i].movie[j][1];
+            var paragraph = document.createElement("p");        
+            paragraph.innerHTML = data.movies[i].movie[j][1];
             var image = document.createElement("img");
             image.src = '../img/movie/movie_'+data.movies[i].movie[j][0]+'.jpeg';
             $('POSTER'+j).appendChild(image);
-            $('POSTER'+j).appendChild(document.createElement("br"));
             $('POSTER'+j).appendChild(createRadioElement('movie',data.movies[i].movie[j][0], 0));
-            $('POSTER'+j).appendChild(span);
-            $('POSTER'+j).appendChild(document.createElement("br"));
+            $('POSTER'+j).appendChild(paragraph);
         }
     }
 }
