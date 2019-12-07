@@ -13,6 +13,7 @@ function sectionselect(section) {
 
 function changecinema() {
     $('MENU1').style.backgroundColor = 'transparent';
+    $('selection_movie').innerHTML = '선택하신 영화 : 미선택';
     new Ajax.Request("movie_json.php",{
         method : "get",
         onSuccess : movie_JSON,
