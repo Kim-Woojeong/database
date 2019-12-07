@@ -37,7 +37,7 @@ function movie_JSON(ajax) {
         }
         else
             for(var j =0; j< data.movies[i].movie.length;j++){
-            var div = document.createElement("div");
+            var div = document.createElement("label");
             div.id = 'POSTER'+j;
             $("movies").appendChild(div);
             var span = document.createElement("span");        
