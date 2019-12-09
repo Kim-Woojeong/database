@@ -20,4 +20,7 @@ foreach ($result_area as $key => $value) {
 	print "}";
 }
 print "\n  ]\n}\n";
+<<<<<<< HEAD
 ?>
+=======
+>>>>>>> 9339ea43bb6882651e0c2ca22e61e803ccac832d

@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <link href="../../styles/common.css" type="text/css" rel="stylesheet" />
-  <link href="../../cinema_test_style.css" type="text/css" rel="stylesheet" />
+  <link href="../../styles/cinema_test_style.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="js/cinema_test.js"></script>
   <title>zxCINEMAxz</title>
 </head>
 
@@ -13,7 +14,7 @@
     <ul id="gnb">
       <?php include "DB_Connect.php";
       include "top_login.php";
-      $db=connect();
+      $db = connect();
       ?>
     </ul>
 
@@ -21,9 +22,15 @@
   <?php
   include "../common/navigator.php";
   ?>
-  <div class="ad">
-  </div> <!-- ad -->
-
+  <?php
+  for ($i=1; $i <7 ; $i++) { 
+    ?>
+    <div class="ad">
+      <div class="mySlides fade">
+        <img src="../img/advertisement/ad<?=$i?>.png" />
+      </div>
+    </div> <!-- ad -->
+  <?php } ?>
   <div class="container">
     <div class="contents">
       <div class="contents_1">
