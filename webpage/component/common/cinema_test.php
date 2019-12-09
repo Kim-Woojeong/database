@@ -14,7 +14,7 @@
     <ul id="gnb">
       <?php include "DB_Connect.php";
       include "top_login.php";
-      $db=connect();
+      $db = connect();
       ?>
     </ul>
 

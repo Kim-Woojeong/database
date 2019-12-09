@@ -20,4 +20,3 @@ foreach ($result_area as $key => $value) {
 	print "}";
 }
 print "\n  ]\n}\n";
-?>
