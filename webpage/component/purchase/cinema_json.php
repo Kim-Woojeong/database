@@ -7,7 +7,7 @@ $result_area = $stmt_area -> fetchAll();
 
 print "{\n  \"cinemas\": [\n";
 $type = 1;
-foreach ($result_area as $key => $value) {		
+foreach ($result_area as $key => $value) {
 	if($type == 0)
 		print ",\n";
 	else

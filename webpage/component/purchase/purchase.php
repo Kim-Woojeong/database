@@ -12,14 +12,23 @@
 	<header class="service_menu">
 		<ul id="gnb">
 			<?php
-			include "../top_login.php";
+			include "../common/top_login.php";
 			?>
 		</ul>
-	</header>  
+	</header>
 	<?php
 	include "../common/navigator.php";
 	include "../common/DB_Connect.php";
 	$conn = connect();
+	$date1 = date("m/d");
+	$date2 = date("m/d", strtotime("+1 day", strtotime($date1)));
+	$date3 = date("m/d", strtotime("+2 day", strtotime($date1)));
+	$date4 = date("m/d", strtotime("+3 day", strtotime($date1)));
+	$week = array("일요일" , "월요일"  , "화요일" , "수요일" , "목요일" , "금요일" ,"토요일") ;
+	$yoil1 = $week[date('w',strtotime($date1))];
+	$yoil2 = $week[date('w',strtotime($date2))];
+	$yoil3 = $week[date('w',strtotime($date3))];
+	$yoil4 = $week[date('w',strtotime($date4))];
 	?>
 
 	<!-- MAIN PAGE START -->
@@ -91,7 +100,16 @@
 				<section id="date">
 					<fieldset>
 						<legend><h2>날짜 선택</h2></legend>
-						
+						<input type="button" name="" value="<?=$date1."/".$yoil1?>" onclick="btn1()">
+						<input type="button" name="" value="<?=$date2."/".$yoil2?>" onclick="btn2()">
+						<input type="button" name="" value="<?=$date3."/".$yoil3?>" onclick="btn3()">
+						<input type="button" name="" value="<?=$date4."/".$yoil4?>" onclick="btn4()">
+						<br>
+						<div id="select_day">
+							<ul>
+								<li></li>
+							</ul>
+						</div>
 						<input type="button" name="" value="다음" onclick="sectionselect('seat')"/>
 					</fieldset>
 				</section>

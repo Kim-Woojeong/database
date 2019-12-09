@@ -2,6 +2,10 @@
 include "../common/DB_Connect.php";
 $conn = connect();
 
+$year = date("Y");
+$month = date("M");
+$day = date("D");
+
 $sql_cinema = 'select cinema_id from cinema';
 $stmt_cinema = $conn -> prepare($sql_cinema);
 $stmt_cinema -> execute();

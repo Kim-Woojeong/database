@@ -2,6 +2,15 @@ window.onload = function() {
     sectionselect('cinema');
 };
 
+var selectcinema;
+var selectmovie;
+var selectday;
+var today = new Date();
+var day = today.getDate();
+var month = today.getMonth()+1;
+var year = today.getYear();
+var nextday = new Date(year,month,day+1,0,0,0);
+
 function sectionselect(section) {
     var sections = document.getElementsByTagName('section');
     for (var i = sections.length - 1; i >= 0; i--) {
@@ -26,11 +35,45 @@ function changemovie(){
     $('MENU2').style.backgroundColor = 'pink';
     alert("선택하신 영화는 " + this.id + "입니다.");
     $('selection_movie').innerHTML = '선택하신 영화 : ' + this.id;
+    selectmovie = this.value;
+}
+
+function changeday(){
+  $('MENU3').style.backgroundColor = 'pink';
+  alert("선택하신 날짜는 " + this.id + "입니다.");
+  $('selection_day').innerHTML = '선택하신 날짜 : ' + this.id;
+  selectday = this.value;
+}
+
+function btn1() {
+  new Ajax.Request("seletday_json.php",{
+      method : "get",
+      onSuccess : selectday_JSON,
+      onFailure : ajaxFailed,
+      onException : ajaxFailed
+  });
+  var data = JSON.parse(ajax.responseText);
+  $('select_day').descendants().each(function(element){element.remove();});
+  for(var i=0;i<data.date.length;i++) {
+    if(data.date[i].cinema_id != selectcinema && data.date[i].movie_id != selectmovie && today<data.date[i].movie_time && data.date[i].movie_time<=nextday)
+      continue;
+    $('MENU3').style.backgroundColor = 'pink';
+    var div = document.createElement('div');
+    div.id = 'buttonhome';
+    $('select_day').apeendChild(div);
+    var btn = dcoumnet.createElement('input');
+    btn.type = 'button';
+    btn.name = 'selectday';
+    btn.value = data.date[i].movie_time;
+    btn.onclick = changeday;
+    $('buttonhome').appendChild(btn);
+  }
 }
 
 function movie_JSON(ajax) {
     var selectBox = document.getElementById("select_cinema");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    selectcinema = selectedValue;
     $('movies').descendants().each(function(element){element.remove();});
     var data = JSON.parse(ajax.responseText);
     for (var i = 0; i < data.movies.length; i++) {
@@ -38,7 +81,7 @@ function movie_JSON(ajax) {
             continue;
         if(data.movies[i].movie.length == 0){
             alert("선택하신 영화관은 현재 영화를 상영하지 않습니다.");
-            var paragraph = document.createElement("p");        
+            var paragraph = document.createElement("p");
             paragraph.innerHTML = "상영중인 영화가 없습니다."
             $("movies").appendChild(paragraph);
         }
@@ -48,7 +91,7 @@ function movie_JSON(ajax) {
                 var div = document.createElement("label");
                 div.id = 'POSTER'+j;
                 $("movies").appendChild(div);
-                var paragraph = document.createElement("p");        
+                var paragraph = document.createElement("p");
                 paragraph.innerHTML = data.movies[i].movie[j][1];
                 var image = document.createElement("img");
                 image.src = '../img/movie/movie_'+data.movies[i].movie[j][0]+'.jpeg';
@@ -72,7 +115,7 @@ function ajaxFailed(ajax, exception) {
     if (exception) {
         errorMessage += "Exception: " + exception.message;
     } else {
-        errorMessage += "Server status:\n" + ajax.status + " " + ajax.statusText + 
+        errorMessage += "Server status:\n" + ajax.status + " " + ajax.statusText +
         "\n\nServer response text:\n" + ajax.responseText;
     }
     alert(errorMessage);
