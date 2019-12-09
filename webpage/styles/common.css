@@ -29,6 +29,7 @@ table {
   padding-bottom: 10px;
   padding-right: 20px;
   background-color: #efefef;
+  overflow: hidden;
 }
 
 .service_menu ul {
