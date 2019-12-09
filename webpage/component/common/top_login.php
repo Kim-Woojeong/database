@@ -9,9 +9,9 @@ if (!isset($_SESSION['id'])) {
 } else {
   ?>
   <p><?= $_SESSION['id'] ?>님</a> |
-    <a href="../login/logout.php">로그아웃</a></p> |
-  <a href="../mypage/mypage_home.php">마이페이지</a>
-  <p>
-  <?php
-  }
-  ?>
+    <a href="../login/logout.php">로그아웃</a> |
+    <a href="../mypage/mypage_home.php">마이페이지</a>
+  </p>
+<?php
+}
+?>
