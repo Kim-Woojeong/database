@@ -107,7 +107,7 @@
 					<fieldset>
 <<<<<<< HEAD
 						<legend><h2>날짜 선택</h2></legend>
-						<input type="button" name="" value="<?=$date1."/".$yoil1?>" onclick="btn1()">
+						<input type="button" name="" value="<?=$date1."/".$yoil1?>" onclick="btn1(this)">
 						<input type="button" name="" value="<?=$date2."/".$yoil2?>" onclick="btn2()">
 						<input type="button" name="" value="<?=$date3."/".$yoil3?>" onclick="btn3()">
 						<input type="button" name="" value="<?=$date4."/".$yoil4?>" onclick="btn4()">

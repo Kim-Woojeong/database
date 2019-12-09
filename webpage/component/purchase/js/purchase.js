@@ -45,7 +45,8 @@ function changeday(){
   selectday = this.value;
 }
 
-function btn1() {
+function btn1(objButton) {
+    alert(objButton.value);
   new Ajax.Request("seletday_json.php",{
       method : "get",
       onSuccess : selectday_JSON,

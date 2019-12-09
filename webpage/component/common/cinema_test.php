@@ -35,7 +35,7 @@
     <div class="contents">
       <div class="contents_1">
         <a href = "" class = "notice">공지사항</a>
-        <ol>
+        <ol><MARQUEE scrolldelay="100">
           <?php
           $sql_notice = "select name,content from notice natural join cinema order by notice_date desc limit 5";
           $stmt_notice = $conn->prepare($sql_notice);
@@ -45,7 +45,7 @@
             ?>
             <li class="notices">[<?=$value['name']?>] <?=$value['content']?></li>
           <?php } ?>
-        </ol>
+        </MARQUEE></ol>
       </div>
 
       <div class="contents_2">
