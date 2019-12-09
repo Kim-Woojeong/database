@@ -1,15 +1,14 @@
-.ad {
-  max-width: 4096px;
-
-  padding: 0;
+html,body{
   margin: 0;
-  height: 300px;
+}
+.ad {
+  padding-bottom: 10px;
+  height: 500px;
   border: 5px solid black;
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  background-image: url("img/pororo.png");
-  background-repeat: no-repeat;
+  background: url('../component/img/advertisement/bg1.png');
+  background-size: contain;
+  background-repeat: repeat-x;
 }
 
 .ad p {
@@ -40,4 +39,63 @@
   float: left;
   text-align: center;
   margin-left: 2%;
+}
+
+.ad img{
+  border: solid 2px white;
+  width: 980px;
+  height: 490px;
+}
+
+
+
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.ad {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #000000;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
 }
