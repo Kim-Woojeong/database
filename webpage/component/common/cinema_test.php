@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <link href="../../styles/common.css" type="text/css" rel="stylesheet" />
-  <link href="../../cinema_test_style.css" type="text/css" rel="stylesheet" />
+  <link href="../../styles/cinema_test_style.css" type="text/css" rel="stylesheet" />
   <title>zxCINEMAxz</title>
 </head>
 
