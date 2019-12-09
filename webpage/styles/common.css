@@ -1,6 +1,9 @@
 body {
   line-height: 1;
 }
+body,html{
+  margin:0;
+}
 ol,
 ul {
   list-style: none;
