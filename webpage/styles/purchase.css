@@ -73,7 +73,7 @@ section {
   height: calc(200px * 1.432);
 }
 
-[type="radio"] {
+.movieposter {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -81,11 +81,11 @@ section {
 }
 
 /* IMAGE STYLES */
-[type="radio"] + img {
+.movieposter + img {
   cursor: pointer;
 }
 
 /* CHECKED STYLES */
-[type="radio"]:checked + img {
+.movieposter:checked + img {
   outline: 2px solid #f00;
 }

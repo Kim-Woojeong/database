@@ -32,43 +32,46 @@ function changecinema() {
 }
 
 function changemovie(){
-    $('MENU2').style.backgroundColor = 'pink';
-    alert("선택하신 영화는 " + this.id + "입니다.");
     $('selection_movie').innerHTML = '선택하신 영화 : ' + this.id;
     selectmovie = this.value;
-}
-
-function changeday(){
-  $('MENU3').style.backgroundColor = 'pink';
-  alert("선택하신 날짜는 " + this.id + "입니다.");
-  $('selection_day').innerHTML = '선택하신 날짜 : ' + this.id;
-  selectday = this.value;
-}
-
-function btn1(objButton) {
-    alert(objButton.value);
-  new Ajax.Request("seletday_json.php",{
+    new Ajax.Request("selectday_json.php",{
       method : "get",
       onSuccess : selectday_JSON,
       onFailure : ajaxFailed,
       onException : ajaxFailed
   });
-  var data = JSON.parse(ajax.responseText);
-  $('select_day').descendants().each(function(element){element.remove();});
-  for(var i=0;i<data.date.length;i++) {
-    if(data.date[i].cinema_id != selectcinema && data.date[i].movie_id != selectmovie && today<data.date[i].movie_time && data.date[i].movie_time<=nextday)
-      continue;
-    $('MENU3').style.backgroundColor = 'pink';
-    var div = document.createElement('div');
-    div.id = 'buttonhome';
-    $('select_day').apeendChild(div);
-    var btn = dcoumnet.createElement('input');
-    btn.type = 'button';
-    btn.name = 'selectday';
-    btn.value = data.date[i].movie_time;
-    btn.onclick = changeday;
-    $('buttonhome').appendChild(btn);
-  }
+}
+
+function selectday_JSON(ajax) {
+    $('select_day').descendants().each(function(element){element.remove();});
+    var data = JSON.parse(ajax.responseText);
+    for(var i=0;i<data.dates.length;i++) {
+        if(data.dates[i].cinema != selectcinema && data.dates[i].movie != selectmovie)
+            continue;
+        if(data.dates[i].theater_and_time.length == 0){
+            alert("선택하신 영화는 선택일에 상영하지 않습니다.");
+            var paragraph = document.createElement("p");
+            paragraph.innerHTML = "선택하신 영화는 현재 상영하지 않습니다."
+            $("movies").appendChild(paragraph);
+        }
+        else {
+            $('MENU2').style.backgroundColor = 'pink';
+            for(var j=0;j<data.dates[i].theater_and_time.length;j++) {
+                var lab = document.createElement('label');
+                lab.id = 'theater_time'+j;
+                $("select_day").appendChild(lab);                
+                var radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'theater_time';
+                radio.value = "theater="+data.dates[i].theater_and_time[j][0]+"&time="+data.dates[i].theater_and_time[j][1];
+                $("theater_time"+j).appendChild(radio);
+                var span = document.createElement("span");
+                span.innerHTML = data.dates[i].theater_and_time[j][0] + " " + data.dates[i].theater_and_time[j][1];
+                $("theater_time"+j).appendChild(span);
+                $("theater_time"+j).appendChild(document.createElement("br"));
+            }
+        }
+    }
 }
 
 function movie_JSON(ajax) {
@@ -89,9 +92,9 @@ function movie_JSON(ajax) {
         else{
             $('MENU1').style.backgroundColor = 'pink';
             for(var j =0; j< data.movies[i].movie.length;j++){
-                var div = document.createElement("label");
-                div.id = 'POSTER'+j;
-                $("movies").appendChild(div);
+                var lab = document.createElement("label");
+                lab.id = 'POSTER'+j;
+                $("movies").appendChild(lab);
                 var paragraph = document.createElement("p");
                 paragraph.innerHTML = data.movies[i].movie[j][1];
                 var image = document.createElement("img");
@@ -100,8 +103,8 @@ function movie_JSON(ajax) {
                 radio.type = 'radio';
                 radio.name = 'movie';
                 radio.value = data.movies[i].movie[j][0];
-                //죄송합니다. id를 이따구로 사용하면 안되는데 너무 귀찮아요.
                 radio.id = data.movies[i].movie[j][1];
+                radio.className = 'movieposter';
                 radio.onclick = changemovie;
                 $('POSTER'+j).appendChild(image);
                 $('POSTER'+j).appendChild(radio);
@@ -121,24 +124,3 @@ function ajaxFailed(ajax, exception) {
     }
     alert(errorMessage);
 }
-
-
-// 추후 추가 예정
-// function areaselect(Type){
-//     new Ajax.Request("cinema_json.php",{
-//         method : "get",
-//         parameters : {area: Type },
-//         onSuccess : cinema_JSON,
-//         onFailure : ajaxFailed,
-//         onException : ajaxFailed
-//     });
-// }
-
-// function areaselect(areat) {
-//     var areas = document.getElementsByClassName('road');
-//     for (var i = areas.length - 1; i >= 0; i--) {
-//         areas[i].style.display = 'none';
-//     }
-//     if(areat != 'none')
-//         document.getElementById(areat).style.display = 'block';
-// }

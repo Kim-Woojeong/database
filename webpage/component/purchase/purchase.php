@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8" />
 	<title>영화 예매</title>
@@ -9,7 +8,6 @@
 	<script type="text/javascript" src="js/purchase.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
 </head>
-
 <body>
 	<header class="service_menu">
 		<ul id="gnb">
@@ -22,15 +20,19 @@
 	include "../common/navigator.php";
 	include "../common/DB_Connect.php";
 	$conn = connect();
-	$date1 = date("m/d");
-	$date2 = date("m/d", strtotime("+1 day", strtotime($date1)));
-	$date3 = date("m/d", strtotime("+2 day", strtotime($date1)));
-	$date4 = date("m/d", strtotime("+3 day", strtotime($date1)));
-	$week = array("일요일" , "월요일"  , "화요일" , "수요일" , "목요일" , "금요일" ,"토요일") ;
-	$yoil1 = $week[date('w',strtotime($date1))];
-	$yoil2 = $week[date('w',strtotime($date2))];
-	$yoil3 = $week[date('w',strtotime($date3))];
-	$yoil4 = $week[date('w',strtotime($date4))];
+   // $fulldate1 = date("y/m/d");
+   // $fulldate2 = date("y/m/d", strtotime("+1 day", strtotime($fulldate1)));
+   // $fulldate3 = date("y/m/d", strtotime("+2 day", strtotime($fulldate2)));
+   // $fulldate4 = date("y/m/d", strtotime("+3 day", strtotime($fulldate3)));
+   // $date1 = date("m/d");
+   // $date2 = date("m/d", strtotime("+1 day", strtotime($date1)));
+   // $date3 = date("m/d", strtotime("+2 day", strtotime($date1)));
+   // $date4 = date("m/d", strtotime("+3 day", strtotime($date1)));
+   // $week = array("일요일" , "월요일"  , "화요일" , "수요일" , "목요일" , "금요일" ,"토요일") ;
+   // $yoil1 = $week[date('w',strtotime($date1))];
+   // $yoil2 = $week[date('w',strtotime($date2))];
+   // $yoil3 = $week[date('w',strtotime($date3))];
+   // $yoil4 = $week[date('w',strtotime($date4))];
 	?>
 
 	<!-- MAIN PAGE START -->
@@ -55,96 +57,63 @@
 				<!-- 영화관 선택(option #1) -->
 				<section id="cinema">
 					<fieldset>
-						<legend>
-							<h2>영화관 선택</h2>
-						</legend>
-						<!-- 						byby ss..
-						<div class="area">
-							<button id='A1'>서울/경기</button>
-							<button id='A2'>경상도</button>
-							<button id='A3'>충청도</button>
-							<button id='A4'>전라도</button>
-							<button id='A5'>제주도</button>
-						</div> -->
-
+						<legend><h2>영화관 선택</h2></legend>
 						<?php
-						// $area;
-						$sql_area = "select cinema_id,name,road_address from cinema"; // where area = $area";
+						$sql_area = "select cinema_id,name,road_address from cinema";
 						$stmt_area = $conn->prepare($sql_area);
-						// $stmt_area -> bindParam(":area",$area);
 						?>
 						<div class="road">
 							<?php
-							$stmt_area->execute();
-							$result_area = $stmt_area->fetchAll();
+							$stmt_area -> execute();
+							$result_area = $stmt_area -> fetchAll();
 							?>
-							<select name="cinema" size="<?= count($result_area) ?>" onchange="changecinema();" id="select_cinema">
+							<select name="cinema" size="<?=count($result_area)?>" onchange = "changecinema();" id="select_cinema">
 								<?php foreach ($result_area as $key => $value) { ?>
-									<option value="<?= $value['cinema_id'] ?>"><?= $value['name'] ?></option>
+									<option value="<?=$value['cinema_id']?>"><?=$value['name']?></option>
 								<?php } ?>
 							</select>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('movie')" />
+						<input type="button" name="" value="다음" onclick="sectionselect('movie')"/>
 					</fieldset>
 				</section>
 
 				<!-- 영화 선택(option #2) -->
 				<section id="movie">
 					<fieldset>
-						<legend>
-							<h2>영화선택</h2>
-						</legend>
+						<legend><h2>영화선택</h2></legend>
 						<h3 id="selection_movie">선택하신 영화 : 미선택</h3>
 						<div id="movies">
 							<p>영화를 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('date')" />
+						<input type="button" name="" value="다음" onclick="sectionselect('date')"/>
 					</fieldset>
 				</section>
 
 				<!-- 날짜 선택(option #3) -->
 				<section id="date">
 					<fieldset>
-<<<<<<< HEAD
 						<legend><h2>날짜 선택</h2></legend>
-						<input type="button" name="" value="<?=$date1."/".$yoil1?>" onclick="btn1(this)">
-						<input type="button" name="" value="<?=$date2."/".$yoil2?>" onclick="btn2()">
-						<input type="button" name="" value="<?=$date3."/".$yoil3?>" onclick="btn3()">
-						<input type="button" name="" value="<?=$date4."/".$yoil4?>" onclick="btn4()">
 						<br>
 						<div id="select_day">
-							<ul>
-								<li></li>
-							</ul>
+							<p>날짜를 선택할 수 없습니다.</p>
 						</div>
 						<input type="button" name="" value="다음" onclick="sectionselect('seat')"/>
-=======
-						<legend>
-							<h2>날짜 선택</h2>
-						</legend>
-
-						<input type="button" name="" value="다음" onclick="sectionselect('seat')" />
->>>>>>> 9339ea43bb6882651e0c2ca22e61e803ccac832d
 					</fieldset>
 				</section>
 
 				<!-- 좌석 선택(option #4) -->
 				<section id="seat">
 					<fieldset>
-						<legend>
-							<h2>좌석 선택</h2>
-						</legend>
+						<legend><h2>좌석 선택</h2></legend>
 
-						<input type="button" name="" value="다음" onclick="sectionselect('approval')" />
+						<input type="button" name="" value="다음" onclick="sectionselect('approval')"/>
 					</fieldset>
 				</section>
 
 				<!-- 결제(option #5 - final) -->
 				<section id="approval">
 					<fieldset>
-						<legend>
-							<h2>결제</h2>
-						</legend>
+						<legend><h2>결제</h2></legend>
 						<input type="submit" name="" value="결제하기" />
 					</fieldset>
 				</section>
@@ -155,9 +124,4 @@
 
 	</main>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-
-</html>
->>>>>>> 9339ea43bb6882651e0c2ca22e61e803ccac832d
