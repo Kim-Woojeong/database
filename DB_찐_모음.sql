@@ -105,6 +105,7 @@ CREATE TABLE Actor (
 CREATE TABLE Customer_rank(
     rank_name  VARCHAR(10) NOT NULL,
     upgrade_standard  TEXT(1000)  NULL,
+    sequence INT NOT NULL,
     CONSTRAINT PK_Customer_rank PRIMARY KEY(rank_name)
 );
 
@@ -422,10 +423,11 @@ insert into coupon values
 ("서버점검보상쿠폰", "영화", 100.0),
 ("계열사직원쿠폰", "영화&음식", 40.0),
 ("쓰는사람이있을카쿠폰", "영화", 5.0);
-insert into customer_rank values ("SVIP","해당분기 20회 이상"),
-("VVIP", "해당분기 20회미만 10회이상"),
-("RVIP", "해당분기 10회미만 5회이상"),
-("VIP", "해당분기 5회미만");
+insert into customer_rank values 
+("SVIP","해당분기 20회 이상",20),
+("VVIP", "해당분기 20회미만 10회이상",10),
+("RVIP", "해당분기 10회미만 5회이상",5),
+("VIP", "해당분기 5회미만",0);
 
 insert into Actor values
 (1000,"제니퍼 로렌스","Jennifer Lawrence","미국","https://www.facebook.com/JenniferLawrence/","미국사람이다"),
