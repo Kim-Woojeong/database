@@ -49,7 +49,7 @@
       </div>
 
       <div class="contents_2">
-        <a href="" class="movie_rank">영화순위</a>
+        <a href="movie" class="movie_rank">영화순위</a>
         <ol>
           <?php
           $sql_movieranking = "select movie_id,movie_name,total_audience from movie order by total_audience desc limit 10";
@@ -67,7 +67,7 @@
         <a href="" class="customer_rank">회원등급</a>
         <ol>
           <?php
-          $sql_customerrank = "select rank_name,upgrade_standard from customer_rank";
+          $sql_customerrank = "select rank_name,upgrade_standard from customer_rank order by sequence";
           $stmt_customerrank = $conn->prepare($sql_customerrank);
           $stmt_customerrank -> execute();
           $result_customerrank = $stmt_customerrank ->fetchAll();
