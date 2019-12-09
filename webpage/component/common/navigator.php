@@ -2,8 +2,9 @@
 
 <nav class="navbar">
   <a href="../common/cinema_test.php"><img src="../img/logo.png"></a>
+ 
   <div class="dropdown">
-    <button class="dropbtn">영화
+    <button class="dropbtn" id="first">영화
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
@@ -12,7 +13,7 @@
       <a href="../movie/all_movie.php">영화검색</a>
     </div>
   </div>
-  <div class="dropdown">
+  <div class="dropdown" id = "second">
     <button class="dropbtn">이벤트
       <i class="fa fa-caret-down"></i>
     </button>
@@ -22,7 +23,7 @@
     </div>
   </div>
   <div class="dropdown">
-    <button class="dropbtn">영화관
+    <button class="dropbtn" id ="third">영화관
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
