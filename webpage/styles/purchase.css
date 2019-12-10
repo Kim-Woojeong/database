@@ -89,3 +89,8 @@ section {
 .movieposter:checked + img {
   outline: 2px solid #f00;
 }
+
+#select_seat{
+  width: 300px;
+  height: 300px;
+}

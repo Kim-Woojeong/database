@@ -67,11 +67,12 @@ function changetime(){
     selecttheater = this.id;
     selectday = this.className;
     new Ajax.Request("seat_json.php",{
-      method : "get",
-      onSuccess : seat_JSON,
-      onFailure : ajaxFailed,
-      onException : ajaxFailed
-  });
+        method : "get",
+        onSuccess : seat_JSON,
+        onFailure : ajaxFailed,
+        onException : ajaxFailed
+    });
+
 }
 function changeseat() {
     var j = 0;
@@ -129,6 +130,12 @@ function changeseat() {
     hidden.setAttribute("value", prices);
     $("approvals").appendChild(hidden);
 }
+function isseat_JSON(ajax) {
+    var data = JSON.parse(ajax.responseText);
+    for (var i = 0; i < data.isseat.length; i++) {
+        $(data.isseat[i].seat).disabled = true;
+    }
+}
 
 function seat_JSON(ajax) {
     $('seats').descendants().each(function(element){element.remove();});
@@ -152,12 +159,24 @@ function seat_JSON(ajax) {
             $("seats").appendChild(select);
             for(var j=0;j<data.seats[i].seat.length;j++) {
                 var option = document.createElement('option');
+                option.id = data.seats[i].seat[j];
                 option.value = data.seats[i].seat[j];
                 option.innerHTML = data.seats[i].seat[j];
                 $("select_seat").appendChild(option);
             }
         }
     }
+    new Ajax.Request("isseat_json.php",{
+        method : "get",
+        parameters : {
+            cinema:selectcinema,
+            theater:selecttheater,
+            time:selectday
+        },
+        onSuccess : isseat_JSON,
+        onFailure : ajaxFailed,
+        onException : ajaxFailed
+    });
 }
 
 function selectday_JSON(ajax) {
