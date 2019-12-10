@@ -105,6 +105,7 @@
 				<section id="seat">
 					<fieldset>
 						<legend><h2>좌석 선택</h2></legend>
+						<h3 id="people">선택 인수 : 0명</h3>
 						<div id="seats">
 							<p>좌석을 선택할 수 없습니다.</p>
 						</div>
@@ -122,15 +123,20 @@
 						<div id="coupon">
 							<?php
 							if(isset($_SESSION['id'])){?>
-								<select>
+								<select name="coupon">
 									<option>미선택</option>
-									<option>냠</option>
-									<option>냠</option>
-									<option>이</option>
+									<?php
+									$sql_coupon = "select coupon_name,discount_rate,coupon_number from coupon_box natural join coupon where customer_id = :customer_id and type = '영화' and expirate_date>now() and usage_status = 0";
+									$stmt_coupon = $conn -> prepare($sql_coupon);
+									$stmt_coupon -> bindValue(":customer_id",$_SESSION['id']);
+									$stmt_coupon -> execute();
+									$result_coupon = $stmt_coupon -> fetchAll();
+									foreach ($result_coupon as $key => $value) { ?>
+										<option value="<?=$value['coupon_number']?>"><?=$value['coupon_name']?> [<?=$value['discount_rate']?>% 할인]</option>
+									<?php } ?>
 								</select>
 							<?php } else {?>
 								<p>로그인 하시면 쿠폰을 사용하실 수 있습니다.</p>
-
 							<?php } ?>
 						</div>
 						<input type="submit" name="" value="결제하기" />

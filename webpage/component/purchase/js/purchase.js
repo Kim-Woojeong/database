@@ -9,7 +9,7 @@ var selectmovie;
 var selectmovie_name;
 var selectday;
 var selecttheater;
-var selectseat;
+var selectseat = {};
 var today = new Date();
 var day = today.getDate();
 var month = today.getMonth()+1;
@@ -66,13 +66,13 @@ function changetime(){
       onException : ajaxFailed
   });
 }
-
 function changeseat() {
+    var j = 0;
+    var options = document.getElementById('select_seat').options, count = 0;
     for (var i = 4; i <= 5; i++) {
         $('MENU'+i).style.backgroundColor = 'transparent';
     }
     $('MENU4').style.backgroundColor = 'pink';
-    selectseat = this.value;
     $('approvals').descendants().each(function(element){element.remove();});
     var img = document.createElement('img');
     img.src = '../img/movie/movie_'+ selectmovie +'.jpeg';
@@ -84,17 +84,34 @@ function changeseat() {
     h3.innerHTML = selectmovie_name;
     $("movie_data").appendChild(h3);
     var seti = document.createElement('p');
-    seti.innerHTML = selectday;
+    seti.innerHTML = "상영 시간: " + selectday;
     $("movie_data").appendChild(seti);
     var seth = document.createElement('p');
-    seth.innerHTML = selecttheater;
+    seth.innerHTML = "상영관: " + selecttheater;
     $("movie_data").appendChild(seth);
 
+
+    var sese = document.createElement('p');
+    sese.innerHTML = '선택한 좌석: ';
+    var type = 1;
+    for (var i=0; i < options.length; i++){
+        if (!options[i].selected)
+            continue;
+        count++;
+        if(type)
+            type = 0;
+        else
+            sese.innerHTML +=", ";
+        sese.innerHTML +=options[i].value;
+    }
+    $('people').innerHTML = '선택 인수 : ' + count +'명';
+    $("movie_data").appendChild(sese);
+    prices *= count;
     var purchase = document.createElement('div');
     purchase.id = 'purchase';
     $("approvals").appendChild(purchase);
     var price = document.createElement('p');
-    price.innerHTML = "결제금액은 : " + prices +"입니다.";
+    price.innerHTML = "결제금액은 : " + prices +"원입니다.";
     $("purchase").appendChild(price);
 
     var hidden = document.createElement('input')
@@ -118,21 +135,17 @@ function seat_JSON(ajax) {
         } 
         else {
             $('MENU3').style.backgroundColor = 'pink';
+            var select = document.createElement('select');
+            select.name = 'seat[]'
+            select.id = 'select_seat'
+            select.multiple = 'multiple';
+            select.onchange = changeseat;
+            $("seats").appendChild(select);
             for(var j=0;j<data.seats[i].seat.length;j++) {
-                var lab = document.createElement('label');
-                lab.id = 'seat'+j;
-                $("seats").appendChild(lab);                
-                var radio = document.createElement('input');
-                radio.type = 'radio';
-                radio.name = 'seat';
-                radio.id = data.seats[i].seat[j];
-                radio.value = data.seats[i].seat[j];
-                radio.onclick = changeseat;
-                $("seat"+j).appendChild(radio);
-                var span = document.createElement("span");
-                span.innerHTML = data.seats[i].seat[j];
-                $("seat"+j).appendChild(span);
-                $("seat"+j).appendChild(document.createElement("br"));
+                var option = document.createElement('option');
+                option.value = data.seats[i].seat[j];
+                option.innerHTML = data.seats[i].seat[j];
+                $("select_seat").appendChild(option);
             }
         }
     }

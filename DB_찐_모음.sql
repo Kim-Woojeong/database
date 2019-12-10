@@ -201,7 +201,7 @@ CREATE TABLE Coupon_box (
     issue_date timestamp not null default current_timestamp,
     expirate_date datetime not null,
     usage_status tinyint not null default 0,
-    CONSTRAINT PK_Coupon_box PRIMARY KEY(coupon_number, customer_id, coupon_name),
+    CONSTRAINT PK_Coupon_box PRIMARY KEY(coupon_number, customer_id),
     CONSTRAINT FK_Coupon_box_1 FOREIGN KEY(customer_id)
     REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Coupon_box_2 FOREIGN KEY(coupon_name)
@@ -307,13 +307,10 @@ CREATE TABLE Food_salelist (
     time timestamp not null default current_timestamp,
     payment int unsigned not null,
     coupon_number int unsigned null,
-    coupon_name varchar(50) null,
     customer_id char(20) null,
     CONSTRAINT PK_Food_salelist PRIMARY KEY(sales_id),
     CONSTRAINT FK_Food_salelist_1 FOREIGN KEY(coupon_number)
     REFERENCES Coupon_box(coupon_number) ON UPDATE CASCADE ON DELETE RESTRICT,
-    CONSTRAINT FK_Food_salelist_2 FOREIGN KEY(coupon_name)
-    REFERENCES Coupon_box(coupon_name) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Food_salelist_3 FOREIGN KEY(customer_id)
     REFERENCES Coupon_box(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
@@ -337,7 +334,6 @@ CREATE TABLE Ticketing_info (
     pay_way varchar(50) not null,
     send_contact char(11) null,
     coupon_number int unsigned null,
-    coupon_name varchar(50) null,
     customer_id char(20) null,
     movie_time datetime not null,
     theater_name char(10) not null,
@@ -346,8 +342,6 @@ CREATE TABLE Ticketing_info (
     CONSTRAINT PK_Ticketing_info PRIMARY KEY(ticket_id),
     CONSTRAINT FK_Ticketing_info_1 FOREIGN KEY(coupon_number)
     REFERENCES Coupon_box(coupon_number) ON UPDATE CASCADE ON DELETE RESTRICT,
-    CONSTRAINT FK_Ticketing_info_2 FOREIGN KEY(coupon_name)
-    REFERENCES Coupon_box(coupon_name) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Ticketing_info_3 FOREIGN KEY(customer_id)
     REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Ticketing_info_4 FOREIGN KEY(movie_time)
@@ -999,13 +993,13 @@ insert into Seat values
   ("B10", "2관", 1000001, "일반석"),
   ("D12", "특별관", 1000002, "장애인석");
 
-insert into Food_salelist(payment, coupon_number, coupon_name, customer_id) values
-(11900, NULL, NULL, NULL),
-(5700, 44, "쓰는사람이있을카쿠폰", "dkssud"),
-(23400, 4, "쓰는사람이있을카쿠폰", "dkssud"),
-(12500, 444, "쓰는사람이있을카쿠폰", "dkssud"),
-(1500, 4444, "쓰는사람이있을카쿠폰", "dkssud"),
-(9000,NULL,NULL,"dkssud")
+insert into Food_salelist(payment, coupon_number, customer_id) values
+(11900, NULL, NULL),
+(5700, 44, "dkssud"),
+(23400, 4, "dkssud"),
+(12500, 444, "dkssud"),
+(1500, 4444, "dkssud"),
+(9000,NULL,"dkssud")
 ;
 
 insert into Ticketing_info(pay_amount,pay_way,send_contact,movie_time,theater_name,cinema_id,movie_id) values
