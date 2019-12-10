@@ -12,6 +12,7 @@
                     <?php
                     include "../common/DB_Connect.php";
                     include "../common/top_login.php";
+                    $db = connect();
                     ?>
                 </ul>
             </header>
@@ -21,15 +22,58 @@
 
             <!--start -->
 
+            <?php
+            $id = $_SESSION['id'];
+            $name=$_SESSION['name'];
+            $need = 0;
+            $view_sql = "select count(ticket_id),rank_name from ticketing_info natural join customer_info where customer_id = '$id'";
+            $view_stt=$db->prepare($view_sql);
+            $view_stt->execute();
+            $result = $view_stt->fetch(PDO::FETCH_ASSOC);
+            $view_movie = $result['count(ticket_id)'];
+            if($view_movie<5){
+              $need = 5-$view_movie;
+              $sql = "update customer_info set rank_name = 'VIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<10) {
+              $need = 10-$view_movie;
+              $sql = "update customer_info set rank_name = 'RVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<20) {
+              $need = 20-$view_movie;
+              $sql = "update customer_info set rank_name = 'VVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else {
+              $need = $view_movie;
+              $sql = "update customer_info set rank_name = 'SVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            ?>
             <div class="page_info">
                 HOME > 마이페이지
             </div> <!-- page_info -->
             <div class="top_info">
+              <?php if($need<20) { ?>
                 <p>
-                    안녕하세요 _____님<br />
-                    고객님의 등급은 ______ 입니다.<br />
-                    다음등급까지 __번의 영화예매가 남아있습니다.<br />
+                    안녕하세요 <?=$name?>님<br />
+                    고객님의 등급은 <?=$result['rank_name']?> 입니다.<br />
+                    다음등급까지 <?=$need?>번의 영화예매가 남아있습니다.<br />
                 </p>
+              <?php } else { ?>
+                <p>
+                    안녕하세요 <?=$name?>님<br />
+                    고객님의 등급은 <?=$rank?> 입니다.<br />
+                    지금까지 <?=$need?>번의 영화를 보셨습니다.<br />
+                </p>
+              <?php } ?>
+
             </div> <!-- top_info -->
 
             <div class="left_info">
@@ -62,31 +106,34 @@
             <div class="right_info">
 
                 <div class="watched_movie">
-                    <p id="watched_movie_title">내가 본 영화</p>
-                    <div class="watched_movie_poster">
-                        <div id="poster_list">
-                            <p>영화 포스터</p>
-                        </div>
-                        <div id="poster_list">
-                            <p>영화 포스터</p>
-                        </div>
-                        <div id="poster_list">
-                            <p>영화 포스터</p>
-                        </div>
+                  <p id="watched_movie_title">내가 본 영화</p>
+                  <div class="watched_movie_poster">
+                  <?php $sql1 = "select movie_id from ticketing_info natural join movie_review where customer_id='$id'";
+                  $stt1=$db->prepare($sql1);
+                  $stt1->execute();
+                  ?>
+                  <?php foreach($stt1 as $movie) { ?>
+                    <div id="poster_list">
+                        <img src="../img/movie/movie_<?=$movie['movie_id']?>">
+                    </div>
+                  <?php } ?>
                     </div> <!-- watched_movie_poster -->
                 </div> <!-- watched_movie -->
 
                 <div class="my_review">
+
                     <p id="my_review_title">내가 작성한 리뷰</p>
                     <div class="my_review_box">
+                      <?php $sql2 = "select contents,written_time from movie_review where customer_id='$id'";
+                      $stt2=$db->prepare($sql2);
+                      $stt2->execute();
+                      ?>
+                      <?php foreach ($stt2 as $review) { ?>
                         <div id="review_list">
-                            <p>작성한 리뷰들 한문장으로 리뷰, 그 밑에 날짜 표시하기!</p>
-                            <p>2019.12.01</p>
+                            <p><?= $review['contents'] ?></p>
+                            <p><?= $review['written_time'] ?></p>
                         </div>
-                        <div id="review_list">
-                            <p>작성한 리뷰들 한문장으로 리뷰, 그 밑에 날짜 표시하기!</p>
-                            <p>2019.12.02</p>
-                        </div>
+                      <?php } ?>
                     </div>
                 </div> <!-- my_review -->
 
