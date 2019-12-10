@@ -13,7 +13,6 @@
 		<ul id="gnb">
 			<?php
 			include "../common/top_login.php";
-			session_start();
 			?>
 		</ul>
 	</header>
