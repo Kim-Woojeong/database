@@ -3,7 +3,7 @@ window.onload = function() {
 };
 
 var prices = 10000;
-
+var count;
 var selectcinema;
 var selectmovie;
 var selectmovie_name;
@@ -24,6 +24,13 @@ function sectionselect(section) {
     if(section != 'none')
         document.getElementById(section).style.display = 'block';
 }
+
+function usecoupon(obj) {
+    var discount = prices * (100 - obj[obj.selectedIndex].id);
+    $('뿌아아앙').innerHTML = "결제금액은 : " + discount +"원입니다.";
+    $('hiddenprice').value = discount;
+}
+
 
 function changecinema() {
     for (var i = 1; i <= 5; i++) {
@@ -106,15 +113,17 @@ function changeseat() {
     }
     $('people').innerHTML = '선택 인수 : ' + count +'명';
     $("movie_data").appendChild(sese);
-    prices *= count;
+    prices = 10000 * count;
     var purchase = document.createElement('div');
     purchase.id = 'purchase';
     $("approvals").appendChild(purchase);
     var price = document.createElement('p');
+    price.id = '뿌아아앙';
     price.innerHTML = "결제금액은 : " + prices +"원입니다.";
     $("purchase").appendChild(price);
 
     var hidden = document.createElement('input')
+    hidden.setAttribute("id","hiddenprice");
     hidden.setAttribute("type", "hidden");
     hidden.setAttribute("name", "price");
     hidden.setAttribute("value", prices);

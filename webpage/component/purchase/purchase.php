@@ -13,6 +13,7 @@
 		<ul id="gnb">
 			<?php
 			include "../common/top_login.php";
+			session_start();
 			?>
 		</ul>
 	</header>
@@ -120,21 +121,26 @@
 						<div id="approvals">
 							<P>선행 과제를 수행해 주세요</P>
 						</div>
+						<input type="text" name="pay_way1" placeholder="결제수단" maxlength="2" style="width: 55px" />
+						<input type="text" name="pay_way2" placeholder="카드번호 (-제외)" maxlength="16" />
+						<input type="text" name="send_contact" placeholder="연락처 (-제외)" maxlength="11"/>
 						<div id="coupon">
 							<?php
 							if(isset($_SESSION['id'])){?>
-								<select name="coupon">
-									<option>미선택</option>
-									<?php
-									$sql_coupon = "select coupon_name,discount_rate,coupon_number from coupon_box natural join coupon where customer_id = :customer_id and type = '영화' and expirate_date>now() and usage_status = 0";
-									$stmt_coupon = $conn -> prepare($sql_coupon);
-									$stmt_coupon -> bindValue(":customer_id",$_SESSION['id']);
-									$stmt_coupon -> execute();
-									$result_coupon = $stmt_coupon -> fetchAll();
-									foreach ($result_coupon as $key => $value) { ?>
-										<option value="<?=$value['coupon_number']?>"><?=$value['coupon_name']?> [<?=$value['discount_rate']?>% 할인]</option>
-									<?php } ?>
-								</select>
+								<label>쿠폰 선택:
+									<select name="coupon" onchange="usecoupon(this)">
+										<option value="NULL" id="0">미선택</option>
+										<?php
+										$sql_coupon = "select coupon_name,discount_rate,coupon_number from coupon_box natural join coupon where customer_id = :customer_id and type = '영화' and expirate_date>now() and usage_status = 0";
+										$stmt_coupon = $conn -> prepare($sql_coupon);
+										$stmt_coupon -> bindValue(":customer_id",$_SESSION['id']);
+										$stmt_coupon -> execute();
+										$result_coupon = $stmt_coupon -> fetchAll();
+										foreach ($result_coupon as $key => $value) { ?>
+											<option value="<?=$value['coupon_number']?>" id='<?=$value['discount_rate']?>'><?=$value['coupon_name']?> [<?=$value['discount_rate']?>% 할인]</option>
+										<?php } ?>
+									</select>
+								</label>
 							<?php } else {?>
 								<p>로그인 하시면 쿠폰을 사용하실 수 있습니다.</p>
 							<?php } ?>
