@@ -27,7 +27,7 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="#">영화관 찾기</a>
+      <a href="../search/cinema_search.php">영화관 찾기</a>
     </div>
   </div>
   <div class="reserve">
