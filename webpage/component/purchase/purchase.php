@@ -105,7 +105,9 @@
 				<section id="seat">
 					<fieldset>
 						<legend><h2>좌석 선택</h2></legend>
-
+						<div id="seats">
+							<p>좌석을 선택할 수 없습니다.</p>
+						</div>
 						<input type="button" name="" value="다음" onclick="sectionselect('approval')"/>
 					</fieldset>
 				</section>
@@ -114,6 +116,23 @@
 				<section id="approval">
 					<fieldset>
 						<legend><h2>결제</h2></legend>
+						<div id="approvals">
+							<P>선행 과제를 수행해 주세요</P>
+						</div>
+						<div id="coupon">
+							<?php
+							if(isset($_SESSION['id'])){?>
+								<select>
+									<option>미선택</option>
+									<option>냠</option>
+									<option>냠</option>
+									<option>이</option>
+								</select>
+							<?php } else {?>
+								<p>로그인 하시면 쿠폰을 사용하실 수 있습니다.</p>
+
+							<?php } ?>
+						</div>
 						<input type="submit" name="" value="결제하기" />
 					</fieldset>
 				</section>

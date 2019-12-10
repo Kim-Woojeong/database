@@ -67,7 +67,7 @@ section {
 #movies label {
   float: left;
 }
-#movies img {
+#movies img, #approvals img{
   margin: 10px;
   width: 200px;
   height: calc(200px * 1.432);

@@ -7,5 +7,6 @@ print "선택한 영화 id 는" . $_POST['theater_time'] . '입니다.<br/>';
 parse_str($_POST['theater_time']);
 
 print "분리된 값은 영화관: " . $theater . ' 그리고 시간: ' . $time . '<hr/>';
-print "";
+print "선택한 좌석은" . $_POST['seat'] . '입니다.';
+print "결제 금액은" . $_POST['price'] . '입니다.';
 ?>
