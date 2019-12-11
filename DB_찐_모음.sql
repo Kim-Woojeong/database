@@ -196,7 +196,7 @@ CREATE TABLE Movie_actor (
 CREATE TABLE Coupon_box (
     coupon_number int unsigned not null,
     customer_id char(20) not null,
-    coupon_name varchar(50) not null, 
+    coupon_name varchar(50) not null,
     issue_date timestamp not null default current_timestamp,
     expirate_date datetime not null,
     usage_status tinyint not null default 0,
@@ -1069,11 +1069,7 @@ insert into Food_salelist(payment, coupon_number, customer_id) values
 (23400, 4, "dkssud"),
 (12500, 444, "dkssud"),
 (1500, 4444, "dkssud"),
-(9000,NULL,"dkssud")
-;
-
-insert into Ticketing_info(pay_amount,pay_way,send_contact,movie_time,theater_name,cinema_id,movie_id) values
-(10000000,"신한000000000000","01012344444","2019-12-12 19:00:00","1관",1000000,10000);
+(9000,NULL,"dkssud");
 
 insert into Purchase_list(sales_id, menu_id, cinema_id) values
 (1, "더블콤보", 1000000),
