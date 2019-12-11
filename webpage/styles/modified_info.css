@@ -1,18 +1,19 @@
 #wrapper {
   border: 2px;
   text-align: center;
-  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  width: 500px;
-}
-
-#inputArea {
-  padding-top: 10px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .input_box {
-  padding-top: 10px;
+  padding-top: 20px;
+}
+
+.input_box_title {
+  font-size: 25pt;
+  padding-right: 30px;
 }
 
 .input_text {
@@ -31,4 +32,7 @@
 form {
   width: 500px;
   height: 550px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

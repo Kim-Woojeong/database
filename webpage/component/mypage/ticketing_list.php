@@ -67,7 +67,6 @@
                     <br />
                     <ul class="list_3">
                         <li id="left_info_title"> 회원정보 </li>
-                        <li><a href="change_pw.php">비밀번호 변경</a></li>
                         <li><a href="modified_info.php">정보수정</a></li>
                         <li><a href="delete_info.php">회원탈퇴</a></li>
                     </ul> <!-- list_3 -->

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
-    <title>정보수정 < zxCINEMAxz</title> </head> <body>
+    <title>마이페이지 < zxCINEMAxz</title> </head> <body>
             <!-- top -->
             <header class="service_menu">
                 <ul id="gnb">
@@ -27,7 +27,7 @@
 
             <!--start -->
             <div class="page_info">
-                HOME > 마이페이지 > 예매내역
+                HOME > 마이페이지 > 정보수정
             </div>
 
             <div class="section_title">
@@ -48,7 +48,6 @@
             </div> <!-- top_info -->
             <hr />
 
-
             <div class="down_info">
                 <div class="left_info">
 
@@ -67,7 +66,6 @@
                     <br />
                     <ul class="list_3">
                         <li id="left_info_title"> 회원정보 </li>
-                        <li><a href="change_pw.php">비밀번호 변경</a></li>
                         <li><a href="modified_info.php">정보수정</a></li>
                         <li><a href="delete_info.php">회원탈퇴</a></li>
                     </ul> <!-- list_3 -->
@@ -83,39 +81,33 @@
                 <div class="right_info">
                     <div id="wrapper">
                         <form id="signInForm" action="DEVregister.php" method="post">
-                            <div class="signIn">
+                            <div class="Modified_box">
+                                <h2 class="big">정보수정</h2>
 
-                                <div id="inputArea">
-
-                                    <h2 class="big">정보수정</h2>
-
-                                    <div class="input_box">
-                                        <label>
-                                            <input class="input_text" id="user_Student_ID" type="text" name="ID" placeholder="ID">
-                                        </label>
-                                    </div>
-
-                                    <div class="input_box">
-                                        <label>
-                                            <input class="input_text" id="user_PW" type="password" name="password" placeholder="password">
-                                        </label>
-                                    </div>
-
-                                    <div class="input_box">
-                                        <input type="radio" name="gender" value="남자" />남자
-                                        <input type="radio" name="gender" value="여자" />여자
-                                    </div>
-
-                                    <div class="input_box">
-                                        <label>
-                                            <input class="input_text" id="name" type="text" name="name" placeholder="Name">
-                                        </label>
-                                    </div>
-
+                                <div class="input_box">
+                                    <label>
+                                        <input class="input_text" id="user_Student_ID" type="text" name="ID" placeholder="ID">
+                                    </label>
                                 </div>
 
                                 <div class="input_box">
-                                    <h2 class="big">주소입력</h2>
+                                    <label>
+                                        <input class="input_text" id="user_PW" type="password" name="password" placeholder="password">
+                                    </label>
+                                </div>
+
+                                <div class="input_box">
+                                    <input type="radio" name="gender" value="남자" />남자
+                                    <input type="radio" name="gender" value="여자" />여자
+                                </div>
+
+                                <div class="input_box">
+                                    <label>
+                                        <input class="input_text" id="name" type="text" name="name" placeholder="Name">
+                                    </label>
+                                </div>
+
+                                <div class="input_box">
                                     <div class="location">
                                         <span class="selWrap">
                                             <select class="sel" name="selectedQuestion">
@@ -150,8 +142,9 @@
                                     </label>
                                 </div>
 
-                                <div class="input">
-                                    <h2 class="big">생년월일</h2>
+
+                                <!-- <h2 class="big">생년월일</h2> -->
+                                <div class="input_box">
                                     <select name="year">
                                         <?php for ($i = 1920; $i < 2020; $i++) {
                                             ?>

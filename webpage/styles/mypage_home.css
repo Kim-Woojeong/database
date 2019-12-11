@@ -157,6 +157,7 @@ hr {
 .right_info {
   width: 850px;
   padding-bottom: 50px;
+  padding-bottom: 30px;
   margin-top: 50px;
   margin-right: 50px;
   color: black;
@@ -233,18 +234,4 @@ hr {
 #review_list p {
   margin-top: 10px;
   margin-bottom: 20px;
-}
-
-#popcorn img {
-  width: 100px;
-  float: right;
-  margin-right: 300px;
-  margin-top: 50px;
-}
-
-#home img {
-  width: 100px;
-  float: left;
-  margin-left: 300px;
-  margin-top: 50px;
 }
