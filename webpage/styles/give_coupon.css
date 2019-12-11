@@ -1,0 +1,25 @@
+.left {
+  float: left;
+  width: 40%;
+  margin-left: 7%;
+  margin-right: 3%;
+}
+
+.right {
+  width: 40%;
+  margin-left: 53%;
+}
+
+.btn {
+  text-align: center;
+}
+
+#wrap {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ahah {
+  width: 1000px;
+}

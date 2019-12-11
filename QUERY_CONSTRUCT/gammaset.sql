@@ -227,7 +227,8 @@ CREATE TABLE Employee(
 CREATE TABLE Equipment (
     equip_name char(20) not null,
     cinema_id int unsigned not null,
-    amount int unsigned not null,
+    amount int unsigned,
+    totla bigint unsigned,
     CONSTRAINT PK_Equipment PRIMARY KEY(equip_name,cinema_id),
     CONSTRAINT FK_Equipment FOREIGN KEY(cinema_id)
     REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
@@ -249,7 +250,8 @@ CREATE TABLE Accounts_management (
 CREATE TABLE Stock (
     stock_name char(20) not null,
     cinema_id int unsigned not null,
-    amount int unsigned not null default 0,
+    amount int unsigned default 0,
+    total bigint  unisingned default 0,
     CONSTRAINT PK_Stock PRIMARY KEY(stock_name,cinema_id),
     CONSTRAINT FK_Stock FOREIGN KEY(cinema_id)
     REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT

@@ -210,7 +210,7 @@ CREATE TABLE Coupon_box (
 
 CREATE TABLE Employee(
     employee_id INT UNSIGNED  NOT NULL,
-    emplyee_name  CHAR(10)  NOT NULL,
+    employee_name  CHAR(10)  NOT NULL,
     ssn CHAR(13)  NOT NULL,
     hp  CHAR(11)  NULL,
     hout_wage INT UNSIGNED  NOT NULL  DEFAULT 8350,
@@ -228,7 +228,8 @@ CREATE TABLE Employee(
 CREATE TABLE Equipment (
     equip_name char(20) not null,
     cinema_id int unsigned not null,
-    amount int unsigned not null,
+    amount int unsigned,
+    total bigint unsigned,
     CONSTRAINT PK_Equipment PRIMARY KEY(equip_name,cinema_id),
     CONSTRAINT FK_Equipment FOREIGN KEY(cinema_id)
     REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
@@ -250,7 +251,8 @@ CREATE TABLE Accounts_management (
 CREATE TABLE Stock (
     stock_name char(20) not null,
     cinema_id int unsigned not null,
-    amount int unsigned not null default 0,
+    amount int unsigned default 0,
+    total bigint unsigned default 0,
     CONSTRAINT PK_Stock PRIMARY KEY(stock_name,cinema_id),
     CONSTRAINT FK_Stock FOREIGN KEY(cinema_id)
     REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
@@ -423,7 +425,7 @@ insert into coupon values
 ("서버점검보상쿠폰", "영화", 100.0),
 ("계열사직원쿠폰", "영화&음식", 40.0),
 ("쓰는사람이있을카쿠폰", "영화", 5.0);
-insert into customer_rank values 
+insert into customer_rank values
 ("SVIP","해당분기 20회 이상",20),
 ("VVIP", "해당분기 20회미만 10회이상",10),
 ("RVIP", "해당분기 10회미만 5회이상",5),
@@ -550,21 +552,12 @@ insert into Employee values
   (37003, "박민영", "8603041234567", "01090342839", 10000, 7, "129955-00-392039", 1000002, "영화관장");
 
 insert into equipment values
-("3D안경", 1000000, 600),
-("방석", 1000000, 300),
-("빗자루", 1000000, 20),
-("담요", 1000000, 300),
-("유니폼", 1000000, 50),
-("3D안경", 1000001, 200),
-("방석", 1000001, 100),
-("빗자루", 1000001, 10),
-("담요", 1000001, 100),
-("유니폼", 1000001, 15),
-("3D안경", 1000002, 1000),
-("방석", 1000002, 500),
-("빗자루", 1000002, 100),
-("담요", 1000002, 500),
-("유니폼", 1000002, 120);
+("3D안경", 1000000, 600,700),
+("유니폼", 1000000, 50,100),
+("3D안경", 1000001, 200,300),
+("유니폼", 1000001, 15,50),
+("3D안경", 1000002, 250,340),
+("유니폼", 1000002, 120,200);
 
 insert into Movie_actor values
 (1006,10010,"뽀로로"),
@@ -634,25 +627,13 @@ insert into notice(cinema_id, notice_title ,content) values
 (1000001, "Cine zx 여수점 오픈 기념 울릉도 활 오징어 증정", "안녕하세요! zx여수xz점 점장 이동준입니다. 최강디비는 탈인간급 실력을 갖고있읍니다. 감사합니다 ㅎ"),
 (1000002, " Cine zx 강남점 리모델링 기념 - 특명! 김규진을 찾아라!" , "안녕하세요! 강남좋아. 감사합니다.");
 
-insert into Stock (stock_name,cinema_id,amount) values
-("옥수수알",1000000,10000),
-("콜라액상",1000000,100),
-("사이다액상",1000000,100),
-("맥주",1000000,300),
-("오징어",1000000,100),
-("나쵸",1000000,200),
-("옥수수알",1000001,10023),
-("콜라액상",1000001,104),
-("사이다액상",1000001,105),
-("맥주",1000001,302),
-("오징어",1000001,103),
-("나쵸",1000001,220),
-("옥수수알",1000002,10230),
-("콜라액상",1000002,140),
-("사이다액상",1000002,150),
-("맥주",1000002,360),
-("오징어",1000002,122),
-("나쵸",1000002,250);
+insert into Stock (stock_name,cinema_id,amount,total) values
+("옥수수알",1000000,10000,10000),
+("콜라액상",1000000,100,1000),
+("옥수수알",1000001,10023,12121),
+("콜라액상",1000001,104,111),
+("옥수수알",1000002,10230,12345),
+("콜라액상",1000002,140,159);
 
 insert into Store_menu values
   ("더블콤보", 1000000, 11900, 3828),

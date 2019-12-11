@@ -1,0 +1,122 @@
+body {
+  line-height: 2em;
+  font-family: "맑은 고딕";
+}
+
+ul, li {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.right {
+  float:right;
+  margin-bottom: 5px;
+}
+
+#mainWrapper {
+  padding-top: 10px;
+  width: 1500px;
+  margin: 0 auto;
+  /*가운데 정렬*/
+}
+
+#mainWrapper>ul>li>button {
+  float: right;
+}
+#mainWrapper>ul>li:first-child {
+  text-align: center;
+  font-size: 14pt;
+  height: 40px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+#ulTable {
+  margin-top: 10px;
+}
+
+#ulTable>li:first-child>ul>li {
+  background-color: #c9c9c9;
+  font-weight: bold;
+  text-align: center;
+}
+
+#ulTable>li>ul {
+  clear: both;
+  padding: 0px auto;
+  position: relative;
+  min-width: 40px;
+}
+
+#ulTable>li>ul>li {
+  float: left;
+  font-size: 10pt;
+  border-bottom: 1px solid silver;
+  vertical-align: baseline;
+}
+
+/*ID 열 크기*/
+#ulTable>li>ul>li:first-child {
+  width: 10%;
+}
+
+/*이름 열 크기*/
+#ulTable>li>ul>li:first-child+li {
+  width: 10%;
+  color: red;
+}
+
+/*핸드폰번호 열 크기*/
+#ulTable>li>ul>li:first-child+li+li {
+  width: 15%;
+  color: red;
+}
+
+/*영화관ID 열 크기*/
+#ulTable>li>ul>li:first-child+li+li+li {
+  width: 15%;
+  color: green;
+}
+
+#ulTable>li>ul>li:first-child+li+li+li+li {
+  width: 15%;
+  color: green;
+}
+#ulTable>li>ul>li:first-child+li+li+li+li+li {
+  width: 15%;
+  color: red;
+}
+#ulTable>li>ul>li:first-child+li+li+li+li+li+li {
+  width: 20%;
+  color: green;
+}
+#divPaging {
+  clear: both;
+  margin: 0 auto;
+  width: 220px;
+  height: 50px;
+}
+
+#divPaging>div {
+  float: left;
+  width: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#liSearchOption {
+  clear: both;
+}
+
+#liSearchOption>div {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: auto;
+  height: 100px;
+}
+
+.left {
+  text-align: left;
+}

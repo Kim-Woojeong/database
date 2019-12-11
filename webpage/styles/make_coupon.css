@@ -1,0 +1,26 @@
+#wrapper {
+  border: 2px;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+#inputArea{
+  padding-top: 10px;
+}
+
+.input_box {
+  padding-top: 10px;
+}
+
+.btn {
+  padding-top: 30px;
+}
+
+form {
+  background-color: #ffff99;
+  width: 500px;
+  height: 360px;
+}
