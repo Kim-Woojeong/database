@@ -3,7 +3,8 @@ body {
   font-family: "맑은 고딕";
 }
 
-ul, li {
+ul,
+li {
   list-style: none;
   text-align: center;
   padding: 0;
@@ -11,7 +12,7 @@ ul, li {
 }
 
 .right {
-  float:right;
+  float: right;
   margin-bottom: 5px;
 }
 
@@ -22,10 +23,10 @@ ul, li {
   /*가운데 정렬*/
 }
 
-#mainWrapper>ul>li>button {
+#mainWrapper > ul > li > button {
   float: right;
 }
-#mainWrapper>ul>li:first-child {
+#mainWrapper > ul > li:first-child {
   text-align: center;
   font-size: 14pt;
   height: 40px;
@@ -37,20 +38,20 @@ ul, li {
   margin-top: 10px;
 }
 
-#ulTable>li:first-child>ul>li {
+#ulTable > li:first-child > ul > li {
   background-color: #c9c9c9;
   font-weight: bold;
   text-align: center;
 }
 
-#ulTable>li>ul {
+#ulTable > li > ul {
   clear: both;
   padding: 0px auto;
   position: relative;
   min-width: 40px;
 }
 
-#ulTable>li>ul>li {
+#ulTable > li > ul > li {
   float: left;
   font-size: 10pt;
   border-bottom: 1px solid silver;
@@ -58,17 +59,17 @@ ul, li {
 }
 
 /*No 열 크기*/
-#ulTable>li>ul>li:first-child {
+#ulTable > li > ul > li:first-child {
   width: 10%;
 }
 
 /*제목 열 크기*/
-#ulTable>li>ul>li:first-child+li {
+#ulTable > li > ul > li:first-child + li {
   width: 70%;
 }
 
 /*작성일 열 크기*/
-#ulTable>li>ul>li:first-child+li+li {
+#ulTable > li > ul > li:first-child + li + li {
   width: 20%;
 }
 
@@ -79,7 +80,7 @@ ul, li {
   height: 50px;
 }
 
-#divPaging>div {
+#divPaging > div {
   float: left;
   width: 30px;
   margin: 0 auto;
@@ -90,7 +91,7 @@ ul, li {
   clear: both;
 }
 
-#liSearchOption>div {
+#liSearchOption > div {
   margin: 0 auto;
   margin-top: 30px;
   width: auto;
