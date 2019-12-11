@@ -112,8 +112,7 @@ CREATE TABLE Customer_rank(
 CREATE TABLE Coupon(
     coupon_name varchar(50) not null,
     type varchar(10) not null,
-    discount_rate float not null,
-    CONSTRAINT PK_Coupon PRIMARY KEY(coupon_name)
+    discount_rate float not null
 );
 
 CREATE TABLE Department(
@@ -210,7 +209,7 @@ CREATE TABLE Coupon_box (
 
 CREATE TABLE Employee(
     employee_id INT UNSIGNED  NOT NULL,
-    employee_name  CHAR(10)  NOT NULL,
+    emplyee_name  CHAR(10)  NOT NULL,
     ssn CHAR(13)  NOT NULL,
     hp  CHAR(11)  NULL,
     hout_wage INT UNSIGNED  NOT NULL  DEFAULT 8350,
@@ -228,7 +227,7 @@ CREATE TABLE Employee(
 CREATE TABLE Equipment (
     equip_name char(20) not null,
     cinema_id int unsigned not null,
-    amount int unsigned,
+    amount int unsigned not null,
     total bigint unsigned,
     CONSTRAINT PK_Equipment PRIMARY KEY(equip_name,cinema_id),
     CONSTRAINT FK_Equipment FOREIGN KEY(cinema_id)
@@ -252,7 +251,7 @@ CREATE TABLE Stock (
     stock_name char(20) not null,
     cinema_id int unsigned not null,
     amount int unsigned default 0,
-    total bigint unsigned default 0,
+    total bigint unsigned,
     CONSTRAINT PK_Stock PRIMARY KEY(stock_name,cinema_id),
     CONSTRAINT FK_Stock FOREIGN KEY(cinema_id)
     REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
@@ -548,10 +547,10 @@ insert into Employee values
 insert into equipment values
 ("3D안경", 1000000, 600,700),
 ("유니폼", 1000000, 50,100),
-("3D안경", 1000001, 200,300),
-("유니폼", 1000001, 15,50),
-("3D안경", 1000002, 250,340),
-("유니폼", 1000002, 120,200);
+("3D안경", 1000001, 200,250),
+("유니폼", 1000001, 15,100),
+("3D안경", 1000002, 1000,1050),
+("유니폼", 1000002, 120,1000);
 
 insert into Movie_actor values
 (1006,10010,"뽀로로"),
@@ -622,12 +621,12 @@ insert into notice(cinema_id, notice_title ,content) values
 (1000002, " Cine zx 강남점 리모델링 기념 - 특명! 김규진을 찾아라!" , "안녕하세요! 강남좋아. 감사합니다.");
 
 insert into Stock (stock_name,cinema_id,amount,total) values
-("옥수수알",1000000,10000,10000),
-("콜라액상",1000000,100,1000),
-("옥수수알",1000001,10023,12121),
-("콜라액상",1000001,104,111),
-("옥수수알",1000002,10230,12345),
-("콜라액상",1000002,140,159);
+("옥수수알",1000000,10000,10010),
+("콜라액상",1000000,100,150),
+("옥수수알",1000001,10023,10110),
+("콜라액상",1000001,104,120),
+("옥수수알",1000002,10230,12200),
+("콜라액상",1000002,140,150);
 
 insert into Store_menu values
   ("더블콤보", 1000000, 11900, 3828),
@@ -681,11 +680,11 @@ insert into movie_genre values
 ("SF", 10001),
 ("범죄", 10005);
 
-insert into coupon_box(coupon_number,customer_id,coupon_name,expirate_date) values
-(4,"dkssud","쓰는사람이있을카쿠폰", now()),
-(44,"dkssud","쓰는사람이있을카쿠폰", now()),
-(444,"dkssud","쓰는사람이있을카쿠폰",now()),
-(4444,"dkssud","쓰는사람이있을카쿠폰",now());
+insert into coupon_box(coupon_number,customer_id,expirate_date) values
+(4,"dkssud", now()),
+(44,"dkssud", now()),
+(444,"dkssud",now()),
+(4444,"dkssud",now());
 
 insert into Movie_schedule (movie_time,theater_name,cinema_id,movie_id)
 values
@@ -1070,9 +1069,7 @@ insert into Food_salelist(payment, coupon_number, customer_id) values
 (23400, 4, "dkssud"),
 (12500, 444, "dkssud"),
 (1500, 4444, "dkssud"),
-(9000,NULL,"dkssud")
-;
-
+(9000,NULL,"dkssud");
 
 insert into Purchase_list(sales_id, menu_id, cinema_id) values
 (1, "더블콤보", 1000000),
@@ -1086,3 +1083,5 @@ insert into Purchase_list(sales_id, menu_id, cinema_id) values
 (6, "크리미갈릭핫도그", 1000000),
 (6, "크리미갈릭핫도그", 1000000);
 
+insert into Schedule_seat(movie_time, theater_name, cinema_id, movie_id, seat_number, ticket_id) values
+("2019-12-12 19:00:00", "1관", 1000000, 10000, "A1", 1);
