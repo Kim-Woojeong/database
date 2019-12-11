@@ -33,12 +33,29 @@ menu {
   text-align: center;
   padding-top: 6%;
   padding-bottom: 6%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-top: -5px;
 }
 .menu_name {
   background-color: skyblue;
 }
 
 /* end of styles (menu) */
+
+.back,
+.next {
+  border: 1px solid skyblue;
+  background-color: rgba(0, 0, 0, 0);
+  color: skyblue;
+  padding: 5px;
+}
+
+.back:hover,
+.next:hover {
+  color: white;
+  background-color: skyblue;
+}
 
 /* article*/
 article {
