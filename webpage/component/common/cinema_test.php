@@ -86,10 +86,11 @@
       </div>
 
     </div> <!-- contents -->
-    <?php
+  
+  </div>
+  <?php
     include "../common/footer.php";
     ?>
-  </div>
 
 
 </body>
