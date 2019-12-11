@@ -140,6 +140,8 @@
                           <div class="list_date">
                               <p>관람일시 : <span class="list_movie_info"><?=$d['movie_time']?></span></p>
                           </div>
+                          
+                          <button type="button" onclick="">예매 취소</button>
                       </div>
                     <?php } ?>
                      <!-- ticket_list_container -->
