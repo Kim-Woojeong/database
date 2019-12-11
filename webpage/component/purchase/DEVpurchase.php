@@ -4,20 +4,27 @@ session_start();
 $conn = connect();
 parse_str($_POST['theater_time']);
 $sql_seat = "select seat_number from schedule_seat where cinema_id = :cinema_id and theater_name = :theater_name and movie_time = :movie_time";
-$stmt_seat = $conn -> prepare($sql_seat);
-$stmt_seat -> bindValue(":cinema_id",$_POST['cinema']);
-$stmt_seat -> bindValue(":theater_name",$theater);
-$stmt_seat -> bindValue(":movie_time",$time);
-$stmt_seat -> execute();
-$result_seat = $stmt_seat -> fetchAll();
-$only = 1;
-foreach ($result_seat as $key1 => $value1) {
-	foreach ($_POST['seat'] as $key2 => $value2) {
-		if($value1['seat_number'] == $value2 && $only){
-			$only = 0;
+try{
+	$stmt_seat = $conn -> prepare($sql_seat);
+	$stmt_seat -> bindValue(":cinema_id",$_POST['cinema']);
+	$stmt_seat -> bindValue(":theater_name",$theater);
+	$stmt_seat -> bindValue(":movie_time",$time);
+	$stmt_seat -> execute();
+	$result_seat = $stmt_seat -> fetchAll();
+	$only = 1;
+	foreach ($result_seat as $key1 => $value1) {
+		foreach ($_POST['seat'] as $key2 => $value2) {
+			if($value1['seat_number'] == $value2 && $only){
+				$only = 0;
+			}
 		}
 	}
+} catch(PDOException $e){
+	echo '<script>alert("좌석 정보를 불러오는데 실패했습니다. 에러코드: ' . $e->getCode() .'");
+	console.log("' . $e->getMessage() . '");
+	window.history.back();</script>';
 }
+
 if(!$only){
 	echo '<script>alert("이미 선택된 좌석입니다.");
 	window.history.back();</script>';
@@ -68,10 +75,8 @@ else{
 		echo '<script>
 		alert("결제에 실패했습니다. 에러코드: ' . $e->getCode() .'");
 		console.log("' . $e->getMessage() . '");
-		</script>';
+		window.history.back();</script>';
 	}
 }
-print $_SESSION['id'];
-print $_POST['coupon'];
 ?>
 <meta http-equiv="refresh" content="0;url=../common/cinema_test.php" />
