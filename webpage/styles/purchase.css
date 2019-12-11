@@ -1,13 +1,17 @@
-body,
 html {
-  height: 100%;
   font-family: "Poor Story", cursive;
 }
+
 body {
-  /* background: linear-gradient(to bottom, #70a589, #638b69); */
-  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+  background: linear-gradient(to bottom, #eab05e, #f39946);
+  height: 1000px;
 }
+
 h1 {
+  font-family: "Do Hyeon", sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 50pt;
+  text-shadow: 2px 2px 1px white;
   text-align: center;
 }
 main {

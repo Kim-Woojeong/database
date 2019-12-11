@@ -51,10 +51,6 @@
 	<?php
 	include "../common/navigator.php";
 	?>
-	<!-- 
-	<div class="page_info">
-		HOME > 영화 > 상영영화
-	</div> page_info -->
 
 	<!--start -->
 	<div class="section_title">
