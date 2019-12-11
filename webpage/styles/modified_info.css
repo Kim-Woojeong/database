@@ -1,0 +1,38 @@
+#wrapper {
+  border: 2px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.input_box {
+  padding-top: 20px;
+}
+
+.input_box_title {
+  font-size: 25pt;
+  padding-right: 30px;
+}
+
+.input_text {
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  width: 200px;
+  height: 30px;
+  font-size: 15pt;
+}
+
+.btn {
+  padding-top: 30px;
+}
+
+form {
+  width: 500px;
+  height: 550px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,7 +1,7 @@
 <?php
-if ( empty($_POST['ID']) || empty($_POST['password']) || empty($_POST['name']) ) {
+if ( empty($_POST['ID']) || empty($_POST['password']) || empty($_POST['name']) || empty($_POST['gender'])) {
 	header("Content-Type: text/html; charset=UTF-8");
-	echo "<script>alert('칸에 적힌거 꼬박꼬박 입력하세요. 그정돈 할 수 있자나요? 못해요? 하...');";
+	echo "<script>alert('필수정보를 모두 기입해주세요.');";
 	echo "window.location.replace('register.php');</script>";
 	exit;
 }
@@ -29,12 +29,11 @@ try{
 	$stmt -> bindValue(":birth_date",$_POST['year'] . $MON . $DIE);
 	$stmt->execute();
 } catch(PDOException $e){
-	echo $e->getmessage();
-	echo "<script>alert('예외처리 안한줄 알았냐? 다시 입력해');";
+	echo "<script>alert('회원가입에 실패했습니다. 오류코드:" . $e->getmessage() ."');";
 	echo "window.location.replace('register.php');</script>";
 }
 
 $conn = null;  // disconnect db
-echo "<script>alert('당신이 이겼어요.. 이제 이 웹페이지를 즐겨주세요..');</script>";
+echo "<script>alert('회원가입에 성공했습니다.');</script>";
 ?>
 <meta http-equiv="refresh" content="0;url=../common/cinema_test.php" />

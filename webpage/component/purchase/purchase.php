@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
 	<link rel="stylesheet" type="text/css" href="../../styles/purchase.css" />
 	<script type="text/javascript" src="js/purchase.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
 </head>
 <body>
@@ -52,69 +56,114 @@
 
 		<!-- 다이나믹 섹션 -->
 		<article>
-			<form action="DEVpurchase.php" method="POST">
+			<form action="DEVpurchase.php" method="POST" onsubmit="return confirm('결제 내역이 맞습니까?');">
 
 				<!-- 영화관 선택(option #1) -->
 				<section id="cinema">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="location.href='#'"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('movie')"/>
+					</div>
 					<fieldset>
 						<legend><h2>영화관 선택</h2></legend>
 						<?php
 						$sql_area = "select cinema_id,name,road_address from cinema";
 						$stmt_area = $conn->prepare($sql_area);
+						$stmt_area -> execute();
+						$result_area = $stmt_area -> fetchAll();
 						?>
 						<div class="road">
-							<?php
-							$stmt_area -> execute();
-							$result_area = $stmt_area -> fetchAll();
-							?>
 							<select name="cinema" size="<?=count($result_area)?>" onchange = "changecinema();" id="select_cinema">
 								<?php foreach ($result_area as $key => $value) { ?>
 									<option value="<?=$value['cinema_id']?>"><?=$value['name']?></option>
 								<?php } ?>
 							</select>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('movie')"/>
 					</fieldset>
 				</section>
 
 				<!-- 영화 선택(option #2) -->
 				<section id="movie">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('cinema')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('date')"/>
+					</div>
 					<fieldset>
 						<legend><h2>영화선택</h2></legend>
 						<h3 id="selection_movie">선택하신 영화 : 미선택</h3>
 						<div id="movies">
 							<p>영화를 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('date')"/>
 					</fieldset>
 				</section>
 
 				<!-- 날짜 선택(option #3) -->
 				<section id="date">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('movie')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('seat')"/>
+					</div>
 					<fieldset>
 						<legend><h2>날짜 선택</h2></legend>
 						<br>
 						<div id="select_day">
 							<p>날짜를 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('seat')"/>
 					</fieldset>
 				</section>
 
 				<!-- 좌석 선택(option #4) -->
 				<section id="seat">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('date')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('approval')"/>
+					</div>
 					<fieldset>
 						<legend><h2>좌석 선택</h2></legend>
-
-						<input type="button" name="" value="다음" onclick="sectionselect('approval')"/>
+						<h3 id="people">선택 인수 : 0명</h3>
+						<div id="seats">
+							<p>좌석을 선택할 수 없습니다.</p>
+						</div>
 					</fieldset>
 				</section>
 
 				<!-- 결제(option #5 - final) -->
 				<section id="approval">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('seat')"/>
+						<input type="submit" name="" class="next" value="결제하기" />
+					</div>
 					<fieldset>
 						<legend><h2>결제</h2></legend>
-						<input type="submit" name="" value="결제하기" />
+						<div id="approvals">
+							<P>선행 과제를 수행해 주세요</P>
+						</div>
+						<div id='unopen'>
+							<input type="text" name="pay_way1" placeholder="결제수단" maxlength="2" style="width: 55px" />
+							<input type="text" name="pay_way2" placeholder="카드번호 (-제외)" maxlength="16" />
+							<input type="text" name="send_contact" placeholder="연락처 (-제외)" maxlength="11"/>
+							<div id="coupon">
+								<?php
+								if(isset($_SESSION['id'])){?>
+									<label>쿠폰 선택:
+										<select name="coupon" onchange="usecoupon(this)">
+											<option value="NULL" id="0">미선택</option>
+											<?php
+											$sql_coupon = "select coupon_name,discount_rate,coupon_number from coupon_box natural join coupon where customer_id = :customer_id and type = '영화' and expirate_date>now() and usage_status = 0";
+											$stmt_coupon = $conn -> prepare($sql_coupon);
+											$stmt_coupon -> bindValue(":customer_id",$_SESSION['id']);
+											$stmt_coupon -> execute();
+											$result_coupon = $stmt_coupon -> fetchAll();
+											foreach ($result_coupon as $key => $value) { ?>
+												<option value="<?=$value['coupon_number']?>" id='<?=$value['discount_rate']?>'><?=$value['coupon_name']?> [<?=$value['discount_rate']?>% 할인]</option>
+											<?php } ?>
+										</select>
+									</label>
+								<?php } else {?>
+									<p>로그인 하시면 쿠폰을 사용하실 수 있습니다.</p>
+								<?php } ?>
+							</div>
+						</div>
 					</fieldset>
 				</section>
 

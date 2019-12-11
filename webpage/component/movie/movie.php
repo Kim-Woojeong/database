@@ -29,7 +29,7 @@ $movie_name = $result[0]['movie_name'];
 	if(count($result) == 0){ ?>
 		<div id="notfound" >
 			<img src="404notfound.png"/><br>
-			<a href="all_movie.php">여긴 너에겐 아직 일러! 돌아가ㅠㅠ</a>
+			<a href="all_movie.php">다시 시도해주세요.</a>
 		</div>
 		<?php
 	}else{
@@ -74,7 +74,7 @@ $movie_name = $result[0]['movie_name'];
 
 					<form action="REVIEW.php" method="POST">
 						<input type="hidden" name="movie_id" value="<?=$_GET['id'] ?>">
-						<label>함 리뷰 작성해 봐라~-><input type="text" name="review" /></label>
+						<label>리뷰를 작성해주세요<input type="text" name="review" /></label>
 						<select name="score">
 							<?php for ($i=0; $i < 5; $i+=0.01) { ?>
 								<option><?=$i?></option>
@@ -85,7 +85,7 @@ $movie_name = $result[0]['movie_name'];
 
 				<?php } else{ ?>
 					<div>
-						<p>로그인 해야지 리뷰 쓸 수 있어요.</p>
+						<p>로그인이 필요한 기능입니다.</p>
 					</div>
 				<?php } ?>
 			</div>
@@ -105,7 +105,7 @@ $movie_name = $result[0]['movie_name'];
 			<div>
 				<button id="ContentsB" onclick="Button_Tree('Contents')">Contents!</button>
 				<button id="ActorsB" onclick="Button_Tree('Actors')">Actors!</button>
-				<button id="DirectorsB" onclick="Button_Tree('Directors')">DIRECTOR & 잡것들</button>
+				<button id="DirectorsB" onclick="Button_Tree('Directors')">DIRECTOR & etc</button>
 			</div>
 		</div>
 		<div class="fruit" id="Contents">
@@ -123,7 +123,7 @@ $movie_name = $result[0]['movie_name'];
 			$stmt_actors->execute();
 			$result_actors = $stmt_actors->fetchAll();
 			if(count($result_actors)==0)
-				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 따지세요.";
+				echo "이 영화에 등록된 배우 정보가 없습니다. 관리자에게 문의하세요.";
 			foreach ($result_actors as $key => $value) { 
 				?>
 				<p>배우이름:<?=$value['name']?></p>

@@ -1,7 +1,7 @@
 <?php
 include "../common/DB_Connect.php";
 $conn = connect();
-$stmt_area = $conn->prepare("select distinct cinema_id,movie_id from movie_schedule;");
+$stmt_area = $conn->prepare("select distinct cinema_id,movie_id from movie_schedule");
 $stmt_area -> execute();
 $result_area = $stmt_area -> fetchAll();
 

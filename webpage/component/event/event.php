@@ -4,6 +4,11 @@
   <meta charset='utf-8'>
   <link href="../../styles/common.css" type="text/css" rel="stylesheet" />
   <link href="../../styles/event.css" type="text/css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Song+Myung&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet">
+
 </head>
 
 <body>
@@ -11,10 +16,10 @@
     <ul id="gnb">
       <?php include "../common/DB_Connect.php";
       include "../common/top_login.php";
-      $db=connect();
+      $db = connect();
       ?>
     </ul>
-  </header>  
+  </header>
   <?php
   include "../common/navigator.php";
   ?>
@@ -39,14 +44,14 @@
           <!-- 게시물이 출력될 영역 -->
           <?php
           $info_sql = "select event_id,event_title,event_date from event";
-          $info_stt=$db->prepare($info_sql);
+          $info_stt = $db->prepare($info_sql);
           $info_stt->execute();
-          foreach($info_stt as $info){
+          foreach ($info_stt as $info) {
             ?>
             <li>
               <ul>
                 <li><?= $info['event_id']; ?></li>
-                <li><a href="eventview.php?event_id=<?= $info['event_id']?>"><?= $info['event_title']; ?></a></li>
+                <li><a href="eventview.php?event_id=<?= $info['event_id'] ?>"><?= $info['event_title']; ?></a></li>
                 <li><?= $info['event_date']; ?></li>
               </ul>
             </li>
@@ -80,7 +85,7 @@
           </li>
 
         </ul>
-      </div>
-    </body>
+  </div>
+</body>
 
-    </html>
+</html>

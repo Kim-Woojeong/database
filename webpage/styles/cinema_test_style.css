@@ -28,6 +28,10 @@
   width: 100%;
   float: center;
 }
+.contents_1 ol{
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
 .contents_1,
 .contents_2,

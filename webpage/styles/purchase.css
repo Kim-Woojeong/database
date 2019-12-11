@@ -1,6 +1,11 @@
 body,
 html {
   height: 100%;
+  font-family: "Poor Story", cursive;
+}
+body {
+  /* background: linear-gradient(to bottom, #70a589, #638b69); */
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
 }
 h1 {
   text-align: center;
@@ -45,6 +50,28 @@ section {
 }
 /* end of styles (article) */
 
+/*option 전역 */
+.next,
+.back {
+  margin: 20px;
+  margin-bottom: 0;
+}
+.next {
+  margin-right: 10px;
+  float: right;
+}
+.back {
+  margin-left: 5px;
+  float: left;
+}
+fieldset {
+  width: 96%;
+}
+.moviebutton {
+  width: 100%;
+  height: 20px;
+}
+
 /*option 1:영화관 선택 */
 .area,
 .road {
@@ -67,7 +94,8 @@ section {
 #movies label {
   float: left;
 }
-#movies img {
+#movies img,
+#approvals img {
   margin: 10px;
   width: 200px;
   height: calc(200px * 1.432);
@@ -88,4 +116,28 @@ section {
 /* CHECKED STYLES */
 .movieposter:checked + img {
   outline: 2px solid #f00;
+}
+
+/* option 3: 날짜 선택 */
+#select_day {
+  width: 50%;
+  height: 300px;
+  overflow-y: auto;
+}
+#select_day label {
+  display: inline-block;
+  width: 90%;
+  background-color: skyblue;
+  padding: 5px;
+  border: 1px solid;
+  margin: 2px;
+}
+#select_day label input[type="radio"] {
+  display: none;
+}
+
+/* option 4: 좌석 선택 */
+#select_seat {
+  width: 300px;
+  height: 300px;
 }
