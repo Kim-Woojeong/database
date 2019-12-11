@@ -207,7 +207,7 @@ CREATE TABLE Coupon_box (
 
 CREATE TABLE Employee(
     employee_id INT UNSIGNED  NOT NULL,
-    emplyee_name  CHAR(10)  NOT NULL,
+    employee_name  CHAR(10)  NOT NULL,
     ssn CHAR(13)  NOT NULL,
     hp  CHAR(11)  NULL,
     hout_wage INT UNSIGNED  NOT NULL  DEFAULT 8350,
