@@ -1076,5 +1076,3 @@ insert into Purchase_list(sales_id, menu_id, cinema_id) values
 (6, "크리미갈릭핫도그", 1000000),
 (6, "크리미갈릭핫도그", 1000000);
 
-insert into Schedule_seat(movie_time, theater_name, cinema_id, movie_id, seat_number, ticket_id) values
-("2019-12-12 19:00:00", "1관", 1000000, 10000, "A1", 1);

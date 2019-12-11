@@ -1,13 +1,13 @@
 .container {
   text-align: center;
-  background-color: #e1dcd9;
+  background-color: white;
   border: 4px solid black;
 }
 
 .loginbox {
   display: inline-flex;
   justify-content: center;
-  border: 5px #8f8681 solid;
+  border: 5px solid;
 
   width: 450px;
   height: 200px;
@@ -29,8 +29,16 @@
   width: 399px;
   height: 43px;
   justify-content: center;
+  background-color: #4a82c1;
 }
-
+a:link {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
+  color: red;
+}
 #loginId {
   display: flex;
   width: 395px;

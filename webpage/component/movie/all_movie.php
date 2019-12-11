@@ -65,9 +65,9 @@
 	<hr />
 	<div class="sorting_movie">
 		<form action="" method="POST">
-			<button value="total_audience desc" name="sortbutton">인기순</button>
-			<button value="release_date desc" name="sortbutton">최신순</button>
-			<button value="movie_name" name="sortbutton">가나다순</button>
+			<button class="sortbtn" value="total_audience desc" name="sortbutton">인기순</button>
+			<button class="sortbtn" value="release_date desc" name="sortbutton">최신순</button>
+			<button class="sortbtn" value="movie_name" name="sortbutton">가나다순</button>
 		</form>
 	</div>
 	<ol class="overview_movie">
@@ -96,7 +96,7 @@
 					<!-- 영화포스터 -->
 					<span class="over">
 						<a href="movie.php?id=<?= $value['movie_id'] ?>" class="link_info" id='content<?= $key ?>' onmousemove="View('영화 정보','content<?= $key ?>')" onmouseout="hide('content<?= $key ?>')"></a>
-						<a href="#" class="link_purchase" id="dontent<?= $key ?>" onmouseover="View('영화 예매','dontent<?= $key ?>')" onmouseout="hide('dontent<?= $key ?>')"></a>
+						<a href="../purchase/purchase.php" class="link_purchase" id="dontent<?= $key ?>" onmouseover="View('영화 예매','dontent<?= $key ?>')" onmouseout="hide('dontent<?= $key ?>')"></a>
 					</span>
 					<img src="../img/movie/movie_<?= $value['movie_id'] ?>.jpeg" onerror="this.src='../img/movie/movie_no_image.jpeg';" class="movie_image">
 				</div>

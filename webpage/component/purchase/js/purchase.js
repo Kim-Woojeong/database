@@ -1,6 +1,9 @@
 window.onload = function() {
     sectionselect('cinema');
     $("unopen").style.display = 'none';
+    for (var i = 1; i <= 5; i++) {
+        $('MENU'+i).style.backgroundColor = 'white';
+    }
 };
 
 var prices = 10000;
@@ -55,7 +58,7 @@ function usecoupon(obj) {
 
 function changecinema() {
     for (var i = 1; i <= 5; i++) {
-        $('MENU'+i).style.backgroundColor = 'transparent';
+        $('MENU'+i).style.backgroundColor = 'white';
     }
     $('selection_movie').innerHTML = '선택하신 영화 : 미선택';
     resetseat();
@@ -71,7 +74,7 @@ function changecinema() {
 
 function changemovie(){
     for (var i = 2; i <= 5; i++) {
-        $('MENU'+i).style.backgroundColor = 'transparent';
+        $('MENU'+i).style.backgroundColor = 'white';
     }
     $('selection_movie').innerHTML = '선택하신 영화 : ' + this.id;
     resetseat();
@@ -88,7 +91,7 @@ function changemovie(){
 
 function changetime(){    
     for (var i = 3; i <= 5; i++) {
-        $('MENU'+i).style.backgroundColor = 'transparent';
+        $('MENU'+i).style.backgroundColor = 'white';
     }
     selecttheater = this.id;
     selectday = this.className;
@@ -104,7 +107,7 @@ function changetime(){
 function changeseat() {
     var j = 0;
     if(count == 0)
-        $('MENU4').style.backgroundColor = 'transparent';
+        $('MENU4').style.backgroundColor = 'white';
     else
         $('MENU4').style.backgroundColor = 'pink';
     $('approvals').descendants().each(function(element){element.remove();});

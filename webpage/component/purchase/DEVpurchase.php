@@ -1,7 +1,6 @@
 <?php
 include "../common/DB_Connect.php";
-echo $_POST['seat'];
-$seat = explode(',' , $_POST['seat']);
+$seatt = explode(',' , $_POST['seat']);
 session_start();
 $conn = connect();
 parse_str($_POST['theater_time']);
@@ -15,7 +14,7 @@ try{
 	$result_seat = $stmt_seat -> fetchAll();
 	$only = 1;
 	foreach ($result_seat as $key1 => $value1) {
-		foreach ($seat as $key2 => $value2) {
+		foreach ($seatt as $key2 => $value2) {
 			if($value1['seat_number'] == $value2 && $only){
 				$only = 0;
 			}
@@ -68,7 +67,7 @@ else{
 		$stmt_seating -> bindValue(":movie_id",$_POST['movie']);
 		$stmt_seating -> bindParam(":seat_number",$seat);
 		$stmt_seating -> bindValue(":ticket_id",$id);
-		foreach ($seat as $key => $value) {
+		foreach ($seatt as $key => $value) {
 			$seat = $value;
 			$stmt_seating -> execute();
 		}
@@ -81,4 +80,4 @@ else{
 	}
 }
 ?>
-<!-- <meta http-equiv="refresh" content="0;url=../common/cinema_test.php" /> -->
+<meta http-equiv="refresh" content="0;url=../common/cinema_test.php" />

@@ -1,13 +1,17 @@
-body,
 html {
-  height: 100%;
   font-family: "Poor Story", cursive;
 }
+
 body {
-  /* background: linear-gradient(to bottom, #70a589, #638b69); */
-  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+  background: linear-gradient(to bottom, #eab05e, #f39946);
+  height: 1000px;
 }
+
 h1 {
+  font-family: "Do Hyeon", sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 50pt;
+  text-shadow: 2px 2px 1px white;
   text-align: center;
 }
 main {
@@ -29,12 +33,29 @@ menu {
   text-align: center;
   padding-top: 6%;
   padding-bottom: 6%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin-top: -5px;
 }
 .menu_name {
   background-color: skyblue;
 }
 
 /* end of styles (menu) */
+
+.back,
+.next {
+  border: 1px solid skyblue;
+  background-color: rgba(0, 0, 0, 0);
+  color: skyblue;
+  padding: 5px;
+}
+
+.back:hover,
+.next:hover {
+  color: white;
+  background-color: skyblue;
+}
 
 /* article*/
 article {
@@ -44,7 +65,9 @@ article {
   min-height: 100%;
 }
 section {
-  background-color: gray;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 3px;
   width: inherit;
   height: inherit;
 }

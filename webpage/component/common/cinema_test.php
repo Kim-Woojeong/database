@@ -6,6 +6,10 @@
   <link href="../../styles/common.css" type="text/css" rel="stylesheet" />
   <link href="../../styles/cinema_test_style.css" type="text/css" rel="stylesheet" />
   <script type="text/javascript" src="js/cinema_test.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
   <title>zxCINEMAxz</title>
 </head>
 
@@ -21,7 +25,7 @@
   </header>
   <?php
   include "../common/navigator.php";
-  
+
   ?>
   <?php
   for ($i = 1; $i < 7; $i++) {
@@ -35,18 +39,20 @@
   <div class="container">
     <div class="contents">
       <div class="contents_1">
-        <a href = "" class = "notice">공지사항</a>
-        <ol><MARQUEE scrolldelay="100">
-          <?php
-          $sql_notice = "select name,content from notice natural join cinema order by notice_date desc limit 5";
-          $stmt_notice = $conn->prepare($sql_notice);
-          $stmt_notice->execute();
-          $result_notice = $stmt_notice->fetchAll();
-          foreach ($result_notice as $key => $value) {
-            ?>
-            <li class="notices">[<?= $value['name'] ?>] <?= $value['content'] ?></li>
-          <?php } ?>
-        </MARQUEE></ol>
+        <a href="../event/notice.php" class="notice">공지사항</a>
+        <ol>
+          <MARQUEE scrolldelay="100">
+            <?php
+            $sql_notice = "select name,content from notice natural join cinema order by notice_date desc limit 5";
+            $stmt_notice = $conn->prepare($sql_notice);
+            $stmt_notice->execute();
+            $result_notice = $stmt_notice->fetchAll();
+            foreach ($result_notice as $key => $value) {
+              ?>
+              <li class="notices">[<?= $value['name'] ?>] <?= $value['content'] ?></li>
+            <?php } ?>
+          </MARQUEE>
+        </ol>
       </div>
 
       <div class="contents_2">
@@ -78,13 +84,14 @@
           <?php } ?>
         </ol>
       </div>
-     
+
     </div> <!-- contents -->
-    <?php
-  include "../common/footer.php";
-  ?>
-  </div>
   
+  </div>
+  <?php
+    include "../common/footer.php";
+    ?>
+
 
 </body>
 
