@@ -13,9 +13,9 @@
   font-family: Arial;
   border: 4px solid black;
 }
-#first {
-  margin-left: none;
-}
+/* #first {
+  margin-left: 200px;
+} */
 
 #third {
   border: none;
@@ -32,7 +32,7 @@
 /* The dropdown container */
 
 .dropdown {
-  margin-left: 0px;
+  margin-left: 50px;
   float: left;
   overflow: hidden;
 }

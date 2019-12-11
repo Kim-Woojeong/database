@@ -28,7 +28,7 @@
 
     <ul>
       <!-- 게시판 제목 -->
-      <li>게시판</li>
+      <li>진행중인 이벤트</li>
       <button class="right" type="button"><a href="eventwrite.html">글쓰기</a></button>
 
       <!-- 게시판 목록  -->

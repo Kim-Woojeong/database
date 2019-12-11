@@ -1,6 +1,7 @@
 <link href="../../styles/navigator.css" type="text/css" rel="stylesheet" />
 
 <nav class="navbar">
+
   <a href="../common/cinema_test.php"><img src="../img/logo.png"></a>
 
   <div class="dropdown">
@@ -18,8 +19,8 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="../event/event.php">진행중</a>
-      <a href="../event/event.php">종료</a>
+      <a href="../event/event.php">진행중인 이벤트</a>
+      <a href="../event/notice.php">공지사항</a>
     </div>
   </div>
   <div class="dropdown">
@@ -27,7 +28,7 @@
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-content">
-      <a href="../search/cinema_search.php">영화관 찾기</a>
+      <a href="../search/cinema_search.php">영화관 검색</a>
     </div>
   </div>
   <div class="reserve">

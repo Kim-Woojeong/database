@@ -25,13 +25,14 @@
   </header>
   <?php
   include "../common/navigator.php";
-  
+
   ?>
   <?php
   for ($i = 1; $i < 7; $i++) {
     ?>
     <div class="ad">
       <div class="mySlides fade">
+        <img src="../img/advertisement/bg1.png" />
         <img src="../img/advertisement/ad<?= $i ?>.png" />
       </div>
     </div> <!-- ad -->
@@ -39,7 +40,7 @@
   <div class="container">
     <div class="contents">
       <div class="contents_1">
-        <a href="" class="notice">공지사항</a>
+        <a href="../event/notice.php" class="notice">공지사항</a>
         <ol>
           <MARQUEE scrolldelay="100">
             <?php
@@ -84,13 +85,13 @@
           <?php } ?>
         </ol>
       </div>
-     
+
     </div> <!-- contents -->
     <?php
-  include "../common/footer.php";
-  ?>
+    include "../common/footer.php";
+    ?>
   </div>
-  
+
 
 </body>
 
