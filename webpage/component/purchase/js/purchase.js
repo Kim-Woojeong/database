@@ -1,5 +1,6 @@
 window.onload = function() {
     sectionselect('cinema');
+    $("unopen").style.display = 'none';
 };
 
 var prices = 10000;
@@ -37,6 +38,9 @@ function changecinema() {
         $('MENU'+i).style.backgroundColor = 'transparent';
     }
     $('selection_movie').innerHTML = '선택하신 영화 : 미선택';
+    resetseat();
+    resetdate();
+    resetapproval();
     new Ajax.Request("movie_json.php",{
         method : "get",
         onSuccess : movie_JSON,
@@ -50,6 +54,8 @@ function changemovie(){
         $('MENU'+i).style.backgroundColor = 'transparent';
     }
     $('selection_movie').innerHTML = '선택하신 영화 : ' + this.id;
+    resetseat();
+    resetapproval();
     selectmovie_name = this.id;
     selectmovie = this.value;
     new Ajax.Request("selectday_json.php",{
@@ -66,6 +72,7 @@ function changetime(){
     }
     selecttheater = this.id;
     selectday = this.className;
+    resetapproval();
     new Ajax.Request("seat_json.php",{
         method : "get",
         onSuccess : seat_JSON,
@@ -129,6 +136,7 @@ function changeseat() {
     hidden.setAttribute("name", "price");
     hidden.setAttribute("value", prices);
     $("approvals").appendChild(hidden);
+    $("unopen").style.display = 'block';
 }
 function isseat_JSON(ajax) {
     var data = JSON.parse(ajax.responseText);
@@ -138,8 +146,8 @@ function isseat_JSON(ajax) {
 }
 
 function seat_JSON(ajax) {
-    $('seats').descendants().each(function(element){element.remove();});
     var data = JSON.parse(ajax.responseText);
+    $('seats').descendants().each(function(element){element.remove();});
     for (var i = 0; i < data.seats.length; i++) {
         if(data.seats[i].cinema != selectcinema || data.seats[i].theater != selecttheater)
             continue;
@@ -263,4 +271,28 @@ function ajaxFailed(ajax, exception) {
         "\n\nServer response text:\n" + ajax.responseText;
     }
     alert(errorMessage);
+}
+
+
+function resetseat() {
+    $('seats').descendants().each(function(element){element.remove();});
+    var noseat = document.createElement('p');
+    noseat.innerHTML = '좌석을 선택할 수 없습니다.';
+    $('seats').appendChild(noseat);
+    $('people').innerHTML = '선택 인수 : 0명';
+}
+
+function resetdate() {
+    $('select_day').descendants().each(function(element){element.remove();});
+    var nodate = document.createElement('p');
+    nodate.innerHTML = '날짜를 선택할 수 없습니다.';
+    $('select_day').appendChild(nodate);
+}
+
+function resetapproval() {
+    $('approvals').descendants().each(function(element){element.remove();});
+    var nodata = document.createElement('p');
+    nodata.innerHTML = '선행 과제를 수행해 주세요';
+    $('approvals').appendChild(nodata);
+    $("unopen").style.display = 'none';
 }
