@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS zxcinemaxz DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+﻿CREATE DATABASE IF NOT EXISTS zxcinemaxz DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE zxcinemaxz
 SET foreign_key_checks = 0;
 DROP TABLE IF EXISTS EVENT;
@@ -204,7 +204,7 @@ CREATE TABLE Coupon_box (
     CONSTRAINT FK_Coupon_box_1 FOREIGN KEY(customer_id)
     REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Coupon_box_2 FOREIGN KEY(coupon_name)
-    REFERENCES coupon(coupon_name) ON UPDATE CASCADE ON DELETE RESTRICT
+    REFERENCES Coupon(coupon_name) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Employee(

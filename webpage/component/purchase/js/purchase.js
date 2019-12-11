@@ -4,18 +4,38 @@ window.onload = function() {
 };
 
 var prices = 10000;
+var count = 0;
 var count;
 var selectcinema;
 var selectmovie;
 var selectmovie_name;
 var selectday;
 var selecttheater;
-var selectseat = {};
-var today = new Date();
-var day = today.getDate();
-var month = today.getMonth()+1;
-var year = today.getYear();
-var nextday = new Date(year,month,day+1,0,0,0);
+var selectseat = [];
+
+function overing(obj) {
+    if(obj.value == 0){
+        obj.value = 1;
+        if(obj.id.substring(0,1) == 'I')
+            count++;
+        count++;
+        selectseat.push(obj.id);
+        obj.style.backgroundColor = 'pink';
+    }
+    else{
+        obj.value = 0;        
+        if(obj.id.substring(0,1) == 'I')
+            count--;
+        count--;
+        const idx = selectseat.indexOf(obj.id);
+        if(idx > -1) selectseat.splice(idx,1);
+        obj.style.backgroundColor = 'white';
+    }
+    selectseat.sort();
+    $('쉿!조용').value = selectseat;
+    $('people').innerHTML = '선택 인수 : ' + count +'명';
+    changeseat();
+}
 
 function sectionselect(section) {
     var sections = document.getElementsByTagName('section');
@@ -83,11 +103,10 @@ function changetime(){
 }
 function changeseat() {
     var j = 0;
-    var options = document.getElementById('select_seat').options, count = 0;
-    for (var i = 4; i <= 5; i++) {
-        $('MENU'+i).style.backgroundColor = 'transparent';
-    }
-    $('MENU4').style.backgroundColor = 'pink';
+    if(count == 0)
+        $('MENU4').style.backgroundColor = 'transparent';
+    else
+        $('MENU4').style.backgroundColor = 'pink';
     $('approvals').descendants().each(function(element){element.remove();});
     var img = document.createElement('img');
     img.src = '../img/movie/movie_'+ selectmovie +'.jpeg';
@@ -107,18 +126,18 @@ function changeseat() {
 
 
     var sese = document.createElement('p');
-    sese.innerHTML = '선택한 좌석: ';
-    var type = 1;
-    for (var i=0; i < options.length; i++){
-        if (!options[i].selected)
-            continue;
-        count++;
-        if(type)
-            type = 0;
-        else
-            sese.innerHTML +=", ";
-        sese.innerHTML +=options[i].value;
-    }
+    sese.innerHTML = '선택한 좌석: ' + selectseat;
+    // var type = 1;
+    // for (var i=0; i < options.length; i++){
+    //     if (!options[i].selected)
+    //         continue;
+    //     count++;
+    //     if(type)
+    //         type = 0;
+    //     else
+    //         sese.innerHTML +=", ";
+    //     sese.innerHTML +=options[i].value;
+    // }
     $('people').innerHTML = '선택 인수 : ' + count +'명';
     $("movie_data").appendChild(sese);
     prices = 10000 * count;
@@ -159,19 +178,19 @@ function seat_JSON(ajax) {
         } 
         else {
             $('MENU3').style.backgroundColor = 'pink';
-            var select = document.createElement('select');
-            select.name = 'seat[]'
-            select.id = 'select_seat'
-            select.multiple = 'multiple';
-            select.onchange = changeseat;
-            $("seats").appendChild(select);
-            for(var j=0;j<data.seats[i].seat.length;j++) {
-                var option = document.createElement('option');
-                option.id = data.seats[i].seat[j];
-                option.value = data.seats[i].seat[j];
-                option.innerHTML = data.seats[i].seat[j];
-                $("select_seat").appendChild(option);
-            }
+            // var select = document.createElement('select');
+            // select.name = 'seat[]'
+            // select.id = 'select_seat'
+            // select.multiple = 'multiple';
+            // select.onchange = changeseat;
+            // $("seats").appendChild(select);
+            // for(var j=0;j<data.seats[i].seat.length;j++) {
+            //     var option = document.createElement('option');
+            //     option.id = data.seats[i].seat[j];
+            //     option.value = data.seats[i].seat[j];
+            //     option.innerHTML = data.seats[i].seat[j];
+            //     $("select_seat").appendChild(option);
+            // }
         }
     }
     new Ajax.Request("isseat_json.php",{

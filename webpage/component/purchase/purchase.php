@@ -124,6 +124,35 @@
 						<div id="seats">
 							<p>좌석을 선택할 수 없습니다.</p>
 						</div>
+						<div id="">
+							<input type="hidden" name="seat" id="쉿!조용" />
+							<table>
+								<tr>
+									<th>gg</th>
+									<?php for ($i=1; $i <= 10 ; $i++) { ?>
+										<th><?=$i?></th>
+									<?php } ?>
+								</tr>
+								<?php
+								$alpabet = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'); 
+								for ($i=0; $i < 9 ; $i++) { ?>
+									<tr>
+										<th><?=$alpabet[$i]?></th>
+										<?php 
+										$last = 10;
+										$col = 1;
+										if($i == 0 || $i == 8){
+											$last = 5;
+											$col = 2;
+										}
+										for ($j=1; $j <=$last; $j++) { 
+											?>
+											<th colspan="<?=$col?>"><input type="button" name="" value="0" id="<?=$alpabet[$i] . $j?>" onclick = 'overing(this)'></th>
+										<?php } ?>
+									</tr>
+								<?php } ?>
+							</table>
+						</div>
 					</fieldset>
 				</section>
 
