@@ -55,8 +55,28 @@
 		</form>
 	</div>
 	<hr/>
-	
-        
+
+    
+
+<?php
+    // $dbHost = "localhost";
+    // $dbName = "zxcinemaxz";
+    // $dbUser = "root";
+    // $dbPass = "root";
+    // $dbChar = "utf8";
+    // $dsn = "mysql:host={$dbHost};dbname={$dbName};charset={$dbChar}";
+    // $pdo = new PDO($dsn, $dbUser, $dbPass);
+    $conn = connect();
+    $search = $_GET['q'];
+    $stmt = $conn -> prepare("SELECT name FROM cinema WHERE name like '%$search%'");
+    $stmt-> execute();
+    $row = $stmt->fetchAll();
+    foreach($row as $key => $value){
+        echo $value['name'];
+    }
+    ?>
+    
+
 
 </body>
 </html>
