@@ -11,40 +11,38 @@ h3 {
   width: inherit;
   height: inherit;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1266px) {
   .SEC {
-    width: calc((100% - 406px) / 2);
+    width: calc((100% - 462px) / 2);
     height: 500px;
   }
   .REVIEW {
-    background: #00498c;
   }
   .POSTER {
-    border: 3px double red;
     width: 340px;
     margin-left: 30px;
     margin-right: 30px;
     height: calc(340px * 1.432);
   }
   .DETAIL {
-    background: #6a8518;
+  }
+  .Tree {
+    text-align: center;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1266px) {
   .SEC {
     height: 500px;
   }
   .REVIEW {
     position: relative;
-    width: 100%;
-    background: blue;
-    top: 500px;
+    width: calc(100% - 32px);
+    top: 510px;
   }
   .POSTER {
     position: relative;
-    border: 3px double red;
     top: -500px;
-    width: 340px;
+    width: 334px;
     margin-left: 30px;
     margin-right: 30px;
     height: calc(340px * 1.432);
@@ -52,13 +50,42 @@ h3 {
   .DETAIL {
     position: relative;
     top: -500px;
-    width: calc(100% - 406px);
-    background: red;
+    width: calc(100% - 426px);
+    height: 490px;
   }
+  .BTREE {
+    position: relative;
+    top: 20px;
+  }
+
 }
 
 .SEC::-webkit-scrollbar {
   display: none;
+}
+.REVIEW{
+  margin-left: 10px;
+  border: 3px solid;
+}
+.POSTER{
+  border: 5px double;
+}
+.DETAIL{
+  border: 3px solid;
+  padding-left: 10px;
+}
+.TRIPE{
+  margin-top: 10px;
+}
+.reviewset{
+  height: calc(100% - 70px);
+  overflow-y: auto;
+  background-color: orange;
+}
+.reviewbar{
+  border-top : 2px solid;
+  padding-top: 20px;
+  height: 45px;
 }
 /*404 not found*/
 #notfound {
@@ -74,8 +101,17 @@ h3 {
   vertical-align: middle;
 }
 /*THREE TREE*/
-.Tree {
-  text-align: center;
+
+.Tree button{
+  font-family: "Poor Story", cursive;
+  background-color: rgb(255, 255, 255);
+  border-color: black;
+  border-style: solid;
+  border-width: 3px;
+  font-size: 15px;
+  width: 130px;
+  padding: 5px;
+  border-radius: 35px;
 }
 .fruit {
   height: 500px;

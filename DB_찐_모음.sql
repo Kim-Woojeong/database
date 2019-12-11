@@ -112,7 +112,8 @@ CREATE TABLE Customer_rank(
 CREATE TABLE Coupon(
     coupon_name varchar(50) not null,
     type varchar(10) not null,
-    discount_rate float not null
+    discount_rate float not null,
+    CONSTRAINT PK_Coupon PRIMARY KEY(coupon_name)
 );
 
 CREATE TABLE Department(

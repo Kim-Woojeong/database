@@ -9,5 +9,5 @@ function Button_Tree(Div) {
 	document.getElementById("ActorsB").style.backgroundColor = 'initial';
 	document.getElementById("DirectorsB").style.backgroundColor = 'initial';
 	document.getElementById(Div).style.display = "block";
-	document.getElementById(Div + "B").style.backgroundColor = 'red';
+	document.getElementById(Div + "B").style.backgroundColor = 'pink';
 }
