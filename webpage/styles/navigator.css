@@ -101,3 +101,7 @@
   font-family: inherit; /* Important for vertical align on mobile phones */
   /* Important for vertical align on mobile phones */
 }
+.reservebtn:hover {
+  background-color: white;
+  color: black;
+}

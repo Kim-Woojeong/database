@@ -65,9 +65,9 @@
 	<hr />
 	<div class="sorting_movie">
 		<form action="" method="POST">
-			<button value="total_audience desc" name="sortbutton">인기순</button>
-			<button value="release_date desc" name="sortbutton">최신순</button>
-			<button value="movie_name" name="sortbutton">가나다순</button>
+			<button class="sortbtn" value="total_audience desc" name="sortbutton">인기순</button>
+			<button class="sortbtn" value="release_date desc" name="sortbutton">최신순</button>
+			<button class="sortbtn" value="movie_name" name="sortbutton">가나다순</button>
 		</form>
 	</div>
 	<ol class="overview_movie">

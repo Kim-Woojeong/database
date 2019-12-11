@@ -10,6 +10,11 @@ body {
   background: linear-gradient(to bottom, #2193b0, #6dd5ed);
 }
 
+.sortbtn:hover {
+  background-color: skyblue;
+  color: white;
+}
+
 .page_info {
   margin-top: 30px;
   margin-left: 150px;
