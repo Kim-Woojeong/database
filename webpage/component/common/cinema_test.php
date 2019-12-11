@@ -21,6 +21,7 @@
   </header>
   <?php
   include "../common/navigator.php";
+  
   ?>
   <?php
   for ($i = 1; $i < 7; $i++) {
@@ -77,8 +78,13 @@
           <?php } ?>
         </ol>
       </div>
+     
     </div> <!-- contents -->
+    <?php
+  include "../common/footer.php";
+  ?>
   </div>
+  
 
 </body>
 
