@@ -1,6 +1,7 @@
 body {
   line-height: 2em;
-  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+  background: linear-gradient(to bottom, #2193b0, #368ca0);
+  color: black;
 }
 
 .section_title {
@@ -35,12 +36,23 @@ li {
 
 .right {
   float: right;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  width: 90px;
+  height: 40px;
+  font-size: 15pt;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+}
+
+.right a {
+  text-decoration: none;
+  color: black;
 }
 
 #mainWrapper {
   padding-top: 10px;
-  width: 800px;
+  width: 1200px;
   margin: 0 auto;
   /*가운데 정렬*/
 }
@@ -53,7 +65,7 @@ li {
   font-size: 14pt;
   height: 40px;
   vertical-align: middle;
-  line-height: 30px;
+  line-height: 100px;
 }
 
 #ulTable {
@@ -64,6 +76,9 @@ li {
   background-color: #c9c9c9;
   font-weight: bold;
   text-align: center;
+  font-size: 20pt;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #ulTable > li > ul {
@@ -75,9 +90,14 @@ li {
 
 #ulTable > li > ul > li {
   float: left;
-  font-size: 10pt;
+  font-size: 20pt;
   border-bottom: 1px solid silver;
   vertical-align: baseline;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-decoration: none;
+  background-color: rgb(228, 228, 228);
+  color: black;
 }
 
 /*No 열 크기*/
@@ -100,6 +120,8 @@ li {
   margin: 0 auto;
   width: 220px;
   height: 50px;
+  font-size: 20pt;
+  padding-top: 30px;
 }
 
 #divPaging > div {
@@ -111,15 +133,21 @@ li {
 
 #liSearchOption {
   clear: both;
+  float: left;
 }
 
 #liSearchOption > div {
   margin: 0 auto;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   width: auto;
-  height: 100px;
+  height: 50px;
 }
 
 .left {
   text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
