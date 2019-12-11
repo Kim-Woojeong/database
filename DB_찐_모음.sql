@@ -112,7 +112,8 @@ CREATE TABLE Customer_rank(
 CREATE TABLE Coupon(
     coupon_name varchar(50) not null,
     type varchar(10) not null,
-    discount_rate float not null
+    discount_rate float not null,
+    CONSTRAINT PK_Coupon PRIMARY KEY(coupon_name)
 );
 
 CREATE TABLE Department(
@@ -209,7 +210,7 @@ CREATE TABLE Coupon_box (
 
 CREATE TABLE Employee(
     employee_id INT UNSIGNED  NOT NULL,
-    emplyee_name  CHAR(10)  NOT NULL,
+    employee_name  CHAR(10)  NOT NULL,
     ssn CHAR(13)  NOT NULL,
     hp  CHAR(11)  NULL,
     hout_wage INT UNSIGNED  NOT NULL  DEFAULT 8350,
@@ -320,8 +321,8 @@ CREATE TABLE Schedule (
     schedule_date datetime not null,
     employee_id int unsigned not null,
     on_holiday tinyint not null default 0,
-    attending_time datetime null,
-    closing_time datetime null,
+    attending_time datetime,
+    closing_time datetime,
     reason text(255) null,
     CONSTRAINT PK_Schedule PRIMARY KEY(schedule_date, employee_id),
     CONSTRAINT FK_Schedule FOREIGN KEY(employee_id)
@@ -401,14 +402,6 @@ CREATE TABLE NOTICE(
   CONSTRAINT FK_NOTICE FOREIGN KEY(cinema_id)
   REFERENCES Cinema(cinema_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
-
-
-
-
-
-
-
-
 
 insert into coupon values
 ("생일축하쿠폰", "영화", 50.0),
