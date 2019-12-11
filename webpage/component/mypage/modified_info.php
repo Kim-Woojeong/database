@@ -167,7 +167,7 @@
                                 </div>
 
                                 <div class="btn">
-                                    <button type="submit" id="signUpBtn"> Sign Up </button>
+                                    <button type="submit" id="signUpBtn"> 수정완료 </button>
                                 </div>
 
                             </div>
