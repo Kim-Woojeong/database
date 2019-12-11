@@ -7,7 +7,8 @@ html {
   height: 500px;
   border: 5px solid black;
   text-align: center;
-  background: url("../component/img/advertisement/bg1.png");
+  /* background: url("../component/img/advertisement/bg1.png"); */
+  background-color: black;
   background-size: contain;
   background-repeat: repeat-x;
 }
@@ -54,14 +55,14 @@ a:visited {
   padding-top: 10px;
   width: 30%;
   min-height: 275px;
-  border: 5px solid #717171;
+  border: 3px solid #717171;
   float: left;
   text-align: center;
   margin-left: 2%;
 }
 
 .ad img {
-  border: solid 2px white;
+  border: solid 2px black;
   width: 980px;
   height: 490px;
 }
