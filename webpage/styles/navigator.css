@@ -41,10 +41,7 @@
 .dropdown .dropbtn {
   margin-left: 5px;
   font-size: 20px;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
+  border: none;
   outline: none;
   color: white;
   padding: 15px 50px;

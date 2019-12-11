@@ -44,7 +44,9 @@ article {
   min-height: 100%;
 }
 section {
-  background-color: gray;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 3px;
   width: inherit;
   height: inherit;
 }

@@ -1,7 +1,11 @@
+body {
+  background-color: #f5f3f2;
+}
+
 #wrapper {
   border: 2px;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 500px;
@@ -20,7 +24,8 @@
 }
 
 form {
-  background-color: #ffff99;
+  background-color: #6fb882;
   width: 500px;
   height: 550px;
+  color: ivory;
 }
