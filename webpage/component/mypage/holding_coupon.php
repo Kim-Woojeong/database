@@ -18,11 +18,45 @@
                     <?php
                     include "../common/DB_Connect.php";
                     include "../common/top_login.php";
+                    $db = connect();
                     ?>
                 </ul>
             </header>
             <?php
             include "../common/navigator.php";
+            $id = $_SESSION['id'];
+            $name=$_SESSION['name'];
+            $rank = $_SESSION['rank'];
+            $need = 0;
+            $view_sql = "select count(ticket_id) from ticketing_info where customer_id = '$id'";
+            $view_stt=$db->prepare($view_sql);
+            $view_stt->execute();
+            $result = $view_stt->fetch(PDO::FETCH_ASSOC);
+            $view_movie = $result['count(ticket_id)'];
+            if($view_movie<5){
+              $need = 5-$view_movie;
+              $sql = "update customer_info set rank_name = 'VIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<10) {
+              $need = 10-$view_movie;
+              $sql = "update customer_info set rank_name = 'RVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<20) {
+              $need = 20-$view_movie;
+              $sql = "update customer_info set rank_name = 'VVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else {
+              $need = $view_movie;
+              $sql = "update customer_info set rank_name = 'SVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
             ?>
 
             <!--start -->
@@ -39,11 +73,11 @@
                 <p>
 
                     안녕하세요
-                    <span id="id_info">김우정</span> 님,
+                    <span id="id_info"><?=$name?></span> 님,
 
                 </p>
-                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info">VIP</span> 입니다.<br />
-                    다음등급까지 <span id="mypage_info">3</span>번의 영화예매가 남아있습니다.<br />
+                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info"><?=$rank?></span> 입니다.<br />
+                    다음등급까지 <span id="mypage_info"><?=$need?></span>번의 영화예매가 남아있습니다.<br />
                 </p>
             </div> <!-- top_info -->
             <hr />
@@ -82,38 +116,22 @@
                 <div class="right_info">
 
                     <p class="coupon_right_info_title"> 보유쿠폰 </p>
-                    <div class="coupon_list_container">
-                        <div class="coupon_title">
-                            <p id="coupon_title">생일축하쿠폰</p>
-                        </div>
-                        <div class="coupon_info">
-                            <p>헤택 : <span id="discount_rate">50</span> % 할인 </p>
-                            <p>발행일 : <span id="issue_date">2019.12.09</span></p>
-                            <p>만료예정일 : <span id="expirate_date">2019.12.16</span></p>
-                        </div>
-                    </div> <!-- coupon_container -->
-
-                    <div class="coupon_list_container">
-                        <div class="coupon_title">
-                            <p id="coupon_title">씹고뜯고맛보고즐겨쿠폰</p>
-                        </div>
-                        <div class="coupon_info">
-                            <p>헤택 : <span id="discount_rate">30</span> % 할인 </p>
-                            <p>발행일 : <span id="issue_date">2019.12.01</span></p>
-                            <p>만료예정일 : <span id="expirate_date">2019.12.31</span></p>
-                        </div>
-                    </div> <!-- coupon_container -->
-
-                    <div class="coupon_list_container">
-                        <div class="coupon_title">
-                            <p id="coupon_title">등급별혜택쿠폰</p>
-                        </div>
-                        <div class="coupon_info">
-                            <p>헤택 : <span id="discount_rate">35</span> % 할인 </p>
-                            <p>발행일 : <span id="issue_date">2019.12.01</span></p>
-                            <p>만료예정일 : <span id="expirate_date">2019.12.31</span></p>
-                        </div>
-                    </div> <!-- coupon_container -->
+                    <?php $d_sql = "select coupon_name,discount_rate,issue_date,expirate_date from coupon_box natural join coupon where customer_id = '$id'";
+                    $d_stt=$db->prepare($d_sql);
+                    $d_stt->execute();
+                    foreach($d_stt as $d) { ?>
+                      <div class="coupon_list_container">
+                          <div class="coupon_title">
+                              <p id="coupon_title"><?=$d['coupon_name']?></p>
+                          </div>
+                          <div class="coupon_info">
+                              <p>헤택 : <span id="discount_rate"><?=$d['discount_rate']?></span> % 할인 </p>
+                              <p>발행일 : <span id="issue_date"><?=$d['issue_date']?></span></p>
+                              <p>만료예정일 : <span id="expirate_date"><?=$d['expirate_date']?></span></p>
+                          </div>
+                      </div>
+                    <?php } ?>
+                     <!-- coupon_container -->
 
                 </div> <!-- right_info -->
 

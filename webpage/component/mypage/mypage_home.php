@@ -16,11 +16,45 @@
                     <?php
                     include "../common/DB_Connect.php";
                     include "../common/top_login.php";
+                    $db = connect();
                     ?>
                 </ul>
             </header>
             <?php
             include "../common/navigator.php";
+            $id = $_SESSION['id'];
+            $name=$_SESSION['name'];
+            $rank = $_SESSION['rank'];
+            $need = 0;
+            $view_sql = "select count(ticket_id) from ticketing_info where customer_id = '$id'";
+            $view_stt=$db->prepare($view_sql);
+            $view_stt->execute();
+            $result = $view_stt->fetch(PDO::FETCH_ASSOC);
+            $view_movie = $result['count(ticket_id)'];
+            if($view_movie<5){
+              $need = 5-$view_movie;
+              $sql = "update customer_info set rank_name = 'VIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<10) {
+              $need = 10-$view_movie;
+              $sql = "update customer_info set rank_name = 'RVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<20) {
+              $need = 20-$view_movie;
+              $sql = "update customer_info set rank_name = 'VVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else {
+              $need = $view_movie;
+              $sql = "update customer_info set rank_name = 'SVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
             ?>
 
             <!--start -->
@@ -37,11 +71,11 @@
                 <p>
 
                     안녕하세요
-                    <span id="id_info">김우정</span> 님,
+                    <span id="id_info"><?=$name?></span> 님,
 
                 </p>
-                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info">VIP</span> 입니다.<br />
-                    다음등급까지 <span id="mypage_info">3</span>번의 영화예매가 남아있습니다.<br />
+                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info"><?=$rank?></span> 입니다.<br />
+                    다음등급까지 <span id="mypage_info"><?=$need?></span>번의 영화예매가 남아있습니다.<br />
                 </p>
             </div> <!-- top_info -->
             <hr />
@@ -49,7 +83,6 @@
 
             <div class="down_info">
                 <div class="left_info">
-
                     <p>
                         MEMU
                     </p>
@@ -80,50 +113,39 @@
                 <div class="right_info">
 
                     <div class="watched_movie">
-
+                      <?php $d_sql = "select movie_id from ticketing_info natural join movie_schedule where customer_id = '$id'";
+                      $d_stt=$db->prepare($d_sql);
+                      $d_stt->execute();?>
                         <p id="right_info_title">
                             - - - - - - - 본 영화 - - - - - - -
                         </p>
 
                         <div class="watched_movie_poster">
+                          <?php foreach ($d_stt as $v) {?>
                             <div id="poster_list" class="first_movie">
-                                <img src="../img/movie/movie_10000.jpeg" alt="image">
+                                <img src="../img/movie/movie_<?=$movie_id?>.jpeg" alt="image">
                             </div>
-                            <div id="poster_list">
-                                <img src="../img/movie/movie_10001.jpeg" alt="image">
-                            </div>
-                            <div id="poster_list">
-                                <img src="../img/movie/movie_10006.jpeg" alt="image">
-                            </div>
+                          <?php } ?>
                         </div> <!-- watched_movie_poster -->
 
                     </div> <!-- watched_movie -->
 
                     <div class="my_review">
+                      <?php $view_sql = "select movie_name,written_time,score,contents from movie_review natural join movie where customer_id = '$id'";
+                      $view_stt=$db->prepare($view_sql);
+                      $view_stt->execute();?>
                         <p id="right_info_title">
                             - - - - - - 작성한 리뷰 - - - - - - </p>
                         <div class="my_review_box">
+                          <?php foreach ($view_stt as $view) { ?>
                             <div id="review_list">
-                                <p id="title">겨울왕국2</p>
+                                <p id="title"><?=$view['movie_name']?></p>
 
-                                <p> 미래가 보이지 않을 때는 지금 해야할 일을 해야 해 </p>
-                                <p> ★★★★☆ | 안산중앙점 | 2019.12.04</p>
+                                <p> <?=$view['contents']?> </p>
+                                <p> <?=$view['score']?> | <?=$view['written_time']?></p>
 
                             </div>
-                            <div id="review_list">
-                                <p id="title">캡틴마블</p>
-
-                                <p> 솔직히 1점주는 애들은 보지도않고 그냥 브리라슨자체를 싫어하는 애들이고. 객관적으로 보면 재밋음 리얼ㅍㅌ</p>
-                                <p> ★★★☆☆ | 홍대점 | 2019.12.04</p>
-
-                            </div>
-                            <div id="review_list">
-                                <p id="title">헝거게임: 캣칭파이어</p>
-
-                                <p> 긴 상영시간임에도 불구하고 몰입감때문에 시간가는것이 안느껴졌다</p>
-                                <p> ★★★★★ | 안산고잔점 | 2019.12.04</p>
-
-                            </div>
+                          <?php } ?>
                         </div> <!-- my_review_box -->
                     </div> <!-- my_review -->
 

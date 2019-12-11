@@ -18,11 +18,45 @@
                     <?php
                     include "../common/DB_Connect.php";
                     include "../common/top_login.php";
+                    $db = connect();
                     ?>
                 </ul>
             </header>
             <?php
             include "../common/navigator.php";
+            $id = $_SESSION['id'];
+            $name=$_SESSION['name'];
+            $rank=$_SESSION['rank'];
+            $need = 0;
+            $view_sql = "select count(ticket_id),rank_name from ticketing_info natural join customer_info where customer_id = '$id'";
+            $view_stt=$db->prepare($view_sql);
+            $view_stt->execute();
+            $result = $view_stt->fetch(PDO::FETCH_ASSOC);
+            $view_movie = $result['count(ticket_id)'];
+            if($view_movie<5){
+              $need = 5-$view_movie;
+              $sql = "update customer_info set rank_name = 'VIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<10) {
+              $need = 10-$view_movie;
+              $sql = "update customer_info set rank_name = 'RVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else if ($view_movie<20) {
+              $need = 20-$view_movie;
+              $sql = "update customer_info set rank_name = 'VVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
+            else {
+              $need = $view_movie;
+              $sql = "update customer_info set rank_name = 'SVIP' where customer_id = '$id'";
+              $stt=$db->prepare($sql);
+              $stt->execute();
+            }
             ?>
 
             <!--start -->
@@ -39,11 +73,11 @@
                 <p>
 
                     안녕하세요
-                    <span id="id_info">김우정</span> 님,
+                    <span id="id_info"><?=$name?></span> 님,
 
                 </p>
-                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info">VIP</span> 입니다.<br />
-                    다음등급까지 <span id="mypage_info">3</span>번의 영화예매가 남아있습니다.<br />
+                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info"><?=$rank?></span> 입니다.<br />
+                    다음등급까지 <span id="mypage_info"><?=$need?></span>번의 영화예매가 남아있습니다.<br />
                 </p>
             </div> <!-- top_info -->
             <hr />
@@ -82,58 +116,33 @@
                 <!--start -->
 
                 <div class="right_info">
+                  <?php $d_sql = "select ticket_id,movie_name,seat_number,movie_time from ticketing_info natural join schedule_seat natural join movie_schedule natural join movie where customer_id = '$id'";
+                  $d_stt=$db->prepare($d_sql);
+                  $d_stt->execute();?>
                     <p>현장에서 발권하실 경우 꼭 <span class="ticketing_num">예매번호</span>를 확인하세요.</p>
                     <p id="can_issue">티켓판매기에서 예매번호를 입력하면 티켓을 발급받을 수 있습니다.</p>
 
-                    <div class="ticket_list_container">
-                        <div class="list_num">
-                            <p>예매번호</p>
-                            <p>20183029</p>
-                        </div>
-                        <div class="list_poster">
-                            <img src="../img/movie/movie_10000.jpeg" alt="image">
-                        </div>
-                        <div class="list_movie">
-                            <p>영화이름 : <span class="list_movie_info">겨울왕국2</span></p>
-                        </div>
-                        <div class="list_theater">
-                            <p>영화관이름 : <span class="list_movie_info">안산중앙점</span></p>
-                        </div>
-                        <div class="list_seat">
-                            <p>상영관 및 좌석 : <span class="list_movie_info">2관 L10,L11 (2명)</span></p>
-                        </div>
-                        <div class="list_date">
-                            <p>관람일시 : <span class="list_movie_info">2019.11.27 (수) 17:00</span></p>
-                        </div>
-                    </div> <!-- ticket_list_container -->
-
-                    <div class="ticket_list_container">
-                        <div class="list_num">
-                            <p>예매번호</p>
-                            <p>0392948</p>
-                        </div>
-                        <div class="list_poster">
-                            <img src="../img/movie/movie_10004.jpeg" alt="image">
-                        </div>
-                        <div class="list_movie">
-                            <p>영화이름 : <span class="list_movie_info">블랙머니</span></p>
-                        </div>
-                        <div class="list_theater">
-                            <p>영화관이름 : <span class="list_movie_info">제주점</span></p>
-                        </div>
-                        <div class="list_seat">
-                            <p>상영관 및 좌석 : <span class="list_movie_info">4관 G6 (1명)</span></p>
-                        </div>
-                        <div class="list_date">
-                            <p>관람일시 : <span class="list_movie_info">2019.12.10 (화) 11:30</span></p>
-                        </div>
-                    </div> <!-- ticket_list_container -->
-
-
-
-
+                    <?php foreach($d_stt as $d) {?>
+                      <div class="ticket_list_container">
+                          <div class="list_num">
+                              <p>예매번호</p>
+                              <p><?=$d['ticket_id']?></p>
+                          </div>
+                          <div class="list_poster">
+                              <img src="../img/movie/movie_10000.jpeg" alt="image">
+                          </div>
+                          <div class="list_movie">
+                              <p>영화이름 : <span class="list_movie_info"><?=$d['movie_name']?></span></p>
+                          </div>
+                          <div class="list_seat">
+                              <p>상영관 및 좌석 : <span class="list_movie_info"><?=$d['seat_number']?></span></p>
+                          </div>
+                          <div class="list_date">
+                              <p>관람일시 : <span class="list_movie_info"><?=$d['movie_time']?></span></p>
+                          </div>
+                      </div>
+                    <?php } ?>
+                     <!-- ticket_list_container -->
                 </div> <!-- right_info -->
-
                 </body>
-
 </html>
