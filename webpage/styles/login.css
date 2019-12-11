@@ -7,18 +7,17 @@
 .loginbox {
   display: inline-flex;
   justify-content: center;
-  border: 5px solid;
-
   width: 450px;
-  height: 200px;
   margin-top: 30px;
   margin-bottom: 30px;
   padding-top: 50px;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   padding-left: 30px;
   padding-right: 30px;
 }
-
+.box_login {
+  padding-top: 20px;
+}
 .inp_chk {
   width: 150px;
   margin-right: 6px;
@@ -30,6 +29,8 @@
   height: 43px;
   justify-content: center;
   background-color: #4a82c1;
+  font-size: 20pt;
+  margin-top: 30px;
 }
 a:link {
   text-decoration: none;
@@ -43,11 +44,13 @@ a:hover {
   display: flex;
   width: 395px;
   height: 43px;
+  font-size: 20pt;
 }
 #loginPw {
   display: flex;
   width: 395px;
   height: 43px;
+  font-size: 20pt;
 }
 
 .login_append {
@@ -55,10 +58,12 @@ a:hover {
   justify-content: space-between;
   font-size: 15px;
   width: 390px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .inp_text {
-  margin-bottom: 3px;
+  margin-bottom: 7px;
 }
 .txt_find {
   font-size: 12px;
@@ -66,12 +71,18 @@ a:hover {
   padding-top: 2px;
   text-align: left;
   flex-direction: row;
+  font-size: 10pt;
+}
+
+.txt_lab {
+  font-size: 10pt;
 }
 .txt_register {
   font-size: 12px;
   padding-top: 2px;
   text-align: left;
   padding-left: 2px;
+  font-size: 10pt;
 }
 .link_find {
   text-align: left;
