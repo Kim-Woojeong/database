@@ -112,8 +112,7 @@ CREATE TABLE Customer_rank(
 CREATE TABLE Coupon(
     coupon_name varchar(50) not null,
     type varchar(10) not null,
-    discount_rate float not null,
-    CONSTRAINT PK_Coupon PRIMARY KEY(coupon_name)
+    discount_rate float not null
 );
 
 CREATE TABLE Department(
@@ -197,12 +196,15 @@ CREATE TABLE Movie_actor (
 CREATE TABLE Coupon_box (
     coupon_number int unsigned not null,
     customer_id char(20) not null,
+    coupon_name varchar(50) not null, 
     issue_date timestamp not null default current_timestamp,
     expirate_date datetime not null,
     usage_status tinyint not null default 0,
     CONSTRAINT PK_Coupon_box PRIMARY KEY(coupon_number, customer_id),
     CONSTRAINT FK_Coupon_box_1 FOREIGN KEY(customer_id)
-    REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT
+    REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT FK_Coupon_box_2 FOREIGN KEY(coupon_name)
+    REFERENCES coupon(coupon_name) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Employee(
