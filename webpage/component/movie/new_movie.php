@@ -97,7 +97,7 @@
 					<!-- 영화포스터 -->
 					<span class="over">
 						<a href="movie.php?id=<?= $value['movie_id'] ?>" class="link_info" id='content<?= $key ?>' onmousemove="View('영화 정보','content<?= $key ?>')" onmouseout="hide('content<?= $key ?>')"></a>
-						<a href="#" class="link_purchase" id="dontent<?= $key ?>" onmouseover="View('영화 예매','dontent<?= $key ?>')" onmouseout="hide('dontent<?= $key ?>')"></a>
+						<a href="../purchase/purchase.php" class="link_purchase" id="dontent<?= $key ?>" onmouseover="View('영화 예매','dontent<?= $key ?>')" onmouseout="hide('dontent<?= $key ?>')"></a>
 					</span>
 					<img src="../img/movie/movie_<?= $value['movie_id'] ?>.jpeg" onerror="this.src='../img/movie/movie_no_image.jpeg';" class="movie_image">
 				</div>
