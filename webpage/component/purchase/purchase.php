@@ -56,6 +56,10 @@
 
 				<!-- 영화관 선택(option #1) -->
 				<section id="cinema">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('approval')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('movie')"/>
+					</div>
 					<fieldset>
 						<legend><h2>영화관 선택</h2></legend>
 						<?php
@@ -73,48 +77,60 @@
 								<?php } ?>
 							</select>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('movie')"/>
 					</fieldset>
 				</section>
 
 				<!-- 영화 선택(option #2) -->
 				<section id="movie">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('approval')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('date')"/>
+					</div>
 					<fieldset>
 						<legend><h2>영화선택</h2></legend>
 						<h3 id="selection_movie">선택하신 영화 : 미선택</h3>
 						<div id="movies">
 							<p>영화를 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('date')"/>
 					</fieldset>
 				</section>
 
 				<!-- 날짜 선택(option #3) -->
 				<section id="date">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('approval')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('seat')"/>
+					</div>
 					<fieldset>
 						<legend><h2>날짜 선택</h2></legend>
 						<br>
 						<div id="select_day">
 							<p>날짜를 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('seat')"/>
 					</fieldset>
 				</section>
 
 				<!-- 좌석 선택(option #4) -->
 				<section id="seat">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('approval')"/>
+						<input type="button" name="" value="다음" class="next" onclick="sectionselect('approval')"/>
+					</div>
 					<fieldset>
 						<legend><h2>좌석 선택</h2></legend>
 						<h3 id="people">선택 인수 : 0명</h3>
 						<div id="seats">
 							<p>좌석을 선택할 수 없습니다.</p>
 						</div>
-						<input type="button" name="" value="다음" onclick="sectionselect('approval')"/>
 					</fieldset>
 				</section>
 
 				<!-- 결제(option #5 - final) -->
 				<section id="approval">
+					<div class="moviebutton">
+						<input type="button" name="" value="이전" class="back" onclick="sectionselect('approval')"/>
+						<input type="submit" name="" class="next" value="결제하기" />
+					</div>
 					<fieldset>
 						<legend><h2>결제</h2></legend>
 						<div id="approvals">
@@ -144,7 +160,6 @@
 								<p>로그인 하시면 쿠폰을 사용하실 수 있습니다.</p>
 							<?php } ?>
 						</div>
-						<input type="submit" name="" value="결제하기" />
 					</fieldset>
 				</section>
 
