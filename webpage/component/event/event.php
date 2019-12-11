@@ -33,7 +33,6 @@
 
     <ul>
       <!-- 게시판 제목 -->
-      <button class="right" type="button"><a href="eventwrite.html">글쓰기</a></button>
       <!-- 검색 폼 영역 -->
       <li id='liSearchOption'>
         <div>
