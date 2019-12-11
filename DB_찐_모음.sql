@@ -202,12 +202,12 @@ CREATE TABLE Coupon_box (
     usage_status tinyint not null default 0,
     CONSTRAINT PK_Coupon_box PRIMARY KEY(coupon_number, customer_id),
     CONSTRAINT FK_Coupon_box_1 FOREIGN KEY(customer_id)
-    REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    REFERENCES Customer_info(customer_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
 CREATE TABLE Employee(
     employee_id INT UNSIGNED  NOT NULL,
-    employee_name  CHAR(10)  NOT NULL,
+    emplyee_name  CHAR(10)  NOT NULL,
     ssn CHAR(13)  NOT NULL,
     hp  CHAR(11)  NULL,
     hout_wage INT UNSIGNED  NOT NULL  DEFAULT 8350,
@@ -548,7 +548,7 @@ insert into equipment values
 ("3D안경", 1000001, 200,250),
 ("유니폼", 1000001, 15,100),
 ("3D안경", 1000002, 1000,1050),
-("유니폼", 1000002, 120,150);
+("유니폼", 1000002, 120,1000);
 
 insert into Movie_actor values
 (1006,10010,"뽀로로"),
