@@ -10,13 +10,13 @@
   <header class="service_menu">
     <ul id="gnb">
       <?php include "../common/DB_Connect.php";
-      include "../common/top_login.php";
+      include "../employee/top_login.php";
       $db=connect();
       ?>
     </ul>
   </header>
   <?php
-  include "../common/navigator.php";
+  include "../employee/navigator.php";
   ?>
 
   <div id="mainWrapper">

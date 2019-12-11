@@ -1,6 +1,6 @@
 <?php
   include "../common/DB_Connect.php";
-  include "../common/top_login.php";
+  include "../employee/top_login.php";
   $db=connect();
   $scheduledate = $_GET['scheduledate'];
   $id = $_SESSION['id'];

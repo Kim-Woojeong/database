@@ -43,7 +43,7 @@ $sql->execute();
 
 echo
 "<script>
-alert('쿠폰이 생성되었습니다.');
+alert('쿠폰이 지급되었습니다.');
 window.location.replace('give_coupon.php');
 </script>";
 ?>

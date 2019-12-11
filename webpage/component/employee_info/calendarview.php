@@ -10,13 +10,13 @@
   <header class="service_menu">
     <ul id="gnb">
       <?php include "../common/DB_Connect.php";
-      			include "../common/top_login.php";
+      			include "../employee/top_login.php";
       			$db=connect();
       ?>
     </ul>
   </header>
   <?php
-  include "../common/navigator.php";
+  include "../employee/navigator.php";
   ?>
 
 <?php
@@ -45,9 +45,9 @@
       <?php if(strtotime($scheduledate) < strtotime(date("Y-m-d"))) { ?>
         <?php $disabled = "disabled"; ?>
       <?php } ?>
-      <button class="view_btn1" onclick="location.href='rest.php?scheduledate=<?=$scheduledate?>?>'" <?=$disabled?>>휴가</button>
-      <button class="view_btn1" onclick="location.href='reasonwrite.php?scheduledate=<?=$scheduledate?>?>'">사유적기</button>
-      <button class="view_btn1" onclick="location.href='attend.php?scheduledate=<?=$scheduledate?>?>'" <?=$disabled?>>출근</button>
-      <button class="view_btn1" onclick="location.href='close.php?scheduledate=<?=$scheduledate?>?>'" <?=$disabled?>>퇴근</button>
+      <button class="view_btn1" onclick="location.href='rest.php?scheduledate=<?=$scheduledate?>'" <?=$disabled?>>휴가</button>
+      <button class="view_btn1" onclick="location.href='reasonwrite.php?scheduledate=<?=$scheduledate?>'">사유적기</button>
+      <button class="view_btn1" onclick="location.href='attend.php?scheduledate=<?=$scheduledate?>'" <?=$disabled?>>출근</button>
+      <button class="view_btn1" onclick="location.href='close.php?scheduledate=<?=$scheduledate?>'" <?=$disabled?>>퇴근</button>
     </div>
 </html>

@@ -6,7 +6,7 @@ if ( empty($_POST['loginId']) ) {
 	exit;
 }
 $id=$_POST['loginId'];
-include "../DB_Connect.php";
+include "../common/DB_Connect.php";
 $conn = connect();
 $stmt = $conn->prepare("SELECT employee_id,employee_name,division FROM employee where employee_id = :id");
 $stmt -> bindValue(":id",$id);
