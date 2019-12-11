@@ -1,4 +1,6 @@
-﻿<?php
+﻿<link href="../../styles/common.css" type="text/css" rel="stylesheet" />
+
+<?php
 session_start();
 
 if (!isset($_SESSION['id'])) {

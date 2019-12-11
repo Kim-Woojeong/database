@@ -32,7 +32,7 @@
   </div>
   <div class="reserve">
     <button class="reservebtn" onclick="location.href = '../purchase/purchase.php'">
-      간편예매
+      ▶︎ 간편예매 GO ◀︎
       <i class="fa fa-caret-down"></i>
     </button>
   </div>

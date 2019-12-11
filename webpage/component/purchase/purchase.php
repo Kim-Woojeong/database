@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="../../styles/common.css" />
 	<link rel="stylesheet" type="text/css" href="../../styles/purchase.css" />
 	<script type="text/javascript" src="js/purchase.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 	<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js" type="text/javascript"></script>
 </head>
 <body>

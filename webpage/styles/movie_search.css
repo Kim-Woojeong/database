@@ -1,107 +1,182 @@
 /* ISO */
 /* SECTION TITLE */
-.section_title{
-  margin: 100px;
-  margin-bottom: 50px;
-  height: 250px;
+
+html {
+  font-family: "Poor Story", cursive;
+}
+
+body {
+  /* background: linear-gradient(to bottom, #ff7473, #ffd17c); */
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+}
+
+.page_info {
+  margin-top: 30px;
+  margin-left: 150px;
+  margin-bottom: 10px;
+}
+
+.section_title {
+  font-family: "Do Hyeon", sans-serif;
+  color: white;
+  height: 100px;
   text-align: center;
-  line-height: 250px;
   vertical-align: middle;
-  font-size:40pt;
-  background-image: url("../component/img/background/back2.png");  /* background image here plz */
 }
-.section_title h1{
-  background-color: rgba( 255, 255, 255, 0.4 );
+.section_title h1 {
+  margin-top: 50px;
+  color: black;
+  font-size: 50pt;
+  text-shadow: 2px 2px 1px rgb(255, 255, 255);
 }
+
+hr {
+  width: 1300px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  padding-top: 0px;
+}
+
 /* MOVIE BUTTON */
-.sorting_movie{
-  width: 100%;
-  padding-right: 100px;
-}
-.sorting_movie button{
+.sorting_movie {
+  width: 90%;
   float: right;
-}
-/* MOVIE INDEX */
-.overview_movie{
   margin-right: 100px;
-  margin-left: 100px;
 }
-.onemovie{
-  text-align: right;
+.sorting_movie button {
+  font-family: "Poor Story", cursive;
+  float: right;
+  margin-top: 0px;
+  padding: 5px;
+  width: 100px;
+  font-size: 20px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.sorting_movie button:active {
+  background-color: rgb(170, 170, 170);
+}
+
+/* MOVIE INDEX */
+.overview_movie {
+  margin-right: auto;
+  margin-left: auto;
+  width: 1300px;
+  height: 500px;
+}
+.onemovie {
+  text-align: center;
   float: left;
   width: 280px;
   margin-top: 50px;
   margin-left: 100px;
 }
-.movie_image{
+
+.onemovie p {
+  font-size: 25px;
+}
+
+#num_style {
+  font-size: 30px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3px;
+  text-shadow: 2px 2px 2px gray;
+}
+
+#movie_name {
+  margin-top: 50px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.movie_image {
   width: inherit;
   height: inherit;
 }
-.none{
-  margin-top:100px;
+.none {
+  margin-top: 100px;
 }
 /* ISO FIN */
 
 /*search bar*/
-.search_bar{
+.search_bar {
+  /* margin-left: auto;
+  margin-right: auto; */
   padding-left: 100px;
+  /* margin-top: 30px; */
+  width: 350px;
 }
-#searchbar{
-  background-color: #D3D3D3;
-  width: 250px;
-  height: 40px;
-  border: 0.3rem solid skyblue;
-  border-right: 0;
-  border-top: 0;
-  border-bottom: 0;
-  border-radius: 5px;
+#searchbar {
+  margin-top: 0px;
+  background-color: #ffffff;
+  width: 260px;
+  height: 33px;
+  1border: 0.3rem solid skyblue;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
 }
-#go{
-  width: 59px;
+
+#go {
+  width: 40px;
   height: 40px;
-  background-image: url('../component/img/search.png');   
+  background-image: url("../component/img/search_1.png");
   background-size: contain;
-  background-position:  0px 0px;
-  background-repeat: no-repeat; 
-  cursor:pointer;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  cursor: pointer;
   outline: 0;
+  border-width: 3px;
+  border-style: solid;
+  border-color: black;
 }
 
 /*wrapping division */
-.wrap{
-  border: solid black 0.1em;
+.wrap {
+  border: solid black 5px;
   position: relative;
   width: 280px;
   height: calc(280px * 1.432);
+  box-shadow: 10px 10px 2px black;
 }
-.over{
+
+.over {
   position: absolute;
   width: inherit;
   height: inherit;
 }
-.link_info{
+.link_info {
   display: block;
   width: 100%;
   height: 50%;
   line-height: 180px;
-  vertical-align: middle;
   text-align: center;
   font-size: 3em;
 }
-.link_info:hover{
-  background-color: #964b00;
+.link_info:hover {
+  background-color: #000000;
   opacity: 0.8;
+  color: white;
+  text-decoration: none;
 }
-.link_purchase{
+.link_purchase {
   display: block;
   width: 100%;
   height: 50%;
   line-height: 180px;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   text-align: center;
   font-size: 3em;
 }
-.link_purchase:hover{
-  background-color: #964b00;
+.link_purchase:hover {
+  background-color: #000000;
   opacity: 0.8;
+  color: white;
+  text-decoration: none;
 }

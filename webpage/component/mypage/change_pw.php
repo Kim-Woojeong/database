@@ -7,8 +7,11 @@
     <link rel="stylesheet" type="text/css" href="../../styles/mypage_home.css" />
     <link rel="stylesheet" type="text/css" href="../../styles/change_pw.css" />
 
-    <!-- change_pw.css 로 변경하기!!!! -->
-    <title>비밀번호 변경 < zxCINEMAxz</title> </head> <body>
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
+    <title>마이페이지 < zxCINEMAxz</title> </head> <body>
             <!-- top -->
             <header class="service_menu">
                 <ul id="gnb">
@@ -21,78 +24,93 @@
             <?php
             include "../common/navigator.php";
             ?>
-            <!--start -->
 
+            <!--start -->
             <div class="page_info">
                 HOME > 마이페이지 > 비밀번호 변경
-            </div> <!-- page_info -->
-            <div class="top_info">
-                <p>
-                    안녕하세요 _____님<br />
-                    고객님의 등급은 ______ 입니다.<br />
-                    다음등급까지 __번의 영화예매가 남아있습니다.<br />
-                </p>
-            </div> <!-- top_info -->
-
-            <div class="left_info">
-
-                <ul class="list_1">
-                    <li id="left_info_title"> [마이페이지 홈] </li>
-                    <li><a href="mypage_home.php">마이페이지</a></li>
-                </ul> <!-- list_1 -->
-                <br />
-                <ul class="list_2">
-                    <li id="left_info_title"> [나의 예매내역] </li>
-                    <li><a href="ticketing_list.php">예매내역</a></li>
-                </ul> <!-- list_2 -->
-                <br />
-                <ul class="list_3">
-                    <li id="left_info_title"> [회원정보] </li>
-                    <li><a href="change_pw.php">비밀번호 변경</a></li>
-                    <li><a href="modified_info.php">정보수정</a></li>
-                    <li><a href="delete_info.php">회원탈퇴</a></li>
-                </ul> <!-- list_3 -->
-                <br />
-                <ul class="list_4">
-                    <li id="left_info_title"> [나의 보유쿠폰] </li>
-                    <li><a href="holding_coupon.php">보유쿠폰</a></li>
-
-                </ul> <!-- list_4 -->
-
-            </div> <!-- left_info -->
-
-            <div class="right_info edit">
-
-                현재 비밀번호 입력받는 곳
-                <div class=pw_original_box>
-                    <form method="POST">
-                        <fieldset>
-                            <legend>
-                                <h2>비밀번호 변경</h2>
-                            </legend>
-                            <input type="text" name="current_pw" placeholder="현재 비밀번호" /><br />
-                            <input type="submit">
-                        </fieldset>
-                    </form>
-                </div>
-
-
-
-                새로운 비밀번호 입력받는 곳
-                <div class=pw_new_box>
-                    <form method="POST">
-                        <fieldset>
-                            <legend>
-                                <h2>비밀번호 변경</h2>
-                            </legend>
-                            <input type="text" name="new_pw" placeholder="새로운 비밀번호" /><br />
-                            <input type="text" name="new_pw_check" placeholder="새로운 비밀번호 확인" /><br />
-                            <input type="submit">
-                        </fieldset>
-                    </form>
-                </div>
             </div>
 
-            </body>
+            <div class="section_title">
+                <h1>MY PAGE</h1>
+            </div>
+            <hr />
+
+            <div class="top_info">
+                <p>
+
+                    안녕하세요
+                    <span id="id_info">김우정</span> 님,
+
+                </p>
+                <p id="sub_info"> 고객님의 등급은 <span id="mypage_info">VIP</span> 입니다.<br />
+                    다음등급까지 <span id="mypage_info">3</span>번의 영화예매가 남아있습니다.<br />
+                </p>
+            </div> <!-- top_info -->
+            <hr />
+
+
+            <div class="down_info">
+                <div class="left_info">
+
+                    <p>
+                        MEMU
+                    </p>
+                    <ul class="list_1">
+                        <li id="left_info_title"> 마이페이지 홈 </li>
+                        <li><a href="mypage_home.php">마이페이지</a></li>
+                    </ul> <!-- list_1 -->
+                    <br />
+                    <ul class="list_2">
+                        <li id="left_info_title"> 나의 예매내역 </li>
+                        <li><a href="ticketing_list.php">예매내역</a></li>
+                    </ul> <!-- list_2 -->
+                    <br />
+                    <ul class="list_3">
+                        <li id="left_info_title"> 회원정보 </li>
+                        <li><a href="change_pw.php">비밀번호 변경</a></li>
+                        <li><a href="modified_info.php">정보수정</a></li>
+                        <li><a href="delete_info.php">회원탈퇴</a></li>
+                    </ul> <!-- list_3 -->
+                    <br />
+                    <ul class="list_4">
+                        <li id="left_info_title"> 나의 보유쿠폰 </li>
+                        <li><a href="holding_coupon.php">보유쿠폰</a></li>
+
+                    </ul> <!-- list_4 -->
+
+                </div> <!-- left_info -->
+
+                <div class="right_info">
+
+                    현재 비밀번호 입력받는 곳
+                    <div class=pw_original_box>
+                        <form method="POST">
+                            <fieldset>
+                                <h2>비밀번호 변경</h2>
+                                </legend>
+                                <input type="text" name="current_pw" placeholder="현재 비밀번호" /><br />
+                                <input type="submit">
+                            </fieldset>
+                        </form>
+                    </div>
+
+
+
+                    새로운 비밀번호 입력받는 곳
+                    <div class=pw_new_box>
+                        <form method="POST">
+                            <fieldset>
+                                <legend>
+                                    <h2>비밀번호 변경</h2>
+                                </legend>
+                                <input type="text" name="new_pw" placeholder="새로운 비밀번호" /><br />
+                                <input type="text" name="new_pw_check" placeholder="새로운 비밀번호 확인" /><br />
+                                <input type="submit">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                </body>
 
 </html>

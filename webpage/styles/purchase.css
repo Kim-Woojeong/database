@@ -1,6 +1,12 @@
 body,
 html {
   height: 100%;
+  font-family: "Poor Story", cursive;
+}
+body {
+  /* background: linear-gradient(to bottom, #70a589, #638b69); */
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+  height: 2700px;
 }
 h1 {
   text-align: center;
