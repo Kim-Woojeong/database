@@ -1,5 +1,14 @@
 <?php
 include "../common/DB_Connect.php";
+$exit = 0;
+if(!preg_match('/(\d{11})/', $_POST['send_contact'])){
+	echo '<script>alert("올바른 전화번호가 아닙니다.");window.history.back();</script>';
+	$exit = 1;
+}
+if(!preg_match('/(\d{16})/', $_POST['pay_way2'])){
+	echo '<script>alert("올바른 카드번호가 아닙니다.");window.history.back();</script>';
+	$exit = 1;
+}
 $seatt = explode(',' , $_POST['seat']);
 session_start();
 $conn = connect();
@@ -17,6 +26,7 @@ try{
 		foreach ($seatt as $key2 => $value2) {
 			if($value1['seat_number'] == $value2 && $only){
 				$only = 0;
+				$exit = 0;
 			}
 		}
 	}
@@ -30,7 +40,7 @@ if(!$only){
 	echo '<script>alert("이미 선택된 좌석입니다.");
 	window.history.back();</script>';
 }
-else{
+else if($exit == 0){
 	try{
 		$sql = "insert into ticketing_info values (NULL,CURRENT_TIMESTAMP,:price,:pay_way,:send_contact,:coupon_number,:customer_id,:movie_time,:theater_name,:cinema_id,:movie_id)";
 		$stmt = $conn -> prepare($sql);
