@@ -71,12 +71,11 @@
     $stmt = $conn -> prepare("SELECT name FROM cinema WHERE name like '%$search%'");
     $stmt-> execute();
     $row = $stmt->fetchAll();
-    foreach($row as $key => $value){
-        echo $value['name'];
-    }
-    ?>
+    foreach($row as $key => $value){ ?>
+        <a href="#"><?=$value['name'];?></a>
+        
+    <?php } ?>
     
-
 
 </body>
 </html>
