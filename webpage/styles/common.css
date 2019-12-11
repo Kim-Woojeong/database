@@ -1,8 +1,15 @@
 body {
   line-height: 1;
+  background-color: rgb(235, 235, 235);
 }
-body,html{
-  margin:0;
+body,
+html {
+  margin: 0;
+  font-family: "Poor Story", cursive;
+
+  /* 전체페이지에 기본적인 글꼴 변경하고싶으면 이거 넣고 모든 페이지 php위에
+  <link href="https://fonts.googleapis.com/css?family=Poor+Story&display=swap&subset=korean" rel="stylesheet">
+  이거 넣기 */
 }
 ol,
 ul {
@@ -25,9 +32,10 @@ table {
 }
 
 .service_menu {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  /* padding-top: 5px;
+  padding-bottom: 5px; */
   padding-right: 20px;
+  font-family: "Poor Story", cursive;
   background-color: #efefef;
   overflow: hidden;
 }
@@ -46,4 +54,12 @@ table {
   padding: 10 10 10 10;
   border: 0;
   float: left;
+}
+
+#gnb a {
+  text-decoration: none;
+}
+
+#gnb p {
+  margin-top: 0;
 }
