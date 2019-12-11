@@ -123,7 +123,7 @@
                         <div class="watched_movie_poster">
                           <?php foreach ($d_stt as $v) {?>
                             <div id="poster_list" class="first_movie">
-                                <img src="../img/movie/movie_<?=$movie_id?>.jpeg" alt="image">
+                                <img src="../img/movie/movie_<?=$v['movie_id']?>.jpeg" alt="image">
                             </div>
                           <?php } ?>
                         </div> <!-- watched_movie_poster -->
@@ -131,7 +131,7 @@
                     </div> <!-- watched_movie -->
 
                     <div class="my_review">
-                      <?php $view_sql = "select movie_name,written_time,score,contents from movie_review natural join movie where customer_id = '$id'";
+                      <?php $view_sql = "select movie_name,written_time,score,movie_review.contents from movie_review join movie using (movie_id) where customer_id = '$id'";
                       $view_stt=$db->prepare($view_sql);
                       $view_stt->execute();?>
                         <p id="right_info_title">

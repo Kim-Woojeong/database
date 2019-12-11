@@ -116,7 +116,7 @@
                 <!--start -->
 
                 <div class="right_info">
-                  <?php $d_sql = "select ticket_id,movie_name,seat_number,movie_time from ticketing_info natural join schedule_seat natural join movie_schedule natural join movie where customer_id = '$id'";
+                  <?php $d_sql = "select ticket_id,movie_id,movie_name,seat_number,movie_time from ticketing_info natural join schedule_seat natural join movie_schedule natural join movie where customer_id = '$id'";
                   $d_stt=$db->prepare($d_sql);
                   $d_stt->execute();?>
                     <p>현장에서 발권하실 경우 꼭 <span class="ticketing_num">예매번호</span>를 확인하세요.</p>
@@ -129,7 +129,7 @@
                               <p><?=$d['ticket_id']?></p>
                           </div>
                           <div class="list_poster">
-                              <img src="../img/movie/movie_10000.jpeg" alt="image">
+                              <img src="../img/movie/movie_<?=$d['movie_id']?>.jpeg" alt="image">
                           </div>
                           <div class="list_movie">
                               <p>영화이름 : <span class="list_movie_info"><?=$d['movie_name']?></span></p>
