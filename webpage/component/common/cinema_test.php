@@ -32,7 +32,6 @@
     ?>
     <div class="ad">
       <div class="mySlides fade">
-        <img src="../img/advertisement/bg1.png" />
         <img src="../img/advertisement/ad<?= $i ?>.png" />
       </div>
     </div> <!-- ad -->

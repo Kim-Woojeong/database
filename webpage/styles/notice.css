@@ -1,6 +1,6 @@
 body {
   line-height: 2em;
-  font-family: "맑은 고딕";
+  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
 }
 
 ul,
