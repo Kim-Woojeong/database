@@ -116,13 +116,23 @@
       <!--start -->
 
       <div class="right_info">
-        <?php $d_sql = "select ticket_id,movie_id,movie_name,seat_number,movie_time from ticketing_info natural join schedule_seat natural join movie_schedule natural join movie where customer_id = '$id'";
+        <?php 
+        $d_sql = "select ticket_id,movie_name,movie_id,time,movie_time from ticketing_info natural join movie where customer_id = :customer_id";
         $d_stt=$db->prepare($d_sql);
-        $d_stt->execute();?>
+        $d_stt->bindValue(":customer_id",$_SESSION['id']);
+        $d_stt->execute();
+        $super = $db -> prepare("select seat_number from schedule_seat where ticket_id = :ticket_id");
+        $super -> bindParam(":ticket_id",$TT);
+        ?>
         <p>현장에서 발권하실 경우 꼭 <span class="ticketing_num">예매번호</span>를 확인하세요.</p>
         <p id="can_issue">티켓판매기에서 예매번호를 입력하면 티켓을 발급받을 수 있습니다.</p>
 
-        <?php foreach($d_stt as $d) {?>
+        <?php 
+        foreach($d_stt as $d) {
+          $TT = $d['ticket_id'];
+          $super -> execute();
+
+          ?>
           <div class="ticket_list_container">
             <div class="list_num">
               <p>예매번호</p>
@@ -135,7 +145,16 @@
               <p>영화이름 : <span class="list_movie_info"><?=$d['movie_name']?></span></p>
             </div>
             <div class="list_seat">
-              <p>상영관 및 좌석 : <span class="list_movie_info"><?=$d['seat_number']?></span></p>
+              <p>상영관 및 좌석 : <span class="list_movie_info"><?php 
+              $type = 1;
+              foreach ($super->fetchAll() as $value) {
+                if($type == 0)
+                  echo ",";
+                else
+                  $type = 0;
+                echo $value['seat_number'];
+              }
+              ?></span></p>
             </div>
             <div class="list_date">
               <p>관람일시 : <span class="list_movie_info"><?=$d['movie_time']?></span></p>
