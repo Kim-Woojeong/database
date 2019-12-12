@@ -2,8 +2,8 @@
 
 <head>
   <meta charset='utf-8'>
-  <link href="../common/styles/common.css" type="text/css" rel="stylesheet" />
-  <link href="styles/calendarview.css" type="text/css" rel="stylesheet" />
+  <link href="../../styles/common.css" type="text/css" rel="stylesheet" />
+  <link href="../../styles/calendarview.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>

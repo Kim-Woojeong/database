@@ -9,7 +9,7 @@
   $co_stt=$db->prepare($co_sql);
   $co_stt->execute();
   $result = $co_stt->fetch(PDO::FETCH_ASSOC);
-  if($result) {
+  if($result['closing_time'] != '0000-00-00 00:00:00') {
     echo
     "<script>
         window.alert('이미 퇴근하였습니다.');
@@ -17,7 +17,7 @@
     </script>";
   }
   else {
-    $insert_sql = "insert into schedule (schedule_date,employee_id,closing_time) values ('$scheduledate',$id,now())";
+    $insert_sql = "update schedule set closing_time = now() where schedule_date = '$scheduledate' and employee_id='$id'";
     $insert_stt=$db->prepare($insert_sql);
     $insert_stt->execute();
     $result2 = $insert_stt->fetch(PDO::FETCH_ASSOC);
