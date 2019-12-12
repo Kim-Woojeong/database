@@ -389,7 +389,7 @@ CREATE TABLE Schedule_seat (
     CONSTRAINT FK_Schedule_seat_5 FOREIGN KEY(seat_number)
     REFERENCES Seat(seat_number) ON UPDATE CASCADE ON DELETE RESTRICT,
     CONSTRAINT FK_Schedule_seat_6 FOREIGN KEY(ticket_id)
-    REFERENCES Ticketing_info(ticket_id) ON UPDATE CASCADE ON DELETE RESTRICT
+    REFERENCES Ticketing_info(ticket_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE NOTICE(
